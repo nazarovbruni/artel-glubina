@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://galleryglubina.ru/sitemap.xml
