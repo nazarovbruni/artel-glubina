@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Примерить картину на стену онлайн | Глубина</title>
+<meta name="description" content="Загрузите фото своей стены и примерьте картину из коллекции Глубины онлайн — подвиньте, измените размер и угол, прежде чем заказывать.">
+<meta name="keywords" content="примерить картину на стену, как картина будет смотреться в интерьере, визуализация картины">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nazarovbruni.github.io/artel-glubina/try-on-wall.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Примерить картину на стену онлайн | Глубина">
+<meta property="og:description" content="Загрузите фото своей стены и примерьте картину онлайн перед покупкой.">
+<meta property="og:url" content="https://nazarovbruni.github.io/artel-glubina/try-on-wall.html">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Глубина">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Примерить картину на стену онлайн | Глубина">
+<style>
+  :root {
+    --black: #161616;
+    --black-soft: #232323;
+    --white: #FFFFFF;
+    --ink: #161616;
+    --ink-soft: #5A5A5A;
+    --line: #D9D9D9;
+    --line-dark: #3A3A3A;
+    --accent: #1C4F73;
+    --accent-teal: #2C8C92;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  a { color: inherit; }
+  .page { max-width: 1400px; margin: 0 auto; }
+
+  /* ===== HEADER ===== */
+  header { background: var(--black); color: var(--white); }
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 64px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .brand-center { display: flex; align-items: center; gap: 16px; }
+  .brand-mark { height: 40px; width: auto; display: block; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+  .brand-text .b1 {
+    font-weight: 700; font-size: 15px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--white);
+  }
+  .brand-text .b2 { font-style: italic; font-size: 12px; color: #9A9A9A; }
+
+  .top-cta-btn {
+    font-size: 13px; letter-spacing: 0.02em; text-decoration: none;
+    background: var(--white); color: var(--black); padding: 11px 20px;
+    white-space: nowrap; transition: opacity 0.2s, background 0.2s;
+  }
+  .top-cta-btn:hover { background: var(--accent-teal); color: var(--white); }
+
+  .nav-row {
+    display: flex; justify-content: center; gap: 40px; padding: 16px 64px;
+    font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .nav-row a {
+    text-decoration: none; color: #B8B8B8; border-bottom: 1px solid transparent;
+    padding-bottom: 3px; transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-row a:hover { color: var(--white); border-color: var(--accent-teal); }
+  .nav-row a.current { color: var(--white); border-color: var(--accent-teal); }
+
+  @media (max-width: 900px) {
+    .top-bar, .nav-row { padding-left: 24px; padding-right: 24px; }
+    .nav-row { overflow-x: auto; gap: 24px; justify-content: flex-start; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .nav-row a { white-space: nowrap; flex-shrink: 0; }
+  }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero { padding: 56px 64px 0; }
+  .page-hero-title {
+    font-weight: 700; font-size: 42px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink); margin-bottom: 8px;
+  }
+  .page-hero-sub {
+    font-style: italic; font-size: 15px; color: var(--ink-soft);
+    max-width: 60ch; margin-top: 14px; line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .page-hero { padding: 32px 24px 0; }
+    .page-hero-title { font-size: 28px; }
+  }
+
+  /* ===== TOOL LAYOUT ===== */
+  .tool-section { padding: 48px 64px 64px; }
+
+  .tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* Canvas stage */
+  .stage-wrap {
+    border: 1px solid var(--line);
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .stage-empty {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 18px; padding: 24px; text-align: center;
+  }
+  .stage-empty-icon {
+    width: 56px; height: 56px; border: 1px solid var(--ink-soft);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: var(--ink-soft);
+  }
+  .stage-empty-text { font-style: italic; font-size: 14px; color: var(--ink-soft); max-width: 32ch; }
+
+  #wallCanvas {
+    width: 100%; height: 100%; display: block;
+  }
+
+  .art-handle {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+  .art-handle img {
+    width: 100%; height: 100%; display: block; pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  }
+  .resize-handle {
+    position: absolute;
+    width: 18px; height: 18px;
+    background: var(--accent-teal);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    right: -9px; bottom: -9px;
+    cursor: nwse-resize;
+  }
+  .rotate-handle {
+    position: absolute;
+    width: 18px; height: 18px;
+    background: var(--black);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    right: -9px; top: -9px;
+    cursor: grab;
+  }
+
+  .stage-controls {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px; flex-wrap: wrap; gap: 12px;
+  }
+  .upload-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+    background: var(--black); color: var(--white); border: none;
+    padding: 13px 22px; cursor: pointer; transition: background 0.2s;
+  }
+  .upload-btn:hover { background: var(--accent-teal); }
+  .upload-btn input { display: none; }
+
+  .download-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+    background: transparent; color: var(--ink); border: 1px solid var(--ink);
+    padding: 12px 22px; cursor: pointer; transition: opacity 0.2s;
+  }
+  .download-btn:hover { opacity: 0.6; }
+  .download-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .reset-link {
+    font-style: italic; font-size: 13px; color: var(--ink-soft);
+    text-decoration: none; border-bottom: 1px solid var(--ink-soft);
+    cursor: pointer; background: none; border-top: none; border-left: none; border-right: none;
+    font-family: Georgia, serif;
+  }
+  .reset-link:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* Sidebar: artwork picker */
+  .picker-label {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .artwork-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  }
+
+  .artwork-thumb {
+    aspect-ratio: 4/5; border: 2px solid transparent; cursor: pointer;
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 8px, #F4F4F1 8px, #F4F4F1 16px);
+    position: relative; overflow: hidden; transition: border-color 0.2s;
+  }
+  .artwork-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .artwork-thumb.active { border-color: var(--accent-teal); }
+  .artwork-thumb-label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: rgba(15,15,15,0.78); color: #fff;
+    font-size: 10.5px; padding: 5px 7px; line-height: 1.3;
+  }
+  .artwork-thumb-placeholder {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-style: italic; font-size: 10px; color: var(--ink-soft); text-align: center; padding: 0 8px;
+  }
+
+  .size-note {
+    margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line);
+    font-style: italic; font-size: 12.5px; color: var(--ink-soft); line-height: 1.5;
+  }
+
+  .sidebar-cta {
+    display: block; text-align: center; margin-top: 18px;
+    background: var(--accent-teal); color: var(--white); text-decoration: none;
+    padding: 13px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+  .sidebar-cta:hover { opacity: 0.85; }
+
+  @media (max-width: 900px) {
+    .tool-section { padding: 32px 24px 48px; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .stage-wrap { aspect-ratio: 1/1; }
+  }
+
+  /* ===== HOW IT WORKS strip ===== */
+  .howto-section {
+    padding: 48px 64px 64px; border-top: 1px solid var(--line);
+  }
+  .howto-title { font-weight: 700; font-size: 26px; margin-bottom: 32px; }
+  .howto-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .howto-step-num {
+    font-weight: 700; font-size: 34px; color: var(--line); line-height: 1; margin-bottom: 10px;
+  }
+  .howto-step-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .howto-step-desc { font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+
+  @media (max-width: 900px) {
+    .howto-section { padding: 32px 24px 48px; }
+    .howto-steps { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--black); color: #9A9A9A; padding: 48px 64px 28px; }
+  .footer-grid {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px;
+    padding-bottom: 32px; border-bottom: 1px solid var(--line-dark);
+  }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand img { height: 44px; }
+  .footer-brand-text { font-size: 13px; line-height: 1.4; color: #B8B8B8; }
+  .footer-col a { display: block; font-size: 14px; color: #B8B8B8; text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { padding-top: 22px; font-size: 12px; color: #6A6A6A; }
+
+  @media (max-width: 900px) {
+    footer { padding: 40px 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="top-bar">
+      <div class="brand-center">
+        <img class="brand-mark" src="data:image/png;base64,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" alt="Глубина">
+        <div class="brand-text">
+          <span class="b1">Глубина</span>
+          <span class="b2">сообщество художников</span>
+        </div>
+      </div>
+      <a class="top-cta-btn" href="index.html#request">Заказать картину →</a>
+    </div>
+    <nav class="nav-row">
+      <a href="index.html#pricing">Работы на заказ</a>
+      <a href="index.html#">Курсы и мастер-классы</a>
+      <a href="index.html#">Поступление в вузы</a>
+      <a href="authors.html">Авторы</a>
+      <a href="index.html#studio">Студия</a>
+      <a href="works.html">Работы</a>
+      <a href="index.html#about-glubina">О сообществе</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-title">Примерить на стену</div>
+    <p class="page-hero-sub">Загрузите фото своей стены, выберите картину и подвиньте её руками — посмотрите, как работа впишется в ваше пространство, прежде чем заказывать.</p>
+  </section>
+
+  <section class="tool-section">
+    <div class="tool-grid">
+
+      <div>
+        <div class="stage-wrap" id="stageWrap">
+          <div class="stage-empty" id="stageEmpty">
+            <div class="stage-empty-icon">+</div>
+            <div class="stage-empty-text">Загрузите фото стены, чтобы начать примерку. Лучше снимать прямо, без сильного наклона камеры.</div>
+          </div>
+          <canvas id="wallCanvas"></canvas>
+          <!-- art-handle is injected by JS -->
+        </div>
+
+        <div class="stage-controls">
+          <label class="upload-btn">
+            Загрузить фото стены
+            <input type="file" id="wallUpload" accept="image/*">
+          </label>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <button class="reset-link" id="resetBtn" type="button">Сбросить</button>
+            <button class="download-btn" id="downloadBtn" disabled>Скачать результат</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="picker-label">Выберите работу</div>
+        <div class="artwork-grid" id="artworkGrid">
+          <!-- filled by JS from the works object below -->
+        </div>
+        <div class="size-note">Картина в инструменте показывается приблизительно — реальные пропорции и масштаб уточняются при заказе. Перетаскивайте за центр, тяните за бирюзовую точку, чтобы изменить размер, за чёрную — чтобы повернуть.</div>
+        <a class="sidebar-cta" href="index.html#request">Заказать эту работу →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="howto-section">
+    <div class="howto-title">Как это работает</div>
+    <div class="howto-steps">
+      <div>
+        <div class="howto-step-num">01</div>
+        <div class="howto-step-title">Загрузите фото</div>
+        <div class="howto-step-desc">Снимите стену, на которую хотите повесить картину — желательно при дневном свете, без сильного наклона камеры.</div>
+      </div>
+      <div>
+        <div class="howto-step-num">02</div>
+        <div class="howto-step-title">Выберите работу</div>
+        <div class="howto-step-desc">Кликните на одну из работ справа — она появится на фото. Подвиньте, измените размер и угол под вашу стену.</div>
+      </div>
+      <div>
+        <div class="howto-step-num">03</div>
+        <div class="howto-step-title">Сохраните и закажите</div>
+        <div class="howto-step-desc">Скачайте получившееся изображение себе или сразу оставьте заявку — мы уточним точный размер под ваше пространство.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="data:image/png;base64,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" alt="Глубина">
+        <div class="footer-brand-text">Глубина<br>сообщество художников</div>
+      </div>
+      <div class="footer-col">
+        <a href="index.html#pricing">Работы на заказ</a>
+        <a href="index.html#">Курсы и мастер-классы</a>
+        <a href="index.html#">Поступление в вузы</a>
+        <a href="authors.html">Авторы</a>
+      </div>
+      <div class="footer-col">
+        <a href="index.html#studio">Студия</a>
+        <a href="works.html">Работы</a>
+        <a href="index.html#about-glubina">О сообществе</a>
+      </div>
+      <div class="footer-col">
+        <a href="mailto:gallery@glubinagallery.ru">gallery@glubinagallery.ru</a>
+        <a href="https://t.me/galleryglubina" target="_blank" rel="noopener">t.me/galleryglubina</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Глубина. Сообщество художников и скульпторов.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Same 8 works as in works.html — photos are placeholders until real images are added.
+  // To wire up real photos later: replace `photo: null` with `photo: 'data:image/jpeg;base64,...'`
+  const artworks = [
+    { key: 'motorina', title: '«Рынок»', author: 'Ирина Моторина', photo: null },
+    { key: 'nazar', title: '«Следы утраты»', author: 'Юлия Назар', photo: null },
+    { key: 'belova', title: '«Скрытый порядок»', author: 'Надежда Белова', photo: null },
+    { key: 'demina', title: '«Натюрморт»', author: 'Светлана Дёмина', photo: null },
+    { key: 'frolova', title: '«Новые пирамиды»', author: 'Лиана Фролова', photo: null },
+    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: null },
+    { key: 'aseeva', title: '«Летающая шишка»', author: 'Елена Асеева', photo: null },
+    { key: 'kan', title: '«Высота»', author: 'Ева Кан', photo: null },
+  ];
+
+  const artworkGrid = document.getElementById('artworkGrid');
+  const stageWrap = document.getElementById('stageWrap');
+  const stageEmpty = document.getElementById('stageEmpty');
+  const canvas = document.getElementById('wallCanvas');
+  const ctx = canvas.getContext('2d');
+  const wallUpload = document.getElementById('wallUpload');
+  const resetBtn = document.getElementById('resetBtn');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  let wallImg = null;
+  let artHandle = null;      // DOM element currently on stage
+  let artImgEl = null;       // <img> inside the handle
+  let activeArtwork = null;
+
+  // ---- Render artwork picker ----
+  artworks.forEach(art => {
+    const thumb = document.createElement('div');
+    thumb.className = 'artwork-thumb';
+    thumb.dataset.key = art.key;
+    if (art.photo) {
+      thumb.innerHTML = `<img src="${art.photo}" alt="${art.title}"><div class="artwork-thumb-label">${art.title}</div>`;
+    } else {
+      thumb.innerHTML = `<div class="artwork-thumb-placeholder">${art.title}<br>${art.author}</div>`;
+    }
+    thumb.addEventListener('click', () => selectArtwork(art, thumb));
+    artworkGrid.appendChild(thumb);
+  });
+
+  function selectArtwork(art, thumbEl) {
+    document.querySelectorAll('.artwork-thumb').forEach(t => t.classList.remove('active'));
+    thumbEl.classList.add('active');
+    activeArtwork = art;
+    placeArtworkOnStage(art);
+  }
+
+  // ---- Wall photo upload ----
+  wallUpload.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const img = new Image();
+      img.onload = () => {
+        wallImg = img;
+        stageEmpty.style.display = 'none';
+        drawWall();
+        downloadBtn.disabled = false;
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function drawWall() {
+    const rect = stageWrap.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    if (!wallImg) return;
+    // cover-fit the wall image into the canvas
+    const cw = canvas.width, ch = canvas.height;
+    const iw = wallImg.width, ih = wallImg.height;
+    const scale = Math.max(cw / iw, ch / ih);
+    const dw = iw * scale, dh = ih * scale;
+    const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(wallImg, dx, dy, dw, dh);
+  }
+
+  window.addEventListener('resize', () => {
+    drawWall();
+  });
+
+  // ---- Placing the artwork as a draggable/resizable/rotatable overlay ----
+  function placeArtworkOnStage(art) {
+    if (artHandle) {
+      artHandle.remove();
+    }
+    const rect = stageWrap.getBoundingClientRect();
+    const startW = Math.min(rect.width, rect.height) * 0.32;
+    const startH = startW * 1.25; // 4:5 default ratio
+
+    artHandle = document.createElement('div');
+    artHandle.className = 'art-handle';
+    artHandle.style.width = startW + 'px';
+    artHandle.style.height = startH + 'px';
+    artHandle.style.left = (rect.width / 2 - startW / 2) + 'px';
+    artHandle.style.top = (rect.height / 2 - startH / 2) + 'px';
+    artHandle.dataset.rotation = '0';
+
+    artImgEl = document.createElement('img');
+    if (art.photo) {
+      artImgEl.src = art.photo;
+    } else {
+      // Placeholder visual: subtle gradient box with a label so the tool is testable
+      // before real photos are wired in.
+      artImgEl.src = makePlaceholderDataUrl(art.title);
+    }
+    artHandle.appendChild(artImgEl);
+
+    const resizeHandle = document.createElement('div');
+    resizeHandle.className = 'resize-handle';
+    artHandle.appendChild(resizeHandle);
+
+    const rotateHandle = document.createElement('div');
+    rotateHandle.className = 'rotate-handle';
+    artHandle.appendChild(rotateHandle);
+
+    stageWrap.appendChild(artHandle);
+
+    enableDrag(artHandle);
+    enableResize(artHandle, resizeHandle);
+    enableRotate(artHandle, rotateHandle);
+  }
+
+  function makePlaceholderDataUrl(title) {
+    const c = document.createElement('canvas');
+    c.width = 320; c.height = 400;
+    const cx = c.getContext('2d');
+    const grad = cx.createLinearGradient(0, 0, 320, 400);
+    grad.addColorStop(0, '#ECECE8');
+    grad.addColorStop(1, '#B8B4AC');
+    cx.fillStyle = grad;
+    cx.fillRect(0, 0, 320, 400);
+    cx.strokeStyle = '#888';
+    cx.lineWidth = 2;
+    cx.strokeRect(1, 1, 318, 398);
+    cx.fillStyle = '#3A3A3A';
+    cx.font = 'italic 18px Georgia';
+    cx.textAlign = 'center';
+    wrapText(cx, title, 160, 190, 260, 24);
+    return c.toDataURL();
+  }
+
+  function wrapText(context, text, x, y, maxWidth, lineHeight) {
+    const words = text.split(' ');
+    let line = '';
+    const lines = [];
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + ' ';
+      if (context.measureText(testLine).width > maxWidth && n > 0) {
+        lines.push(line);
+        line = words[n] + ' ';
+      } else {
+        line = testLine;
+      }
+    }
+    lines.push(line);
+    const startY = y - (lines.length - 1) * lineHeight / 2;
+    lines.forEach((l, i) => context.fillText(l.trim(), x, startY + i * lineHeight));
+  }
+
+  // ---- Drag ----
+  function enableDrag(handle) {
+    let startX, startY, origLeft, origTop, dragging = false;
+
+    function pointerDown(e) {
+      if (e.target.classList.contains('resize-handle') || e.target.classList.contains('rotate-handle')) return;
+      dragging = true;
+      const p = getPoint(e);
+      startX = p.x; startY = p.y;
+      origLeft = parseFloat(handle.style.left);
+      origTop = parseFloat(handle.style.top);
+      e.preventDefault();
+    }
+    function pointerMove(e) {
+      if (!dragging) return;
+      const p = getPoint(e);
+      const dx = p.x - startX, dy = p.y - startY;
+      handle.style.left = (origLeft + dx) + 'px';
+      handle.style.top = (origTop + dy) + 'px';
+    }
+    function pointerUp() { dragging = false; }
+
+    handle.addEventListener('mousedown', pointerDown);
+    handle.addEventListener('touchstart', pointerDown, { passive: false });
+    window.addEventListener('mousemove', pointerMove);
+    window.addEventListener('touchmove', pointerMove, { passive: false });
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('touchend', pointerUp);
+  }
+
+  // ---- Resize ----
+  function enableResize(handle, resizeHandle) {
+    let startX, startY, origW, origH, resizing = false;
+
+    function pointerDown(e) {
+      resizing = true;
+      const p = getPoint(e);
+      startX = p.x; startY = p.y;
+      origW = parseFloat(handle.style.width);
+      origH = parseFloat(handle.style.height);
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    function pointerMove(e) {
+      if (!resizing) return;
+      const p = getPoint(e);
+      const dx = p.x - startX;
+      const ratio = origH / origW;
+      const newW = Math.max(60, origW + dx);
+      handle.style.width = newW + 'px';
+      handle.style.height = (newW * ratio) + 'px';
+    }
+    function pointerUp() { resizing = false; }
+
+    resizeHandle.addEventListener('mousedown', pointerDown);
+    resizeHandle.addEventListener('touchstart', pointerDown, { passive: false });
+    window.addEventListener('mousemove', pointerMove);
+    window.addEventListener('touchmove', pointerMove, { passive: false });
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('touchend', pointerUp);
+  }
+
+  // ---- Rotate ----
+  function enableRotate(handle, rotateHandle) {
+    let rotating = false;
+
+    function pointerDown(e) {
+      rotating = true;
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    function pointerMove(e) {
+      if (!rotating) return;
+      const rect = handle.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const p = getPoint(e);
+      const angle = Math.atan2(p.y - cy, p.x - cx) * (180 / Math.PI);
+      handle.dataset.rotation = angle;
+      handle.style.transform = `rotate(${angle + 45}deg)`;
+    }
+    function pointerUp() { rotating = false; }
+
+    rotateHandle.addEventListener('mousedown', pointerDown);
+    rotateHandle.addEventListener('touchstart', pointerDown, { passive: false });
+    window.addEventListener('mousemove', pointerMove);
+    window.addEventListener('touchmove', pointerMove, { passive: false });
+    window.addEventListener('mouseup', pointerUp);
+    window.addEventListener('touchend', pointerUp);
+  }
+
+  function getPoint(e) {
+    if (e.touches && e.touches.length) {
+      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+  }
+
+  // ---- Reset ----
+  resetBtn.addEventListener('click', () => {
+    wallImg = null;
+    if (artHandle) { artHandle.remove(); artHandle = null; }
+    activeArtwork = null;
+    document.querySelectorAll('.artwork-thumb').forEach(t => t.classList.remove('active'));
+    stageEmpty.style.display = 'flex';
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    wallUpload.value = '';
+    downloadBtn.disabled = true;
+  });
+
+  // ---- Download composed result ----
+  downloadBtn.addEventListener('click', () => {
+    if (!wallImg) return;
+    const rect = stageWrap.getBoundingClientRect();
+    const outCanvas = document.createElement('canvas');
+    outCanvas.width = rect.width;
+    outCanvas.height = rect.height;
+    const outCtx = outCanvas.getContext('2d');
+
+    // redraw wall at full res into export canvas
+    const iw = wallImg.width, ih = wallImg.height;
+    const scale = Math.max(outCanvas.width / iw, outCanvas.height / ih);
+    const dw = iw * scale, dh = ih * scale;
+    const dx = (outCanvas.width - dw) / 2, dy = (outCanvas.height - dh) / 2;
+    outCtx.drawImage(wallImg, dx, dy, dw, dh);
+
+    if (artHandle && artImgEl) {
+      const left = parseFloat(artHandle.style.left);
+      const top = parseFloat(artHandle.style.top);
+      const w = parseFloat(artHandle.style.width);
+      const h = parseFloat(artHandle.style.height);
+      const rotation = parseFloat(artHandle.dataset.rotation || '0') + 45;
+
+      outCtx.save();
+      outCtx.translate(left + w / 2, top + h / 2);
+      outCtx.rotate(rotation * Math.PI / 180);
+      // subtle shadow to match on-screen look
+      outCtx.shadowColor = 'rgba(0,0,0,0.35)';
+      outCtx.shadowBlur = 18;
+      outCtx.shadowOffsetY = 8;
+      outCtx.drawImage(artImgEl, -w / 2, -h / 2, w, h);
+      outCtx.restore();
+    }
+
+    const link = document.createElement('a');
+    link.download = 'glubina-na-stene.png';
+    link.href = outCanvas.toDataURL('image/png');
+    link.click();
+  });
+
+  // Initial canvas sizing
+  drawWall();
+</script>
+
+</body>
+</html>
