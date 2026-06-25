@@ -1186,6 +1186,100 @@
     border-bottom: 1px solid var(--accent-teal);
   }
 
+  /* ===== FAQ ACCORDION ===== */
+  .faq-section {
+    padding: 56px 64px 64px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .faq-title {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 28px;
+  }
+
+  .faq-sub {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .faq-sub a {
+    color: var(--accent-teal);
+    font-style: normal;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-teal);
+  }
+
+  .faq-list {
+    max-width: 880px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 20px 2px;
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .faq-question:hover { color: var(--accent-teal); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--accent-teal);
+    transition: transform 0.25s ease;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer p {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding: 0 2px 22px;
+    max-width: 64ch;
+  }
+
+  @media (max-width: 900px) {
+    .faq-section { padding: 40px 24px; }
+    .faq-heading {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .faq-sub { font-size: 13px; }
+    .faq-question { font-size: 15px; }
+  }
+
   /* ===== REQUEST FORM SECTION ===== */
   .request-section {
     background: var(--black);
@@ -2027,6 +2121,88 @@
     </div>
   </section>
 
+  <section class="faq-section" id="faq">
+    <div class="faq-heading">
+      <div class="faq-title">Частые вопросы</div>
+      <div class="faq-sub">не нашли ответ — спросите в <a href="https://t.me/galleryglubina" target="_blank" rel="noopener">Telegram</a></div>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Сколько стоит картина на заказ?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Зависит от размера, техники и сложности — ориентировочные цены смотрите в разделе «Работы на заказ» выше. Точную стоимость художник называет после короткого брифа: какой формат, техника и для какого интерьера нужна работа.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Как выбрать фото для портрета?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Лучше всего подходит чёткое фото с хорошим освещением, где хорошо видно лицо. Снимок с телефона вполне годится — художник адаптирует композицию и при необходимости попросит ещё один ракурс.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Какие техники и стили есть?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Масло, акрил, графика и смешанная техника — от классического портрета до более свободной, живописной манеры. Подскажем, что лучше впишется в ваш интерьер и задачу, и покажем похожие работы наших художников.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Как заказать картину?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Заполните форму ниже на странице или напишите нам в Telegram — пришлём несколько вопросов по брифу, обсудим формат, технику и срок, согласуем эскиз перед началом работы.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Как я получу готовую работу?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Можно забрать картину в студии на Фрунзенской набережной или оформить доставку по Москве и России — упаковываем в защитный короб или тубус в зависимости от формата.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Можно ли вносить правки в эскиз?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Да. На этапе эскиза мы согласовываем композицию, цвет и детали — правки на этом шаге вносятся без ограничений, до того как художник переходит к финальной работе маслом или акрилом.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Какие гарантии вы даёте?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Финальная работа всегда соответствует согласованному эскизу. Если на каком-то этапе что-то пошло не так — решаем вопрос индивидуально, обсудим это до начала работы при оформлении заказа.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Может ли картина повредиться при доставке?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Мы упаковываем работы с защитой углов и поверхности холста, поэтому риск повреждения минимален. Если всё же что-то случилось в пути — напишите нам, разберёмся индивидуально.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Как повесить картину на стену?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Работы на холсте и подрамнике обычно достаточно повесить на стандартный крючок или гвоздь — крепление уже предусмотрено на подрамнике. Для нестандартных форматов подскажем вариант под ваш случай.</p></div>
+      </div>
+
+    </div>
+  </section>
+
   <section class="testimonials-section" id="testimonials">
     <div class="testimonials-heading">
       <div class="testimonials-title">Отзывы</div>
@@ -2161,6 +2337,27 @@
 </div>
 
 <script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      if (el !== item) {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+
+    if (isOpen) {
+      item.classList.remove('open');
+      answer.style.maxHeight = null;
+    } else {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
   document.querySelectorAll('.interest-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('active'));
