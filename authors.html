@@ -224,7 +224,45 @@
   .footer-col a:hover { color: var(--white); }
   .footer-bottom { padding-top: 22px; font-size: 12px; color: #6A6A6A; }
 
-  @media (max-width: 900px) { footer { padding: 40px 24px 24px; } }
+  @media (max-width: 900px) { footer { padding: 40px 24px 24px; } }  /* ===== WORK LIGHTBOX ===== */
+  .author-work-thumb { cursor: zoom-in; }
+
+  .lightbox-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(15, 15, 15, 0.92);
+    align-items: center; justify-content: center;
+    padding: 40px;
+  }
+  .lightbox-overlay.open { display: flex; }
+
+  .lightbox-overlay img {
+    max-width: 90vw; max-height: 88vh;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-close {
+    position: absolute; top: 24px; right: 32px;
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--white);
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+
+  @media (max-width: 600px) {
+    .lightbox-overlay { padding: 20px; }
+    .lightbox-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 18px; }
+  }
+
 </style>
 </head>
 <body>
@@ -320,8 +358,8 @@
     <div class="author-works-grid">
       <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-1.jpg" alt="Светлана Дёмина — Глубина"></div>
       <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-2.jpg" alt="Светлана Дёмина — Глубина"></div>
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">работа 3</div></div>
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">работа 4</div></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-3.jpg" alt="Светлана Дёмина — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-4.jpg" alt="Светлана Дёмина — Глубина"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/demina.jpg" alt="Светлана Дёмина — Глубина"></div><div class="author-name">Светлана Дёмина</div></div>
@@ -565,9 +603,44 @@
     <div class="footer-bottom">© 2026 Глубина. Сообщество художников и скульпторов.</div>
   </footer>
 
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
 </div>
 
 <script>
+  (function() {
+    const overlay = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.author-work-thumb img').forEach(img => {
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  })();
+
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href').slice(1);
