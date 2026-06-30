@@ -136,7 +136,13 @@
     background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 8px, #F4F4F1 8px, #F4F4F1 16px);
   }
   .author-avatar img {
-    width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05);
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.4s ease;
+    border-radius: 50%;
+  }
+  .author-card:hover .author-avatar img {
+    filter: grayscale(0) contrast(1);
   }
   .author-avatar-placeholder {
     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
@@ -545,7 +551,7 @@
       <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-4.jpg" alt="Лиана Фролова — Глубина"></div>
     </div>
     <div>
-      <div class="author-name-row"><div class="author-avatar"><div class="author-avatar-placeholder">фото</div></div><div class="author-name">Лиана Фролова</div></div>
+      <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/frolova.jpg" alt="Лиана Фролова — Глубина"></div><div class="author-name">Лиана Фролова</div></div>
       <div class="author-vuz">Курский педагогический институт, Высшая школа «Среда обучения» &middot; живопись, мультидисциплинарная практика</div>
 
       <div class="author-block-label">Био</div>
