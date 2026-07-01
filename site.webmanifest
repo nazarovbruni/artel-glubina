@@ -1,0 +1,11 @@
+{
+  "name": "Глубина — Артель художников",
+  "short_name": "Глубина",
+  "icons": [
+    { "src": "/artel-glubina/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/artel-glubina/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#161616",
+  "background_color": "#161616",
+  "display": "browser"
+}
