@@ -695,20 +695,24 @@
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     aspect-ratio: 4/5;
-    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+    background: #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
   }
 
-  .studio-photo-placeholder {
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 12px;
-    color: var(--ink-soft);
-    text-align: center;
-    padding: 0 16px;
+  .studio-photo-cell img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.4s ease, transform 0.4s ease;
+  }
+
+  .studio-photo-cell:hover img {
+    filter: grayscale(0) contrast(1);
+    transform: scale(1.04);
   }
 
   .studio-contact-row {
@@ -1304,6 +1308,27 @@
     .faq-sub { font-size: 13px; }
     .faq-question { font-size: 15px; }
   }
+
+  /* ===== STUDIO LIGHTBOX ===== */
+  .studio-lightbox {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(15,15,15,0.92);
+    align-items: center; justify-content: center; padding: 40px;
+  }
+  .studio-lightbox.open { display: flex; }
+  .studio-lightbox img {
+    max-width: 90vw; max-height: 88vh; object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .studio-lightbox-close {
+    position: absolute; top: 24px; right: 32px;
+    width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%; background: transparent; color: #fff;
+    font-size: 22px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .studio-lightbox-close:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
 
   /* ===== REQUEST FORM SECTION ===== */
   .request-section {
@@ -2048,18 +2073,10 @@
     </div>
     <p class="studio-intro">На Москве-реке, на Фрунзенской набережной — мастерская, где сообщество <em>Глубина</em> рисует, лепит и собирается вместе. Не шоу-рум, а рабочее пространство: здесь пишут картины, готовятся к экзаменам, проводят мастер-классы и просто разговаривают об искусстве за чаем.</p>
     <div class="studio-grid">
-      <div class="studio-photo-cell">
-        <div class="studio-photo-placeholder">фото мастерской</div>
-      </div>
-      <div class="studio-photo-cell">
-        <div class="studio-photo-placeholder">фото мастерской</div>
-      </div>
-      <div class="studio-photo-cell">
-        <div class="studio-photo-placeholder">фото мастерской</div>
-      </div>
-      <div class="studio-photo-cell">
-        <div class="studio-photo-placeholder">фото мастерской</div>
-      </div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-1.jpg" alt="Студия Глубина на Фрунзенской"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-2.jpg" alt="Студия Глубина на Фрунзенской"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-3.jpg" alt="Студия Глубина на Фрунзенской"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-4.jpg" alt="Студия Глубина на Фрунзенской"></div>
     </div>
     <div class="studio-contact-row">
       <div class="studio-contact-col">
@@ -2359,6 +2376,12 @@
       </form>
     </div>
   </section>
+
+
+  <div class="studio-lightbox" id="studioLightbox">
+    <button class="studio-lightbox-close" id="studioClose" aria-label="Закрыть">&times;</button>
+    <img id="studioLightboxImg" src="" alt="">
+  </div>
 
   <footer id="contacts">
     <div class="footer-grid">
