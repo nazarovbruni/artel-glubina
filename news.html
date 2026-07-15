@@ -92,6 +92,53 @@
   /* ===== NEWS GRID ===== */
   .news-section { padding: 48px 64px 64px; }
   .news-list { display: flex; flex-direction: column; gap: 0; }
+
+  .news-subscribe {
+    background: var(--black);
+    background-image: radial-gradient(circle at 30% 20%, rgba(28,122,140,0.18), transparent 55%);
+    color: var(--white);
+    padding: 52px 64px 60px;
+    margin: 40px -64px 0;
+    text-align: center;
+  }
+
+  .news-subscribe-title {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .news-subscribe-text {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #B8B8B8;
+    max-width: 50ch;
+    margin: 0 auto 28px;
+    line-height: 1.55;
+  }
+
+  .news-telegram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    background: var(--accent-teal);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 28px;
+    transition: opacity 0.2s;
+  }
+  .news-telegram-btn:hover { opacity: 0.85; }
+  .news-telegram-btn svg { flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    .news-subscribe { margin: 40px -24px 0; padding: 40px 24px; }
+    .news-telegram-btn { width: 100%; justify-content: center; }
+  }
   .news-article {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0;
     border-top: 1px solid var(--line);
@@ -236,7 +283,7 @@
           <div class="news-article-title">Заброшенный завод стал главным арт-пространством Лиссабона</div>
           <p class="news-article-excerpt">Бывший промышленный объект превратился в один из ключевых культурных центров города: галереи, мастерские художников, независимые магазины и площадки для выступлений — всё в одном бывшем производственном комплексе.</p>
           <div class="news-article-meta">
-            <span>3 июня 2026</span>
+            <span>1 августа 2026</span>
           </div>
         </div>
       </a>
@@ -250,7 +297,7 @@
           <div class="news-article-title">Скульптура из переработанного металла — главный тренд биеннале в Венеции</div>
           <p class="news-article-excerpt">Художники всё активнее работают с переработанными материалами — не из экологических соображений, а ради фактуры и истории предмета. Венецианская биеннале этого года подтвердила: металл с патиной и следами использования стал новым белым холстом.</p>
           <div class="news-article-meta">
-            <span>28 мая 2026</span>
+            <span>26 июля 2026</span>
           </div>
         </div>
       </a>
@@ -264,11 +311,20 @@
           <div class="news-article-title">Молодые российские художники впервые выставились в Базеле</div>
           <p class="news-article-excerpt">Несколько независимых галерей привезли работы художников до 35 лет на одну из ключевых ярмарок мира. Это первый подобный прецедент — и, судя по реакции коллекционеров, не последний.</p>
           <div class="news-article-meta">
-            <span>14 мая 2026</span>
+            <span>12 июля 2026</span>
           </div>
         </div>
       </a>
 
+    </div>
+
+    <div class="news-subscribe">
+      <div class="news-subscribe-title">Без спама. Только интересное</div>
+      <p class="news-subscribe-text">Публикуем нерегулярно — только когда есть что показать. Зато первыми и без посредников.</p>
+      <a class="news-telegram-btn" href="https://t.me/galleryglubina" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.05 3.64L17.86 19.42C17.66 20.32 17.1 20.55 16.36 20.13L12.4 17.21L10.5 19.04C10.29 19.25 10.11 19.43 9.72 19.43L9.99 15.4L17.27 8.83C17.58 8.56 17.2 8.41 16.79 8.68L7.79 14.34L3.89 13.1C3.02 12.83 3 12.24 4.06 11.84L19.91 5.66C20.63 5.4 21.26 5.83 21.05 3.64Z" fill="currentColor"/></svg>
+        <span>Подписаться на t.me/galleryglubina</span>
+      </a>
     </div>
   </section>
 
