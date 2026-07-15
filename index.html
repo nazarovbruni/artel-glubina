@@ -451,6 +451,19 @@
     display: block;
     text-decoration: none;
     color: var(--ink);
+    transition: transform 250ms ease;
+  }
+
+  .pricing-card:hover {
+    transform: scale(1.02);
+  }
+
+  .pricing-card:hover::after {
+    background: linear-gradient(to top, rgba(15,15,15,0.92) 0%, rgba(15,15,15,0.5) 45%, rgba(15,15,15,0.1) 70%);
+  }
+
+  .pricing-card:hover .pricing-photo img {
+    filter: grayscale(0.4) contrast(1.05);
   }
 
   .pricing-photo {
@@ -486,6 +499,7 @@
     inset: 0;
     background: linear-gradient(to top, rgba(15,15,15,0.86) 0%, rgba(15,15,15,0.4) 45%, rgba(15,15,15,0.05) 70%);
     pointer-events: none;
+    transition: background 250ms ease;
   }
 
   .pricing-card-content {
