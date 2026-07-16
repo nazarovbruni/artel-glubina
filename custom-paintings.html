@@ -138,7 +138,8 @@
   .related-card {
     border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
     padding: 26px 24px; text-decoration: none; color: var(--ink);
-    transition: background 0.2s; display: block;
+    transition: background 0.2s;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
   .related-card:hover { background: #FAFAF8; }
   .related-tag {
@@ -265,18 +266,24 @@
     <div class="related-heading">Другие услуги</div>
     <div class="related-grid">
       <a class="related-card" href="wall-painting.html">
+        <div>
         <span class="related-tag">Оформление</span>
         <div class="related-title">Роспись стен и мозаика</div>
+        </div>
         <span class="related-arrow">подробнее →</span>
       </a>
       <a class="related-card" href="courses.html">
+        <div>
         <span class="related-tag">Образование</span>
         <div class="related-title">Мастер-классы для корпоративных клиентов, курсы и индивидуальные занятия</div>
+        </div>
         <span class="related-arrow">подробнее →</span>
       </a>
       <a class="related-card" href="university-prep.html">
+        <div>
         <span class="related-tag">Поступление</span>
         <div class="related-title">Подготовка в творческие вузы</div>
+        </div>
         <span class="related-arrow">подробнее →</span>
       </a>
     </div>
