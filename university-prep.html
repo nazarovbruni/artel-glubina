@@ -91,11 +91,53 @@
     font-style: italic; font-size: 15px; color: var(--ink-soft);
     max-width: 62ch; margin-top: 14px; line-height: 1.5;
   }
+  .hero-eyebrow {
+    display: inline-block; font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-teal); margin-bottom: 10px;
+  }
 
   /* ===== SERVICE COPY ===== */
   .service-copy { padding: 24px 64px 0; max-width: 78ch; }
   .service-copy p { font-size: 15px; line-height: 1.65; color: var(--ink); margin-bottom: 12px; }
   .service-copy .meta-line { font-style: italic; font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ===== INSTITUTIONS CHIPS ===== */
+  .institutions-section { padding: 40px 64px 0; max-width: 78ch; }
+  .institutions-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 20px; margin-bottom: 16px;
+  }
+  .institutions-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .institution-chip { font-size: 13px; border: 1px solid var(--line); padding: 9px 16px; color: var(--ink); }
+
+  /* ===== CONTENT LIST BLOCK (reused for "что входит", "для кого") ===== */
+  .content-block { padding: 40px 64px 0; }
+  .content-block-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 24px;
+  }
+  .content-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
+  .content-list li {
+    font-size: 14px; line-height: 1.6; color: var(--ink); padding: 12px 0 12px 18px;
+    border-top: 1px solid var(--line); position: relative;
+  }
+  .content-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
+  .content-list.single-col { grid-template-columns: 1fr; }
+
+  /* ===== FORMATS GRID ===== */
+  .formats-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  .format-card { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 24px; }
+  .format-title { font-family: Georgia, serif; font-weight: 700; font-size: 17px; margin-bottom: 8px; }
+  .format-desc { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); }
+
+  @media (max-width: 900px) {
+    .institutions-section { padding: 32px 24px 0; }
+    .content-block { padding: 32px 24px 0; }
+    .content-list { grid-template-columns: 1fr; }
+    .formats-grid { grid-template-columns: 1fr; }
+  }
 
   /* ===== EXAMPLES GRID ===== */
   .examples-section { padding: 40px 64px 0; }
@@ -234,13 +276,74 @@
   </header>
 
   <section class="page-hero">
+    <span class="hero-eyebrow">Подготовка к поступлению</span>
     <div class="page-hero-title">Подготовка в творческие вузы</div>
-    <p class="page-hero-sub">Системная подготовка рисунка, живописи и композиции, разбор и сборка портфолио — для поступления в Строгановку, МАРХИ, Суриковский и другие художественные вузы и колледжи.</p>
+    <p class="page-hero-sub">Индивидуальная подготовка к поступлению в художественные колледжи и творческие вузы — рисунок, живопись, композиция и портфолио.</p>
   </section>
 
   <section class="service-copy">
-    <p>Занимаемся очно в студии на Фрунзенской и онлайн, индивидуально и в небольших группах. Разбираем сильные и слабые стороны, выстраиваем план подготовки под конкретный вуз и сроки поступления.</p>
-    <p class="meta-line">индивидуально и в группах · очно и онлайн</p>
+    <p>Мы помогаем подготовиться к вступительным экзаменам, сформировать сильное портфолио и уверенно пройти творческие испытания. Программа строится с учётом требований конкретного учебного заведения и уровня подготовки ученика.</p>
+  </section>
+
+  <section class="institutions-section">
+    <div class="institutions-heading">Подготовка в</div>
+    <div class="institutions-list">
+      <span class="institution-chip">МГАХИ им. В. И. Сурикова</span>
+      <span class="institution-chip">МГАХУ памяти 1905 года</span>
+      <span class="institution-chip">МГХПА им. С. Г. Строганова</span>
+      <span class="institution-chip">ВГИК</span>
+      <span class="institution-chip">РГХПУ им. С. Г. Строганова</span>
+      <span class="institution-chip">СПбАХ им. И. Е. Репина</span>
+      <span class="institution-chip">художественные колледжи и училища России</span>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="content-block-heading">Что входит в подготовку</div>
+    <ul class="content-list">
+      <li>академический рисунок</li>
+      <li>живопись</li>
+      <li>композиция</li>
+      <li>развитие художественного мышления</li>
+      <li>подготовка портфолио</li>
+      <li>разбор экзаменационных заданий</li>
+      <li>индивидуальный план подготовки</li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <div class="content-block-heading">Форматы занятий</div>
+    <div class="formats-grid">
+      <div class="format-card">
+        <div class="format-title">Очно</div>
+        <div class="format-desc">Индивидуальные занятия в мастерской.</div>
+      </div>
+      <div class="format-card">
+        <div class="format-title">Онлайн</div>
+        <div class="format-desc">Полноценная подготовка с демонстрацией процесса, проверкой домашних заданий и подробной обратной связью.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-block">
+    <div class="content-block-heading">Почему ученики занимаются с нами</div>
+    <ul class="content-list">
+      <li>обучение по индивидуальной программе</li>
+      <li>опыт академической подготовки и современного искусства</li>
+      <li>помощь в создании конкурентного портфолио</li>
+      <li>регулярный анализ прогресса</li>
+      <li>внимание не только к технике, но и к развитию авторского взгляда</li>
+    </ul>
+  </section>
+
+  <section class="content-block">
+    <div class="content-block-heading">Для кого</div>
+    <ul class="content-list single-col">
+      <li>школьники, планирующие поступление</li>
+      <li>выпускники художественных школ</li>
+      <li>абитуриенты после колледжа</li>
+      <li>взрослые, решившие получить художественное образование</li>
+    </ul>
   </section>
 
   <section class="examples-section">
@@ -254,10 +357,10 @@
   </section>
 
   <section class="booking-section">
-    <div class="booking-title">Как записаться</div>
-    <p class="booking-text">Напишите нам в Telegram — расскажите про вуз и сроки поступления, подберём формат подготовки и обсудим стоимость. Можно начать со звонка в студию.</p>
+    <div class="booking-title">Записаться на консультацию</div>
+    <p class="booking-text">На первой встрече мы определим текущий уровень подготовки, поставим цель и составим план занятий до поступления.</p>
     <div class="booking-actions">
-      <a class="booking-btn-primary" href="https://t.me/galleryglubina" target="_blank" rel="noopener">Написать в Telegram →</a>
+      <a class="booking-btn-primary" href="index.html#request">Записаться →</a>
       <a class="booking-btn-secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>

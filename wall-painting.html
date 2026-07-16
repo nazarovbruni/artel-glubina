@@ -97,6 +97,58 @@
   .service-copy p { font-size: 15px; line-height: 1.65; color: var(--ink); margin-bottom: 12px; }
   .service-copy .meta-line { font-style: italic; font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
 
+  /* ===== GALLERY SCROLL (листаемые примеры) ===== */
+  .gallery-scroll {
+    display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+    scroll-snap-type: x mandatory;
+  }
+  .gallery-item {
+    flex: 0 0 260px; aspect-ratio: 4/3; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    scroll-snap-align: start; position: relative; overflow: hidden;
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+  }
+  .gallery-item span {
+    position: absolute; left: 14px; bottom: 12px; right: 14px;
+    font-style: italic; font-size: 12.5px; color: var(--ink-soft); line-height: 1.4;
+  }
+
+  /* ===== PROCESS STEPS (как мы работаем) ===== */
+  .process-section { padding: 48px 64px 0; }
+  .process-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 26px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 36px;
+  }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; }
+  .process-step { position: relative; padding-top: 8px; }
+  .process-num { font-family: Georgia, serif; font-weight: 700; font-size: 36px; color: var(--line); line-height: 1; margin-bottom: 10px; }
+  .process-title { font-family: Georgia, serif; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .process-desc { font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
+  .process-desc a { color: var(--accent-teal); text-decoration: none; border-bottom: 1px solid var(--accent-teal); }
+
+  /* ===== ADVANTAGES ===== */
+  .advantages-section { padding: 48px 64px 0; }
+  .advantages-heading {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .advantages-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  .advantage-card { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 24px; }
+  .advantage-title { font-family: Georgia, serif; font-weight: 700; font-size: 15.5px; margin-bottom: 8px; }
+  .advantage-desc { font-size: 13.5px; line-height: 1.55; color: var(--ink-soft); }
+
+  @media (max-width: 900px) {
+    .gallery-item { flex: 0 0 72%; }
+    .process-section { padding: 40px 24px 0; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 24px 18px; }
+    .advantages-section { padding: 40px 24px 0; }
+    .advantages-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== EXAMPLES GRID ===== */
   .examples-section { padding: 40px 64px 0; }
   .examples-heading {
@@ -244,20 +296,70 @@
   </section>
 
   <section class="examples-section">
-    <div class="examples-heading">Примеры</div>
-    <div class="examples-grid">
-      <div class="example-thumb"><div class="example-thumb-placeholder">пример скоро</div></div>
-      <div class="example-thumb"><div class="example-thumb-placeholder">пример скоро</div></div>
-      <div class="example-thumb"><div class="example-thumb-placeholder">пример скоро</div></div>
-      <div class="example-thumb"><div class="example-thumb-placeholder">пример скоро</div></div>
+    <div class="examples-heading">Что мы расписываем</div>
+    <div class="gallery-scroll">
+      <div class="gallery-item"><span>Роспись стен в холле дома</span></div>
+      <div class="gallery-item"><span>Роспись стен в кафе</span></div>
+      <div class="gallery-item"><span>Роспись потолка</span></div>
+      <div class="gallery-item"><span>Граффити на заказ</span></div>
+      <div class="gallery-item"><span>Роспись стен в бассейне</span></div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="process-heading">Как мы работаем</div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Заявка</div>
+        <div class="process-desc">Оставьте заявку в форме внизу страницы или позвоните: <a href="tel:+74959950613">+7 495 995 06 13</a>.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Согласование</div>
+        <div class="process-desc">Бесплатно выезжаем на объект для замеров и оценки поверхности.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Эскиз</div>
+        <div class="process-desc">Разрабатываем эскиз, берём предоплату и заключаем договор.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Роспись</div>
+        <div class="process-desc">Выполняем работы в согласованные сроки, на месте.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">05</div>
+        <div class="process-title">Сдача</div>
+        <div class="process-desc">Подписываем акт, вносите остаток — будем рады, если порекомендуете нас друзьям.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="advantages-section">
+    <div class="advantages-heading">Преимущества</div>
+    <div class="advantages-grid">
+      <div class="advantage-card">
+        <div class="advantage-title">Опыт росписи храмов и интерьеров</div>
+        <div class="advantage-desc">Беремся и за камерные интерьерные работы, и за масштабные проекты — включая роспись храмовых пространств.</div>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-title">Персональный подход</div>
+        <div class="advantage-desc">Сюжет, палитра и техника подбираются под ваше пространство, а не берутся из готового каталога.</div>
+      </div>
+      <div class="advantage-card">
+        <div class="advantage-title">Разнообразие стилей</div>
+        <div class="advantage-desc">От академической росписи до граффити — работаем в разных техниках и можем предложить вариант под задачу.</div>
+      </div>
     </div>
   </section>
 
   <section class="booking-section">
-    <div class="booking-title">Как заказать</div>
-    <p class="booking-text">Напишите нам в Telegram или позвоните — расскажите про пространство и задачу, договоримся о выезде на замер и оценке стоимости.</p>
+    <div class="booking-title">Заказать роспись</div>
+    <p class="booking-text">Оставьте заявку в форме на главной или напишите нам в Telegram — расскажите про пространство и задачу, договоримся о бесплатном выезде на замер.</p>
     <div class="booking-actions">
-      <a class="booking-btn-primary" href="https://t.me/galleryglubina" target="_blank" rel="noopener">Написать в Telegram →</a>
+      <a class="booking-btn-primary" href="index.html#request">Оставить заявку →</a>
       <a class="booking-btn-secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>

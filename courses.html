@@ -129,6 +129,62 @@
     .program-card { border-left: 1px solid var(--line); }
   }
 
+  /* ===== FEATURE BLOCKS (услуги курсов) ===== */
+  .feature-section { padding: 8px 64px 0; }
+  .feature-block-photo {
+    display: grid; grid-template-columns: 280px 1fr; gap: 36px;
+    padding: 44px 0; border-top: 1px solid var(--line); align-items: start;
+  }
+  .feature-media {
+    aspect-ratio: 4/3; overflow: hidden;
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+  }
+  .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
+  .feature-block-text {
+    display: grid; grid-template-columns: 180px 1fr; gap: 36px;
+    padding: 44px 0; border-top: 1px solid var(--line);
+  }
+  .feature-block-text:last-of-type { border-bottom: 1px solid var(--line); }
+  .feature-tag {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-teal);
+  }
+  .feature-title { font-family: Georgia, serif; font-weight: 700; font-size: 24px; margin: 10px 0 14px; max-width: 28ch; }
+  .feature-desc { font-size: 14.5px; line-height: 1.65; color: var(--ink); margin-bottom: 14px; max-width: 64ch; }
+  .feature-list { list-style: none; margin: 0 0 18px; padding: 0; }
+  .feature-list li {
+    font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); padding-left: 16px; position: relative;
+  }
+  .feature-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
+  .feature-cta {
+    display: inline-block; font-size: 13px; color: var(--accent-teal); text-decoration: none;
+    border-bottom: 1px solid var(--accent-teal); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+  }
+  .feature-cta:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ===== REASONS LIST ===== */
+  .reasons-section { padding: 48px 64px 0; }
+  .reasons-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 24px;
+  }
+  .reasons-list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px;
+  }
+  .reasons-list li {
+    font-size: 14px; line-height: 1.6; color: var(--ink); padding: 12px 0 12px 18px;
+    border-top: 1px solid var(--line); position: relative;
+  }
+  .reasons-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
+
+  @media (max-width: 900px) {
+    .feature-section { padding: 8px 24px 0; }
+    .feature-block-photo { grid-template-columns: 1fr; }
+    .feature-block-text { grid-template-columns: 1fr; }
+    .reasons-section { padding: 40px 24px 0; }
+    .reasons-list { grid-template-columns: 1fr; }
+  }
+
   /* ===== EXAMPLES GRID ===== */
   .examples-section { padding: 8px 64px 0; }
   .examples-heading {
@@ -280,56 +336,77 @@
   </header>
 
   <section class="page-hero">
-    <div class="page-hero-title">Курсы и мастер-классы</div>
-    <p class="page-hero-sub">Живопись и графика с нуля, занятия для детей и подростков, подготовка к поступлению в художественный вуз, разовые мастер-классы, корпоративные форматы и обучение росписи стен. Очно в студии на Фрунзенской и онлайн.</p>
+    <div class="page-hero-title">Мастер-классы и курсы</div>
+    <p class="page-hero-sub">Корпоративные мастер-классы, последовательные курсы живописи и индивидуальные занятия — очно в студии на Фрунзенской и онлайн из любой точки мира.</p>
   </section>
 
-  <section class="program-section">
-    <div class="program-grid">
+  <section class="feature-section">
 
-      <div class="program-card">
-        <div class="program-format">Очно и онлайн</div>
-        <div class="program-title">Взрослым: живопись и графика с нуля</div>
-        <div class="program-desc">Системные занятия для тех, кто хочет начать рисовать или вернуться к творчеству после перерыва. Небольшие группы, разбор техники, работа с натуры и под руководством художника студии.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
+    <div class="feature-block-photo">
+      <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+      <div>
+        <span class="feature-tag">Только очно</span>
+        <div class="feature-title">Корпоративные мастер-классы</div>
+        <p class="feature-desc">Творческие встречи для компаний, команд и мероприятий. Подходят как для небольших коллективов, так и для крупных корпоративных событий. Участники создают собственные работы, знакомятся с современными художественными практиками и проводят время в атмосфере совместного творчества.</p>
+        <ul class="feature-list">
+          <li>тимбилдингов</li>
+          <li>корпоративных праздников</li>
+          <li>клиентских мероприятий</li>
+          <li>конференций и фестивалей</li>
+        </ul>
+        <a class="feature-cta" href="#booking">Заказать →</a>
       </div>
-
-      <div class="program-card">
-        <div class="program-format">Очно и онлайн</div>
-        <div class="program-title">Детям и подросткам</div>
-        <div class="program-desc">Творческие занятия, которые развивают художественное видение и работу с разными материалами — без давления на «правильный» результат, с поддержкой индивидуального стиля ребёнка.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-format">Очно и онлайн</div>
-        <div class="program-title">Разовый мастер-класс</div>
-        <div class="program-desc">Один день — одна техника. Чтобы попробовать рисование без обязательств, провести время по-новому или сделать необычный подарок близкому человеку.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-format">Очно и онлайн</div>
-        <div class="program-title">Подготовка к поступлению в вуз</div>
-        <div class="program-desc">Системная подготовка рисунка, живописи и композиции, разбор и сборка портфолио — для поступления в художественные вузы и колледжи.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-format">Только очно</div>
-        <div class="program-title">Корпоративные мастер-классы</div>
-        <div class="program-desc">Творческое событие для команды — совместное создание картины как формат тимбилдинга. Проводим в студии на Фрунзенской или выезжаем на вашу площадку.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
-      </div>
-
-      <div class="program-card">
-        <div class="program-format">Только очно</div>
-        <div class="program-title">Роспись стен</div>
-        <div class="program-desc">Обучение технике росписи стен и поверхностей — от эскиза и подбора композиции до переноса рисунка на стену, под руководством художника студии.</div>
-        <a class="program-cta" href="#booking">Узнать о записи →</a>
-      </div>
-
     </div>
+
+    <div class="feature-block-photo">
+      <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+      <div>
+        <span class="feature-tag">Очно и онлайн</span>
+        <div class="feature-title">Курсы живописи</div>
+        <p class="feature-desc">Последовательное обучение для начинающих и опытных художников. Вы научитесь работать с композицией, цветом, формой и материалами, разовьёте собственный художественный язык и получите регулярную практику с обратной связью.</p>
+        <a class="feature-cta" href="#booking">Заказать →</a>
+      </div>
+    </div>
+
+    <div class="feature-block-text">
+      <div>
+        <span class="feature-tag">Онлайн</span>
+      </div>
+      <div>
+        <div class="feature-title">Индивидуальные занятия онлайн</div>
+        <p class="feature-desc">Персональная программа обучения из любой точки мира. Подойдут, если вы хотите:</p>
+        <ul class="feature-list">
+          <li>подготовиться к поступлению</li>
+          <li>развивать собственный художественный проект</li>
+          <li>получить разбор своих работ</li>
+          <li>заниматься в удобном графике</li>
+        </ul>
+        <a class="feature-cta" href="#booking">Узнать о записи →</a>
+      </div>
+    </div>
+
+    <div class="feature-block-text">
+      <div>
+        <span class="feature-tag">Очно</span>
+      </div>
+      <div>
+        <div class="feature-title">Индивидуальные занятия офлайн</div>
+        <p class="feature-desc">Очные занятия в мастерской. Формат позволяет глубоко работать с техникой, композицией, материалами и живописью, получая постоянную обратную связь непосредственно во время работы.</p>
+        <a class="feature-cta" href="#booking">Узнать о записи →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="reasons-section">
+    <div class="reasons-heading">Почему наши занятия отличаются</div>
+    <ul class="reasons-list">
+      <li>Более 20 лет художественной практики</li>
+      <li>Академическая школа и современное искусство</li>
+      <li>Индивидуальный подход к каждому ученику</li>
+      <li>Обучение не копированию, а развитию собственного художественного мышления</li>
+      <li>Подготовка к поступлению, создание портфолио или реализация авторского проекта</li>
+    </ul>
   </section>
 
   <section class="examples-section">
@@ -343,10 +420,10 @@
   </section>
 
   <section class="booking-section" id="booking">
-    <div class="booking-title">Как записаться</div>
-    <p class="booking-text">Выберите программу выше и напишите нам в Telegram — пришлём свободные даты, расскажем про группу, формат и стоимость. Можно начать и со звонка в студию.</p>
+    <div class="booking-title">Записаться</div>
+    <p class="booking-text">Оставьте заявку, и мы поможем подобрать формат обучения, который лучше всего соответствует вашим задачам.</p>
     <div class="booking-actions">
-      <a class="booking-btn-primary" href="https://t.me/galleryglubina" target="_blank" rel="noopener">Записаться в Telegram →</a>
+      <a class="booking-btn-primary" href="index.html#request">Записаться на занятие →</a>
       <a class="booking-btn-secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>
@@ -385,7 +462,7 @@
         <div class="footer-brand-text">Глубина<br>сообщество художников</div>
       </a>
       <div class="footer-col">
-        <a href="index.html#pricing">Работы на заказ</a>
+        <a href="custom-paintings.html">Услуги</a>
         <a class="current" href="courses.html">Курсы и мастер-классы</a>
         <a href="authors.html">Авторы</a>
       </div>
