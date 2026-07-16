@@ -97,6 +97,48 @@
   .service-copy p { font-size: 15px; line-height: 1.65; color: var(--ink); margin-bottom: 12px; }
   .service-copy .meta-line { font-style: italic; font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
 
+  /* ===== FEATURE BLOCKS ===== */
+  .feature-section { padding: 8px 64px 0; }
+  .feature-block-photo {
+    display: grid; grid-template-columns: 280px 1fr; gap: 36px;
+    padding: 44px 0; border-top: 1px solid var(--line); align-items: start;
+  }
+  .feature-media {
+    aspect-ratio: 4/3; overflow: hidden;
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+  }
+  .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
+  .feature-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-teal); }
+  .feature-title { font-family: Georgia, serif; font-weight: 700; font-size: 24px; margin: 10px 0 14px; max-width: 30ch; }
+  .feature-desc { font-size: 14.5px; line-height: 1.65; color: var(--ink); margin-bottom: 14px; max-width: 64ch; }
+  .feature-list { list-style: none; margin: 0 0 18px; padding: 0; }
+  .feature-list li {
+    font-size: 13.5px; line-height: 1.75; color: var(--ink-soft); padding-left: 16px; position: relative;
+  }
+  .feature-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
+  .feature-list-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 15px; margin: 18px 0 8px;
+  }
+  .feature-cta {
+    display: inline-block; font-size: 13px; color: var(--accent-teal); text-decoration: none;
+    border-bottom: 1px solid var(--accent-teal); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+    margin-top: 4px;
+  }
+  .feature-cta:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ===== MINI PROCESS (как проходит работа) ===== */
+  .mini-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 22px 0 8px; }
+  .mini-process-step { position: relative; }
+  .mini-process-num { font-family: Georgia, serif; font-weight: 700; font-size: 28px; color: var(--line); line-height: 1; margin-bottom: 8px; }
+  .mini-process-title { font-family: Georgia, serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .mini-process-desc { font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); }
+
+  @media (max-width: 900px) {
+    .feature-section { padding: 8px 24px 0; }
+    .feature-block-photo { grid-template-columns: 1fr; }
+    .mini-process { grid-template-columns: 1fr 1fr; }
+  }
+
   /* ===== EXAMPLES GRID ===== */
   .examples-section { padding: 40px 64px 48px; }
   .examples-heading {
@@ -238,9 +280,87 @@
     <p class="page-hero-sub">Портрет по фотографии, копия классической картины для дома или переговорной, интерьерная живопись под конкретное пространство — цвет, формат и техника подбираются под вашу задачу.</p>
   </section>
 
-  <section class="service-copy">
-    <p>Работаем с фото или на личной встрече: обсуждаем формат, палитру и технику, согласовываем эскиз перед началом. Пишем маслом, акрилом и в смешанной технике — на холсте или в формате под конкретный интерьер.</p>
-    <p class="meta-line">от 25 000 ₽ · срок зависит от формата и техники</p>
+  <section class="feature-section">
+
+    <div class="feature-block-photo">
+      <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+      <div>
+        <span class="feature-tag">Индивидуальный заказ</span>
+        <div class="feature-title">Картина, созданная специально для вас</div>
+        <p class="feature-desc">Картина способна стать не только украшением интерьера, но и личной историей, воплощённой в цвете и форме. Мы создаём работы по индивидуальному заказу: от реалистической живописи до современных авторских произведений. Каждая картина разрабатывается с учётом ваших пожеланий, пространства, размера и назначения.</p>
+
+        <div class="feature-list-heading">Возможные направления</div>
+        <ul class="feature-list">
+          <li>портреты</li>
+          <li>пейзажи</li>
+          <li>натюрморты</li>
+          <li>абстрактная живопись</li>
+          <li>современные интерьерные картины</li>
+          <li>картины для дома, офиса, гостиниц и общественных пространств</li>
+        </ul>
+
+        <div class="feature-list-heading">Как проходит работа</div>
+        <div class="mini-process">
+          <div class="mini-process-step">
+            <div class="mini-process-num">01</div>
+            <div class="mini-process-title">Обсуждение идеи</div>
+            <div class="mini-process-desc">Определяем сюжет, стиль, размеры, материалы и сроки.</div>
+          </div>
+          <div class="mini-process-step">
+            <div class="mini-process-num">02</div>
+            <div class="mini-process-title">Эскиз</div>
+            <div class="mini-process-desc">При необходимости создаём предварительный эскиз или несколько вариантов композиции.</div>
+          </div>
+          <div class="mini-process-step">
+            <div class="mini-process-num">03</div>
+            <div class="mini-process-title">Создание картины</div>
+            <div class="mini-process-desc">Работа выполняется вручную профессиональными художественными материалами.</div>
+          </div>
+          <div class="mini-process-step">
+            <div class="mini-process-num">04</div>
+            <div class="mini-process-title">Передача заказчику</div>
+            <div class="mini-process-desc">Готовая картина передаётся лично или отправляется транспортной компанией.</div>
+          </div>
+        </div>
+
+        <a class="feature-cta" href="index.html#request">Заказать →</a>
+      </div>
+    </div>
+
+    <div class="feature-block-photo">
+      <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+      <div>
+        <span class="feature-tag">Копии классиков</span>
+        <div class="feature-title">Копии картин известных художников</div>
+        <p class="feature-desc">Профессионально выполняем художественные копии произведений известных мастеров. Работа ведётся с вниманием к композиции, цветовым отношениям, фактуре и особенностям живописной техники оригинала. Такие копии подходят для частных коллекций, интерьеров, образовательных целей и подарков.</p>
+
+        <div class="feature-list-heading">Возможны копии произведений</div>
+        <ul class="feature-list">
+          <li>русской классической живописи</li>
+          <li>европейских мастеров</li>
+          <li>импрессионистов</li>
+          <li>художников XIX и XX веков</li>
+        </ul>
+
+        <div class="feature-list-heading">Материалы</div>
+        <ul class="feature-list">
+          <li>холст на подрамнике</li>
+          <li>масло</li>
+          <li>акрил</li>
+          <li>профессиональные художественные материалы</li>
+          <li>различные размеры по запросу</li>
+        </ul>
+
+        <div class="feature-list-heading">Стоимость</div>
+        <p class="feature-desc">Рассчитывается индивидуально и зависит от размера, сложности сюжета, выбранной техники и сроков исполнения.</p>
+
+        <div class="feature-list-heading">Заказать картину</div>
+        <p class="feature-desc">Если у вас уже есть идея или изображение — отправьте его через форму обратной связи. Поможем подобрать формат, материалы и рассчитаем стоимость работы.</p>
+
+        <a class="feature-cta" href="index.html#request">Заказать картину →</a>
+      </div>
+    </div>
+
   </section>
 
   <section class="examples-section">
@@ -254,10 +374,10 @@
   </section>
 
   <section class="booking-section">
-    <div class="booking-title">Как заказать</div>
-    <p class="booking-text">Напишите нам в Telegram или заполните форму на главной — расскажите про задачу, пришлём портфолио подходящих авторов, обсудим формат и стоимость.</p>
+    <div class="booking-title">Заказать картину</div>
+    <p class="booking-text">Оставьте заявку в форме на главной или задайте вопрос по телефону — расскажем про формат, материалы и сроки, рассчитаем стоимость.</p>
     <div class="booking-actions">
-      <a class="booking-btn-primary" href="https://t.me/galleryglubina" target="_blank" rel="noopener">Написать в Telegram →</a>
+      <a class="booking-btn-primary" href="index.html#request">Заказать →</a>
       <a class="booking-btn-secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>
