@@ -149,6 +149,11 @@
   .news-article-photo {
     aspect-ratio: 16/10; overflow: hidden; background: #eee;
   }
+  .news-article-photo-placeholder {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+    font-style: italic; font-size: 12.5px; color: var(--ink-soft); text-align: center; padding: 0 16px;
+  }
   .news-article-photo img {
     width: 100%; height: 100%; object-fit: cover; display: block;
     transition: transform 0.4s ease;
@@ -269,6 +274,21 @@
           <div class="news-article-meta">
             <span>Июль 2025</span>
             <span class="news-article-read">Читать отчёт →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="news-article" href="news-art-rynok-2026.html">
+        <div class="news-article-photo">
+          <div class="news-article-photo-placeholder">Ярмарка «Арт Россия», Гостиный Двор</div>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-tag">Арт-рынок · Аналитика</div>
+          <div class="news-article-title">Итоги арт-рынка: как прошло первое полугодие 2026 года в России</div>
+          <p class="news-article-excerpt">Шесть ярмарок и аукционов первой половины года — от «Арт России» и Cosmoscow до «Контура» в Нижнем Новгороде. Что и почём продавалось, и какие лоты стали самыми дорогими.</p>
+          <div class="news-article-meta">
+            <span>10 июля 2026</span>
+            <span class="news-article-read">Читать →</span>
           </div>
         </div>
       </a>
