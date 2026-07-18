@@ -2503,6 +2503,39 @@
       });
     }
   })();
+
+  // Studio photos lightbox
+  (function studioLightbox() {
+    const overlay = document.getElementById('studioLightbox');
+    const lbImg = document.getElementById('studioLightboxImg');
+    const closeBtn = document.getElementById('studioClose');
+    if (!overlay || !lbImg || !closeBtn) return;
+
+    function openLightbox(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.studio-photo-cell img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  })();
 </script>
 </body>
 </html>
