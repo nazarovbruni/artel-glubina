@@ -207,29 +207,38 @@
   .example-thumb:hover img { filter: grayscale(0) contrast(1); transform: scale(1.03); }
 
   /* ===== RELATED SERVICES ===== */
-  .related-section { padding: 48px 64px 56px; }
+  .related-section { background: #F5F3EF; padding: 56px 64px 64px; margin-top: 8px; }
   .related-heading {
     font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px;
+    color: var(--ink-soft); margin-bottom: 22px; padding-bottom: 10px;
     border-bottom: 1px solid var(--line);
   }
   .related-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
   .related-card {
-    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    padding: 26px 24px; text-decoration: none; color: var(--ink);
-    transition: background 0.2s;
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 30px 26px;
+    text-decoration: none; color: var(--ink);
+    box-shadow: 0 1px 3px rgba(22,22,22,0.05);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
     display: flex; flex-direction: column; justify-content: space-between;
   }
-  .related-card:hover { background: #FAFAF8; }
+  .related-card:hover {
+    box-shadow: 0 12px 28px rgba(22,22,22,0.10);
+    transform: translateY(-3px);
+    border-color: var(--accent-teal);
+  }
   .related-tag {
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent-teal); display: block; margin-bottom: 10px;
+    color: var(--accent-teal); display: block; margin-bottom: 12px;
   }
-  .related-title { font-family: Georgia, serif; font-weight: 700; font-size: 15.5px; line-height: 1.35; margin-bottom: 8px; }
-  .related-arrow { font-size: 13px; color: var(--ink-soft); }
+  .related-title { font-family: Georgia, serif; font-weight: 700; font-size: 18px; line-height: 1.35; margin-bottom: 18px; }
+  .related-arrow {
+    font-size: 13px; font-weight: 700; color: var(--accent-teal);
+    padding-top: 14px; border-top: 1px solid var(--line);
+  }
 
   @media (max-width: 900px) {
     .examples-section { padding: 8px 24px 36px; }
