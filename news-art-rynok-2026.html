@@ -50,6 +50,7 @@
   .article-block { display: grid; grid-template-columns: 280px 1fr; gap: 36px; padding: 40px 0; border-top: 1px solid var(--line); align-items: start; }
   .article-block:last-child { border-bottom: 1px solid var(--line); }
   .article-media { aspect-ratio: 4/3; overflow: hidden; background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px); }
+  .article-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .example-thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-style: italic; font-size: 12.5px; color: var(--ink-soft); text-align: center; padding: 0 16px; line-height: 1.4; }
   .article-tag { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-teal); }
   .article-block-title { font-family: Georgia, serif; font-weight: 700; font-size: 21px; margin: 10px 0 12px; line-height: 1.3; }
@@ -120,7 +121,7 @@
   <section class="article-section">
 
     <div class="article-block">
-      <div class="article-media"><div class="example-thumb-placeholder">Стенды ярмарки «Арт Россия», Гостиный Двор</div></div>
+      <div class="article-media"><img loading="lazy" src="images/news-art-rossiya.jpg" alt="Ярмарка «Арт Россия», Гостиный Двор"></div>
       <div>
         <span class="article-tag">Ярмарка · 2–5 апреля, Гостиный Двор, Москва</span>
         <div class="article-block-title">«Арт Россия»: ставка на независимых художников</div>
