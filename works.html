@@ -108,6 +108,38 @@
   }
   .catalog-note a:hover { color: var(--ink); border-color: var(--ink); }
 
+  /* ===== COLLECTION CTA (глянцевый блок под коллекцией) ===== */
+  .collection-cta {
+    background: var(--black);
+    background-image: radial-gradient(circle at 20% 20%, rgba(44,140,146,0.22), transparent 55%);
+    color: var(--white);
+    padding: 64px 64px 68px;
+    text-align: center;
+  }
+  .collection-cta-title {
+    font-family: Georgia, serif; font-weight: 700; font-size: 30px;
+    max-width: 20ch; margin: 0 auto 16px; line-height: 1.25;
+  }
+  .collection-cta-text {
+    font-style: italic; font-size: 15px; color: #C9C9C9;
+    max-width: 56ch; margin: 0 auto 32px; line-height: 1.6;
+  }
+  .collection-cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .collection-cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: Georgia, serif; font-size: 14px; letter-spacing: 0.02em;
+    text-decoration: none; padding: 16px 30px; transition: opacity 0.2s, background 0.2s, color 0.2s;
+  }
+  .collection-cta-btn.primary { background: var(--accent-teal); color: var(--white); }
+  .collection-cta-btn.primary:hover { opacity: 0.85; }
+  .collection-cta-btn.secondary { background: transparent; color: var(--white); border: 1px solid #5A5A5A; }
+  .collection-cta-btn.secondary:hover { border-color: var(--white); }
+
+  @media (max-width: 900px) {
+    .collection-cta { padding: 48px 24px; }
+    .collection-cta-title { font-size: 24px; }
+  }
+
   /* ===== GALLERY GRID ===== */
   .gallery-section { padding: 48px 64px 64px; }
   .gallery-grid {
@@ -516,6 +548,15 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section class="collection-cta">
+    <div class="collection-cta-title">Хотите увидеть больше и что-то приобрести?</div>
+    <p class="collection-cta-text">Готовые работы и коллекция обновляются — пишите нам, если хотите узнать актуальную цену, размеры или просто посмотреть больше вживую.</p>
+    <div class="collection-cta-actions">
+      <a class="collection-cta-btn primary" href="mailto:gallery@glubinagallery.ru">Написать на почту →</a>
+      <a class="collection-cta-btn secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>
 
