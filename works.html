@@ -293,19 +293,20 @@
 
   /* ===== SERVICES TEASER ===== */
   .services-teaser {
-    padding: 56px 64px 64px; border-top: 1px solid var(--line); text-align: center;
+    background: var(--black); color: var(--white);
+    padding: 56px 64px 64px; text-align: center;
   }
-  .services-teaser-title { font-weight: 700; font-size: 28px; margin-bottom: 14px; }
+  .services-teaser-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 14px; }
   .services-teaser-text {
-    font-size: 15px; line-height: 1.6; color: var(--ink-soft);
+    font-style: italic; font-size: 15px; line-height: 1.6; color: #C9C9C9;
     max-width: 56ch; margin: 0 auto 26px;
   }
   .services-teaser-btn {
-    display: inline-block; background: var(--black); color: var(--white);
+    display: inline-block; background: var(--accent-teal); color: var(--white);
     text-decoration: none; padding: 15px 28px; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s;
+    text-transform: uppercase; letter-spacing: 0.04em; transition: opacity 0.2s;
   }
-  .services-teaser-btn:hover { background: var(--accent-teal); }
+  .services-teaser-btn:hover { opacity: 0.85; }
 
   /* ===== FOOTER ===== */
   footer { background: var(--black); color: #9A9A9A; padding: 48px 64px 28px; }
@@ -388,7 +389,7 @@
         <div class="gallery-info">
           <div class="gallery-title">«Сетка»</div>
           <div class="gallery-author">Ирина Моторина</div>
-          <div class="gallery-price">уточняется</div>
+          <div class="gallery-price">120 000 ₽</div>
         </div>
       </div>
 
@@ -470,6 +471,12 @@
       </div>
 
     </div>
+  </section>
+
+  <section class="services-teaser">
+    <div class="services-teaser-title">Нет той самой работы?</div>
+    <p class="services-teaser-text">Если среди готовых работ не нашлось своей — можем написать картину специально под ваш интерьер, сделать копию любимого произведения или собрать серию для пространства целиком.</p>
+    <a class="services-teaser-btn" href="custom-paintings.html">Смотреть услуги и цены →</a>
   </section>
 
   <section class="collection-section">
@@ -578,12 +585,6 @@
     </div>
   </section>
 
-  <section class="services-teaser">
-    <div class="services-teaser-title">Нет той самой работы?</div>
-    <p class="services-teaser-text">Если среди готовых работ не нашлось своей — можем написать картину специально под ваш интерьер, сделать копию любимого произведения или собрать серию для пространства целиком.</p>
-    <a class="services-teaser-btn" href="index.html#pricing">Смотреть услуги и цены →</a>
-  </section>
-
   <footer>
     <div class="footer-grid">
       <a class="footer-brand" href="index.html">
@@ -640,7 +641,7 @@
       statement: 'Плотная ячеистая сеть, будто впечатанная прямо в поверхность, — то ли рыболовная снасть, то ли структура, удерживающая рассыпающуюся материю фона. Рельефная печать делает изображение почти скульптурным: свет ложится на ячейки так же, как лёг бы на настоящий металл. Ирина Моторина — выпускница МГАХУ памяти 1905 года и МГАХИ им. Сурикова, член Союза художников Москвы — работает на стыке живописи, графики и скульптуры, и эта работа показывает, как печатная техника у неё превращается в физический, осязаемый объект.',
       medium: 'МДФ, рельефная шёлкография',
       size: '60×60 см, 2024',
-      price: 'уточняется'
+      price: '120 000 ₽'
     },
     nazar: {
       title: '«Следы»',
