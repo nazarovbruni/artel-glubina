@@ -203,6 +203,26 @@
   }
   .reset-link:hover { color: var(--ink); border-color: var(--ink); }
 
+  .example-walls { margin-top: 20px; }
+  .example-walls-label {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 10px;
+  }
+  .example-walls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .example-wall-thumb {
+    aspect-ratio: 4/3; overflow: hidden; cursor: pointer; position: relative;
+    border: 1px solid var(--line); transition: border-color 0.2s;
+  }
+  .example-wall-thumb:hover { border-color: var(--accent-teal); }
+  .example-wall-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .upload-tips {
+    margin-top: 28px; padding: 20px 22px;
+    border-left: 2px solid var(--accent-teal); background: #FAFAF8;
+  }
+  .upload-tips-title { font-family: Georgia, serif; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .upload-tips p { font-size: 13.5px; line-height: 1.6; color: var(--ink-soft); }
+
   /* Sidebar: artwork picker */
   .picker-label {
     font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -355,6 +375,20 @@
             <button class="download-btn" id="downloadBtn" disabled>Скачать результат</button>
           </div>
         </div>
+
+        <div class="example-walls">
+          <div class="example-walls-label">Или попробуйте на примере</div>
+          <div class="example-walls-grid">
+            <div class="example-wall-thumb" data-src="images/tryon-example-1.jpg"><img loading="lazy" src="images/tryon-example-1.jpg" alt="Пример стены — гостиная"></div>
+            <div class="example-wall-thumb" data-src="images/tryon-example-2.jpg"><img loading="lazy" src="images/tryon-example-2.jpg" alt="Пример стены — студия Глубина"></div>
+            <div class="example-wall-thumb" data-src="images/tryon-example-3.jpg"><img loading="lazy" src="images/tryon-example-3.jpg" alt="Пример стены — студия Глубина"></div>
+          </div>
+        </div>
+
+        <div class="upload-tips">
+          <div class="upload-tips-title">Совет, как снять стену</div>
+          <p>Снимайте стену прямо перед собой, на уровне глаз, без наклона камеры вверх или вниз — так картина ляжет ровно. Формат фото — любой (JPG, PNG, HEIC), а вот с разрешением лучше не мелочиться: чем крупнее снимок, тем чётче будет результат, идеально — от 1500 px по большей стороне. Включите верхний свет или снимайте днём: на затемнённой стене сложнее оценить, как картина впишется по цвету.</p>
+        </div>
       </div>
 
       <div>
@@ -466,21 +500,27 @@
   }
 
   // ---- Wall photo upload ----
+  function loadWallImage(src) {
+    const img = new Image();
+    img.onload = () => {
+      wallImg = img;
+      stageEmpty.style.display = 'none';
+      drawWall();
+      downloadBtn.disabled = false;
+    };
+    img.src = src;
+  }
+
   wallUpload.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (ev) => {
-      const img = new Image();
-      img.onload = () => {
-        wallImg = img;
-        stageEmpty.style.display = 'none';
-        drawWall();
-        downloadBtn.disabled = false;
-      };
-      img.src = ev.target.result;
-    };
+    reader.onload = (ev) => loadWallImage(ev.target.result);
     reader.readAsDataURL(file);
+  });
+
+  document.querySelectorAll('.example-wall-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => loadWallImage(thumb.dataset.src));
   });
 
   function drawWall() {
