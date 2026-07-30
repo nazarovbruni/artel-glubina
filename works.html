@@ -292,20 +292,21 @@
 
   /* ===== SERVICES TEASER ===== */
   .services-teaser {
-    background: var(--black); color: var(--white);
-    padding: 56px 64px 64px; text-align: center;
+    background: var(--white); color: var(--ink);
+    padding: 64px 64px 72px; text-align: center;
+    border-top: 1px solid var(--line);
   }
-  .services-teaser-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 14px; }
+  .services-teaser-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 14px; color: var(--ink); }
   .services-teaser-text {
-    font-style: italic; font-size: 15px; line-height: 1.6; color: #C9C9C9;
+    font-style: italic; font-size: 15px; line-height: 1.6; color: var(--ink-soft);
     max-width: 56ch; margin: 0 auto 26px;
   }
   .services-teaser-btn {
-    display: inline-block; background: var(--accent-teal); color: var(--white);
+    display: inline-block; background: var(--black); color: var(--white);
     text-decoration: none; padding: 15px 28px; font-size: 13px;
-    text-transform: uppercase; letter-spacing: 0.04em; transition: opacity 0.2s;
+    text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s;
   }
-  .services-teaser-btn:hover { opacity: 0.85; }
+  .services-teaser-btn:hover { background: var(--accent-teal); }
 
   /* ===== FOOTER ===== */
   footer { background: var(--black); color: #9A9A9A; padding: 48px 64px 28px; }
