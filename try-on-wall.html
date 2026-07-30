@@ -418,17 +418,16 @@
 </div>
 
 <script>
-  // Same 8 works as in works.html — photos are placeholders until real images are added.
-  // To wire up real photos later: replace `photo: null` with `photo: 'data:image/jpeg;base64,...'`
+  // Same 8 works as in works.html, kept in sync with real photos.
   const artworks = [
-    { key: 'motorina', title: '«Рынок»', author: 'Ирина Моторина', photo: null },
-    { key: 'nazar', title: '«Следы утраты»', author: 'Юлия Назар', photo: null },
-    { key: 'belova', title: '«Скрытый порядок»', author: 'Надежда Белова', photo: null },
-    { key: 'demina', title: '«Натюрморт»', author: 'Светлана Дёмина', photo: null },
-    { key: 'frolova', title: '«Новые пирамиды»', author: 'Лиана Фролова', photo: null },
-    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: null },
-    { key: 'aseeva', title: '«Летающая шишка»', author: 'Елена Асеева', photo: null },
-    { key: 'kan', title: '«Высота»', author: 'Ева Кан', photo: null },
+    { key: 'motorina', title: '«Сетка»', author: 'Ирина Моторина', photo: 'images/works/motorina-setka.jpg' },
+    { key: 'nazar', title: '«Следы»', author: 'Юлия Назар', photo: 'images/works/nazar-sledy.jpg' },
+    { key: 'belova', title: '«Гора видит сны»', author: 'Надежда Белова', photo: 'images/works/glubina-belova-2.jpg' },
+    { key: 'demina', title: '«Я здесь»', author: 'Светлана Дёмина', photo: 'images/works/glubina-demina-ya-zdes.jpg' },
+    { key: 'frolova', title: '«Лица леса»', author: 'Лиана Фролова', photo: 'images/works/frolova-lica-lesa.jpg' },
+    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: 'images/works/gordeeva-nablyudateli.jpg' },
+    { key: 'aseeva', title: '«Между строк»', author: 'Елена Асеева', photo: 'images/works/glubina-aseeva-5.jpg' },
+    { key: 'kan', title: '«Патина»', author: 'Ева Кан', photo: 'images/works/glubina-art.jpeg' },
   ];
 
   const artworkGrid = document.getElementById('artworkGrid');
