@@ -142,10 +142,8 @@
 
   @media (max-width: 900px) {
     .gallery-grid {
-      grid-template-columns: none; display: flex; overflow-x: auto;
-      -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; border-left: none;
+      grid-template-columns: repeat(2, 1fr);
     }
-    .gallery-card { flex: 0 0 62%; scroll-snap-align: start; border-left: 1px solid var(--line); }
   }
 
   /* ===== MODAL ===== */
@@ -393,12 +391,12 @@
 
       <div class="gallery-card" onclick="openModal('aseeva')">
         <div class="gallery-photo" id="photo-aseeva">
-          <div class="gallery-photo-placeholder">фото работы</div>
+          <img loading="lazy" src="images/works/glubina-aseeva-5.jpg" alt="«Между строк» — Елена Асеева">
         </div>
         <div class="gallery-info">
-          <div class="gallery-title">«Летающая шишка»</div>
+          <div class="gallery-title">«Между строк»</div>
           <div class="gallery-author">Елена Асеева</div>
-          <div class="gallery-price">50 000 ₽</div>
+          <div class="gallery-price">60 000 ₽</div>
         </div>
       </div>
 
@@ -409,7 +407,7 @@
         <div class="gallery-info">
           <div class="gallery-title">«Патина»</div>
           <div class="gallery-author">Ева Кан</div>
-          <div class="gallery-price">по запросу</div>
+          <div class="gallery-price">160 000 ₽</div>
         </div>
       </div>
 
@@ -532,12 +530,12 @@
       price: '50 000 ₽'
     },
     aseeva: {
-      title: '«Летающая шишка»',
+      title: '«Между строк»',
       author: 'Елена Асеева',
-      statement: 'Ироничный образ-талисман: шишка как объект, способный переносить человека между состояниями и мирами — если остановиться, сделать вдох и отпустить тревогу. Лёгкая, почти сказочная работа с серьёзным подтекстом о паузе и внимании к себе.',
+      statement: 'Чёрная полоса перечёркивает лицо на уровне глаз — приём, похожий на цензуру или монтажную склейку. Но за ней не пустота: под красно-синими полосами внизу проступает еле различимый рукописный текст. Работа продолжает интерес художницы к границе между словом и изображением — высказывание здесь не звучит напрямую, а прорастает сквозь образ, как память, которую невозможно скрыть до конца.',
       medium: 'Холст, акрил',
-      size: '60×60 см',
-      price: '50 000 ₽'
+      size: 'уточняется',
+      price: '60 000 ₽'
     },
     kan: {
       title: '«Патина»',
@@ -545,7 +543,7 @@
       statement: 'Лейка и совок — обыденные орудия сада — застыли в металле в момент, когда уже вышли из употребления, но ещё вполне узнаваемы. Ржавчина здесь не разрушение, а естественный отпечаток времени: она стирает функцию предмета, но оставляет его форму и силуэт. Работа на стыке архитектурного рельефа и предметного натюрморта — взгляд, характерный для автора, работающего на границе архитектуры и искусства.',
       medium: 'Металл, патинирование, рельеф',
       size: 'уточняется',
-      price: 'по запросу'
+      price: '160 000 ₽'
     }
   };
 
