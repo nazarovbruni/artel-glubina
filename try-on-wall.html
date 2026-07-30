@@ -270,6 +270,33 @@
     .stage-wrap { aspect-ratio: 1/1; }
   }
 
+  /* ===== NO WORK FOUND CTA ===== */
+  .nowork-cta {
+    background: var(--white); color: var(--ink);
+    padding: 64px 64px 72px; text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .nowork-cta-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 14px; color: var(--ink); }
+  .nowork-cta-text {
+    font-style: italic; font-size: 15px; line-height: 1.6; color: var(--ink-soft);
+    max-width: 56ch; margin: 0 auto 26px;
+  }
+  .nowork-cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .nowork-cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: Georgia, serif; font-size: 14px; letter-spacing: 0.02em;
+    text-decoration: none; padding: 16px 30px; transition: opacity 0.2s, background 0.2s, color 0.2s;
+  }
+  .nowork-cta-btn.primary { background: var(--accent-teal); color: var(--white); }
+  .nowork-cta-btn.primary:hover { opacity: 0.85; }
+  .nowork-cta-btn.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .nowork-cta-btn.secondary:hover { border-color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .nowork-cta { padding: 48px 24px; }
+    .nowork-cta-title { font-size: 24px; }
+  }
+
   /* ===== HOW IT WORKS strip ===== */
   .howto-section {
     padding: 48px 64px 64px; border-top: 1px solid var(--line);
@@ -421,6 +448,15 @@
         <div class="howto-step-title">Сохраните и закажите</div>
         <div class="howto-step-desc">Скачайте получившееся изображение себе или сразу оставьте заявку — мы уточним точный размер под ваше пространство.</div>
       </div>
+    </div>
+  </section>
+
+  <section class="nowork-cta">
+    <div class="nowork-cta-title">Нет той самой работы?</div>
+    <p class="nowork-cta-text">Если среди готовых работ не нашлось своей — можем написать картину специально под ваш интерьер, сделать копию любимого произведения или собрать серию для пространства целиком.</p>
+    <div class="nowork-cta-actions">
+      <a class="nowork-cta-btn primary" href="mailto:gallery@glubinagallery.ru">Написать на почту →</a>
+      <a class="nowork-cta-btn secondary" href="tel:+74959950613">Позвонить: +7 495 995 06 13</a>
     </div>
   </section>
 
