@@ -275,6 +275,50 @@
     .lightbox-close { top: 12px; right: 12px; width: 38px; height: 38px; font-size: 18px; }
   }
 
+  /* ===== WORK MODAL (описание + кнопка) ===== */
+  .work-modal-overlay {
+    position: fixed; inset: 0; background: rgba(15,15,15,0.85);
+    display: none; align-items: center; justify-content: center;
+    z-index: 1001; padding: 24px;
+  }
+  .work-modal-overlay.active { display: flex; }
+  .work-modal-box {
+    background: var(--white); max-width: 880px; width: 100%; max-height: 86vh;
+    overflow-y: auto; display: grid; grid-template-columns: 1fr 1fr;
+  }
+  .work-modal-photo {
+    background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
+    min-height: 320px; display: flex; align-items: center; justify-content: center;
+  }
+  .work-modal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .work-modal-content { padding: 36px 32px; position: relative; }
+  .work-modal-close {
+    position: absolute; top: 20px; right: 24px; font-size: 24px; cursor: pointer;
+    color: var(--ink-soft); background: none; border: none; line-height: 1;
+  }
+  .work-modal-close:hover { color: var(--ink); }
+  .work-modal-title { font-weight: 700; font-size: 24px; margin-bottom: 6px; padding-right: 24px; }
+  .work-modal-author { font-style: italic; font-size: 14px; color: var(--accent-teal); margin-bottom: 20px; }
+  .work-modal-statement { font-size: 14px; line-height: 1.6; color: var(--ink); margin-bottom: 24px; }
+  .work-modal-meta-row {
+    display: flex; justify-content: space-between; padding: 14px 0;
+    border-top: 1px solid var(--line); font-size: 13px;
+  }
+  .work-modal-meta-row span:first-child { color: var(--ink-soft); }
+  .work-modal-meta-row span:last-child { font-weight: 700; }
+  .work-modal-cta {
+    display: block; text-align: center; margin-top: 22px;
+    background: var(--black); color: var(--white); text-decoration: none;
+    padding: 15px 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .work-modal-cta:hover { background: var(--accent-teal); }
+
+  @media (max-width: 700px) {
+    .work-modal-box { grid-template-columns: 1fr; max-height: 90vh; }
+    .work-modal-photo { min-height: 260px; }
+  }
+
 </style>
 
 <!-- Yandex.Metrika counter -->
@@ -438,10 +482,10 @@
 
   <section class="author-card" id="author-5">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">«Всё связано»<br>100×100, холст, текстиль</div></div>
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">«Путь к Свету»<br>80×60, холст, акрил</div></div>
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">«Целительные слёзы»<br>40×40, холст, акрил</div></div>
-      <div class="author-work-thumb"><div class="author-work-thumb-placeholder">«Хранитель Рода»<br>50×50, холст, масло</div></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/nazarova-1.jpg" alt="«Всё связано» — Елена Назарова" onclick="openWorkModal('nazarova1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/nazarova-2.jpg" alt="«Путь к Свету» — Елена Назарова" onclick="openWorkModal('nazarova2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/nazarova-3.jpg" alt="«Целительные слёзы» — Елена Назарова" onclick="openWorkModal('nazarova3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/nazarova-4.jpg" alt="«Небесная Волчица» — Елена Назарова" onclick="openWorkModal('nazarova4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/nazarova.jpg" alt="Елена Назарова — Глубина"></div><div class="author-name">Елена Назарова</div></div>
@@ -612,6 +656,21 @@
     <img id="lightboxImg" src="" alt="">
   </div>
 
+  <div class="work-modal-overlay" id="workModalOverlay">
+    <div class="work-modal-box">
+      <div class="work-modal-photo" id="workModalPhoto"></div>
+      <div class="work-modal-content">
+        <button class="work-modal-close" id="workModalClose">&times;</button>
+        <div class="work-modal-title" id="workModalTitle"></div>
+        <div class="work-modal-author" id="workModalAuthor"></div>
+        <p class="work-modal-statement" id="workModalStatement"></p>
+        <div class="work-modal-meta-row"><span>Техника</span><span id="workModalMedium"></span></div>
+        <div class="work-modal-meta-row"><span>Размер</span><span id="workModalSize"></span></div>
+        <a class="work-modal-cta" id="workModalCta" href="#">Заказать у этого автора →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -632,7 +691,7 @@
       lbImg.src = '';
     }
 
-    document.querySelectorAll('.author-work-thumb img').forEach(img => {
+    document.querySelectorAll('.author-work-thumb img:not([onclick])').forEach(img => {
       img.addEventListener('click', () => openLightbox(img.src, img.alt));
     });
 
@@ -655,6 +714,67 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
+  });
+
+  // ===== WORK MODAL (описание + кнопка заказа) =====
+  const worksData = {
+    nazarova1: {
+      title: '«Всё связано»',
+      author: 'Елена Назарова',
+      statement: 'Взрыв тёплого и холодного цвета из одной точки, а по краю холста — вязаная кайма, буквально сотканная нить. Название работает прямо: живопись и текстиль здесь не просто соседствуют, а прорастают друг в друга, как энергия, ищущая физическую форму.',
+      medium: 'Холст, акрил, масло, текстиль',
+      size: '100×100 см',
+      photo: 'images/works/nazarova-1.jpg'
+    },
+    nazarova2: {
+      title: '«Путь к Свету»',
+      author: 'Елена Назарова',
+      statement: 'Фигуры растворяются в свете, их контуры едва держатся за материальность. Художница исследует момент перехода — предчувствие, которое предшествует трансформации, когда сознание уже тянется вперёд, а тело ещё здесь.',
+      medium: 'Холст, акрил, масло',
+      size: '80×60 см',
+      photo: 'images/works/nazarova-2.jpg'
+    },
+    nazarova3: {
+      title: '«Целительные слёзы»',
+      author: 'Елена Назарова',
+      statement: 'Немигающий глаз в толще воды, а вокруг — вышитые нитью кораллы и наросты, будто рана обрастает защитным панцирем. Слёзы здесь не слабость, а часть заживления — то, через что нужно пройти, чтобы увидеть яснее.',
+      medium: 'Холст, акрил',
+      size: '40×40 см',
+      photo: 'images/works/nazarova-3.jpg'
+    },
+    nazarova4: {
+      title: '«Небесная Волчица»',
+      author: 'Елена Назарова',
+      statement: 'Белая волчица смотрит в раскручивающийся вихрь света — портал, зов, память рода. Пограничное существо между земным и небесным, между инстинктом и духом.',
+      medium: 'Холст, акрил',
+      size: '40×40 см',
+      photo: 'images/works/nazarova-4.jpg'
+    }
+  };
+
+  function openWorkModal(key) {
+    const w = worksData[key];
+    if (!w) return;
+    document.getElementById('workModalTitle').textContent = w.title;
+    document.getElementById('workModalAuthor').textContent = w.author;
+    document.getElementById('workModalStatement').textContent = w.statement;
+    document.getElementById('workModalMedium').textContent = w.medium;
+    document.getElementById('workModalSize').textContent = w.size;
+    document.getElementById('workModalPhoto').innerHTML = `<img src="${w.photo}" alt="${w.title}">`;
+    document.getElementById('workModalCta').href = `index.html?author=${encodeURIComponent(w.author)}#request`;
+    document.getElementById('workModalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeWorkModal() {
+    document.getElementById('workModalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('workModalClose').addEventListener('click', closeWorkModal);
+  document.getElementById('workModalOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'workModalOverlay') closeWorkModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeWorkModal();
   });
 </script>
 
