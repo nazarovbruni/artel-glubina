@@ -306,6 +306,8 @@
   }
   .work-modal-meta-row span:first-child { color: var(--ink-soft); }
   .work-modal-meta-row span:last-child { font-weight: 700; }
+  .work-modal-price-row { padding: 18px 0; border-top: 1px solid var(--ink); margin-top: 4px; }
+  .work-modal-price { font-weight: 700; font-size: 26px; }
   .work-modal-cta {
     display: block; text-align: center; margin-top: 22px;
     background: var(--black); color: var(--white); text-decoration: none;
@@ -369,10 +371,10 @@
 
   <section class="author-card" id="author-1">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-1.jpg" alt="Юлия Назар — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-2.jpg" alt="Юлия Назар — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-3.jpg" alt="Юлия Назар — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-4.jpg" alt="Юлия Назар — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-1.jpg" alt="Юлия Назар — Глубина" onclick="openWorkModal('nazar1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-2.jpg" alt="Юлия Назар — Глубина" onclick="openWorkModal('nazar2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-3.jpg" alt="Юлия Назар — Глубина" onclick="openWorkModal('nazar3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/yuliya-nazar-glubina-4.jpg" alt="Юлия Назар — Глубина" onclick="openWorkModal('nazar4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/nazar.jpg" alt="Юлия Назар — Глубина"></div><div class="author-name">Юлия Назар</div></div>
@@ -398,10 +400,10 @@
 
   <section class="author-card" id="author-2">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-1.jpg" alt="Ирина Моторина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-2.jpg" alt="Ирина Моторина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-3.jpg" alt="Ирина Моторина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-4.jpg" alt="Ирина Моторина — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-1.jpg" alt="Ирина Моторина — Глубина" onclick="openWorkModal('motorina1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-2.jpg" alt="Ирина Моторина — Глубина" onclick="openWorkModal('motorina2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-3.jpg" alt="Ирина Моторина — Глубина" onclick="openWorkModal('motorina3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-motorina-4.jpg" alt="Ирина Моторина — Глубина" onclick="openWorkModal('motorina4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/motorina.jpg" alt="Ирина Моторина — Глубина"></div><div class="author-name">Ирина Моторина</div></div>
@@ -427,10 +429,10 @@
 
   <section class="author-card" id="author-3">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-1.jpg" alt="Светлана Дёмина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-2.jpg" alt="Светлана Дёмина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-3.jpg" alt="Светлана Дёмина — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-4.jpg" alt="Светлана Дёмина — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-1.jpg" alt="Светлана Дёмина — Глубина" onclick="openWorkModal('demina1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-2.jpg" alt="Светлана Дёмина — Глубина" onclick="openWorkModal('demina2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-3.jpg" alt="Светлана Дёмина — Глубина" onclick="openWorkModal('demina3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-demina-4.jpg" alt="Светлана Дёмина — Глубина" onclick="openWorkModal('demina4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/demina.jpg" alt="Светлана Дёмина — Глубина"></div><div class="author-name">Светлана Дёмина</div></div>
@@ -456,10 +458,10 @@
 
   <section class="author-card" id="author-4">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-1.jpg" alt="Екатерина Усольцева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-2.jpg" alt="Екатерина Усольцева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-3.jpg" alt="Екатерина Усольцева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-4.jpg" alt="Екатерина Усольцева — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-1.jpg" alt="Екатерина Усольцева — Глубина" onclick="openWorkModal('usoltseva1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-2.jpg" alt="Екатерина Усольцева — Глубина" onclick="openWorkModal('usoltseva2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-3.jpg" alt="Екатерина Усольцева — Глубина" onclick="openWorkModal('usoltseva3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-usoltseva-4.jpg" alt="Екатерина Усольцева — Глубина" onclick="openWorkModal('usoltseva4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/usoltseva.jpg" alt="Екатерина Усольцева — Глубина"></div><div class="author-name">Екатерина Усольцева</div></div>
@@ -514,10 +516,10 @@
 
   <section class="author-card" id="author-6">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-1.jpg" alt="Елена Асеева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-2.jpg" alt="Елена Асеева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-3.jpg" alt="Елена Асеева — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-4.jpg" alt="Елена Асеева — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-1.jpg" alt="Елена Асеева — Глубина" onclick="openWorkModal('aseeva1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-2.jpg" alt="Елена Асеева — Глубина" onclick="openWorkModal('aseeva2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-3.jpg" alt="Елена Асеева — Глубина" onclick="openWorkModal('aseeva3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-aseeva-4.jpg" alt="Елена Асеева — Глубина" onclick="openWorkModal('aseeva4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/aseeva.jpg" alt="Елена Асеева — Глубина"></div><div class="author-name">Елена Асеева</div></div>
@@ -543,10 +545,10 @@
 
   <section class="author-card" id="author-7">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-1.jpg" alt="Надежда Белова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-2.jpg" alt="Надежда Белова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-3.jpg" alt="Надежда Белова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-4.jpg" alt="Надежда Белова — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-1.jpg" alt="Надежда Белова — Глубина" onclick="openWorkModal('belova1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-2.jpg" alt="Надежда Белова — Глубина" onclick="openWorkModal('belova2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-3.jpg" alt="Надежда Белова — Глубина" onclick="openWorkModal('belova3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-belova-4.jpg" alt="Надежда Белова — Глубина" onclick="openWorkModal('belova4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/belova.jpg" alt="Надежда Белова — Глубина"></div><div class="author-name">Надежда Белова</div></div>
@@ -569,10 +571,10 @@
 
   <section class="author-card" id="author-8">
     <div class="author-works-grid">
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-1.jpg" alt="Лиана Фролова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-2.jpg" alt="Лиана Фролова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-3.jpg" alt="Лиана Фролова — Глубина"></div>
-      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-4.jpg" alt="Лиана Фролова — Глубина"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-1.jpg" alt="Лиана Фролова — Глубина" onclick="openWorkModal('frolova1')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-2.jpg" alt="Лиана Фролова — Глубина" onclick="openWorkModal('frolova2')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-3.jpg" alt="Лиана Фролова — Глубина" onclick="openWorkModal('frolova3')"></div>
+      <div class="author-work-thumb"><img loading="lazy" src="images/works/glubina-frolova-4.jpg" alt="Лиана Фролова — Глубина" onclick="openWorkModal('frolova4')"></div>
     </div>
     <div>
       <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/frolova.jpg" alt="Лиана Фролова — Глубина"></div><div class="author-name">Лиана Фролова</div></div>
@@ -666,6 +668,7 @@
         <p class="work-modal-statement" id="workModalStatement"></p>
         <div class="work-modal-meta-row"><span>Техника</span><span id="workModalMedium"></span></div>
         <div class="work-modal-meta-row"><span>Размер</span><span id="workModalSize"></span></div>
+        <div class="work-modal-price-row"><div class="work-modal-price" id="workModalPrice"></div></div>
         <a class="work-modal-cta" id="workModalCta" href="#">Заказать у этого автора →</a>
       </div>
     </div>
@@ -724,6 +727,7 @@
       statement: 'Взрыв тёплого и холодного цвета из одной точки, а по краю холста — вязаная кайма, буквально сотканная нить. Название работает прямо: живопись и текстиль здесь не просто соседствуют, а прорастают друг в друга, как энергия, ищущая физическую форму.',
       medium: 'Холст, акрил, масло, текстиль',
       size: '100×100 см',
+      price: '110 000 ₽',
       photo: 'images/works/nazarova-1.jpg'
     },
     nazarova2: {
@@ -732,6 +736,7 @@
       statement: 'Фигуры растворяются в свете, их контуры едва держатся за материальность. Художница исследует момент перехода — предчувствие, которое предшествует трансформации, когда сознание уже тянется вперёд, а тело ещё здесь.',
       medium: 'Холст, акрил, масло',
       size: '80×60 см',
+      price: '85 000 ₽',
       photo: 'images/works/nazarova-2.jpg'
     },
     nazarova3: {
@@ -740,6 +745,7 @@
       statement: 'Немигающий глаз в толще воды, а вокруг — вышитые нитью кораллы и наросты, будто рана обрастает защитным панцирем. Слёзы здесь не слабость, а часть заживления — то, через что нужно пройти, чтобы увидеть яснее.',
       medium: 'Холст, акрил',
       size: '40×40 см',
+      price: '60 000 ₽',
       photo: 'images/works/nazarova-3.jpg'
     },
     nazarova4: {
@@ -748,7 +754,267 @@
       statement: 'Белая волчица смотрит в раскручивающийся вихрь света — портал, зов, память рода. Пограничное существо между земным и небесным, между инстинктом и духом.',
       medium: 'Холст, акрил',
       size: '40×40 см',
+      price: '60 000 ₽',
       photo: 'images/works/nazarova-4.jpg'
+    },
+
+    nazar1: {
+      title: '«Оттиск»',
+      author: 'Юлия Назар',
+      statement: 'Свет ложится на холст не как явление, а как след — то, что остаётся после события, а не само событие. Приближение к реализму здесь работает как ловушка для мгновения перед исчезновением.',
+      medium: 'Холст, масло',
+      size: '60×80 см',
+      price: '90 000 ₽',
+      photo: 'images/works/yuliya-nazar-glubina-1.jpg'
+    },
+    nazar2: {
+      title: '«Внутренний шум»',
+      author: 'Юлия Назар',
+      statement: 'Слои цвета накладываются друг на друга, будто фиксируя внутренний диалог, который обычно остаётся неозвученным.',
+      medium: 'Холст, смешанная техника',
+      size: '70×90 см',
+      price: '95 000 ₽',
+      photo: 'images/works/yuliya-nazar-glubina-2.jpg'
+    },
+    nazar3: {
+      title: '«Комната без стен»',
+      author: 'Юлия Назар',
+      statement: 'Инсталляционное мышление художницы проникает и в живопись — пространство холста работает не как окно, а как среда, в которую зритель мысленно входит.',
+      medium: 'Холст, акрил',
+      size: '80×100 см',
+      price: '110 000 ₽',
+      photo: 'images/works/yuliya-nazar-glubina-3.jpg'
+    },
+    nazar4: {
+      title: '«Пауза»',
+      author: 'Юлия Назар',
+      statement: 'Реалистичная сцена, остановленная в момент, когда видимый мир вот-вот ускользнёт — характерный для художницы приём фиксации исчезающего.',
+      medium: 'Холст, масло',
+      size: '50×60 см',
+      price: '75 000 ₽',
+      photo: 'images/works/yuliya-nazar-glubina-4.jpg'
+    },
+
+    motorina1: {
+      title: '«Разговор без слов»',
+      author: 'Ирина Моторина',
+      statement: 'Сюжет рождён из наблюдения за случайной сценой — то, что для художницы становится поводом для иронично-серьёзного высказывания.',
+      medium: 'Холст, масло',
+      size: '70×90 см',
+      price: '85 000 ₽',
+      photo: 'images/works/glubina-motorina-1.jpg'
+    },
+    motorina2: {
+      title: '«Крестный ход»',
+      author: 'Ирина Моторина',
+      statement: 'Религиозный подтекст здесь не прямой, а встроен в бытовую сцену — характерный для художницы приём соединять живопись с ироничным взглядом на мир.',
+      medium: 'Холст, смешанная техника',
+      size: '60×80 см',
+      price: '90 000 ₽',
+      photo: 'images/works/glubina-motorina-2.jpg'
+    },
+    motorina3: {
+      title: '«Соседи»',
+      author: 'Ирина Моторина',
+      statement: 'Портрет сообщества, а не отдельного человека — персонажи считаны с реальных разговоров и наблюдений художницы.',
+      medium: 'Холст, акрил',
+      size: '50×70 см',
+      price: '70 000 ₽',
+      photo: 'images/works/glubina-motorina-3.jpg'
+    },
+    motorina4: {
+      title: '«Тихий двор»',
+      author: 'Ирина Моторина',
+      statement: 'Камерная сцена повседневности, в которой ирония уступает место созерцательности.',
+      medium: 'Холст, масло',
+      size: '60×60 см',
+      price: '65 000 ₽',
+      photo: 'images/works/glubina-motorina-4.jpg'
+    },
+
+    demina1: {
+      title: '«Космос внутри»',
+      author: 'Светлана Дёмина',
+      statement: 'Продолжение темы космизма, которую художница исследует и как куратор выставочных проектов Артели — здесь личный масштаб переживания сталкивается с масштабом вселенной.',
+      medium: 'Холст, смешанная техника',
+      size: '80×100 см',
+      price: '120 000 ₽',
+      photo: 'images/works/glubina-demina-1.jpg'
+    },
+    demina2: {
+      title: '«Память воды»',
+      author: 'Светлана Дёмина',
+      statement: 'Эксперимент с материалом и смешанной техникой — след памяти, растворённый в текучей форме: вода не держит форму, но хранит движение.',
+      medium: 'Холст, акрил',
+      size: '70×90 см',
+      price: '95 000 ₽',
+      photo: 'images/works/glubina-demina-2.jpg'
+    },
+    demina3: {
+      title: '«Осколки времени»',
+      author: 'Светлана Дёмина',
+      statement: 'Фрагментированная композиция — тема памяти собрана не как цельное повествование, а как набор разрозненных, но связанных впечатлений.',
+      medium: 'Холст, масло',
+      size: '60×80 см',
+      price: '90 000 ₽',
+      photo: 'images/works/glubina-demina-3.jpg'
+    },
+    demina4: {
+      title: '«Тихий свидетель»',
+      author: 'Светлана Дёмина',
+      statement: 'Камерная работа о присутствии — о том, что остаётся в стороне от главного события, но держит на себе всю сцену.',
+      medium: 'Холст, смешанная техника',
+      size: '50×70 см',
+      price: '80 000 ₽',
+      photo: 'images/works/glubina-demina-4.jpg'
+    },
+
+    usoltseva1: {
+      title: '«Диалог эпох»',
+      author: 'Екатерина Усольцева',
+      statement: 'Восточная каллиграфическая традиция встречается с современным художественным языком — работа выстроена как переговоры двух систем ценностей, а не их простое соседство.',
+      medium: 'Холст, смешанная техника',
+      size: '70×90 см',
+      price: '100 000 ₽',
+      photo: 'images/works/glubina-usoltseva-1.jpg'
+    },
+    usoltseva2: {
+      title: '«Атемпоральность»',
+      author: 'Екатерина Усольцева',
+      statement: 'Название буквально описывает метод художницы: время здесь не линейно, восточное и западное существуют одновременно, без иерархии.',
+      medium: 'Холст, акрил, тушь',
+      size: '60×80 см',
+      price: '95 000 ₽',
+      photo: 'images/works/glubina-usoltseva-2.jpg'
+    },
+    usoltseva3: {
+      title: '«Знак и жест»',
+      author: 'Екатерина Усольцева',
+      statement: 'Каллиграфический жест переосмыслен как самостоятельный визуальный элемент, оторванный от текста, но сохранивший его энергию.',
+      medium: 'Бумага, тушь, смешанная техника',
+      size: '50×70 см',
+      price: '75 000 ₽',
+      photo: 'images/works/glubina-usoltseva-3.jpg'
+    },
+    usoltseva4: {
+      title: '«Мост»',
+      author: 'Екатерина Усольцева',
+      statement: 'Переосмысление прошлого через связь Востока и Запада — тема, которую художница последовательно развивает в разных техниках.',
+      medium: 'Холст, масло, тушь',
+      size: '60×60 см',
+      price: '85 000 ₽',
+      photo: 'images/works/glubina-usoltseva-4.jpg'
+    },
+
+    aseeva1: {
+      title: '«Неозвученное»',
+      author: 'Елена Асеева',
+      statement: 'Слово и изображение здесь равноправны — текст, который мог бы сопровождать картину, остаётся за кадром, но чувствуется в композиции.',
+      medium: 'Холст, акрил',
+      size: '60×80 см',
+      price: '85 000 ₽',
+      photo: 'images/works/glubina-aseeva-1.jpg'
+    },
+    aseeva2: {
+      title: '«Глава без номера»',
+      author: 'Елена Асеева',
+      statement: 'Часть более крупного проекта на стыке живописи, книги и видео — художница не завершает историю, а оставляет её открытой.',
+      medium: 'Холст, смешанная техника',
+      size: '70×90 см',
+      price: '90 000 ₽',
+      photo: 'images/works/glubina-aseeva-2.jpg'
+    },
+    aseeva3: {
+      title: '«Черновик»',
+      author: 'Елена Асеева',
+      statement: 'Идея здесь первична по отношению к объекту — работа сохраняет ощущение процесса, а не финального высказывания.',
+      medium: 'Холст, масло',
+      size: '50×70 см',
+      price: '70 000 ₽',
+      photo: 'images/works/glubina-aseeva-3.jpg'
+    },
+    aseeva4: {
+      title: '«Подстрочник»',
+      author: 'Елена Асеева',
+      statement: 'Название отсылает к дословному переводу — тому уровню смысла, который обычно теряется между словом и образом.',
+      medium: 'Холст, акрил',
+      size: '60×60 см',
+      price: '75 000 ₽',
+      photo: 'images/works/glubina-aseeva-4.jpg'
+    },
+
+    belova1: {
+      title: '«Случайный узор»',
+      author: 'Надежда Белова',
+      statement: 'Метафора рождается не из замысла, а из самого материала — художница признаётся, что ищет образ в случайности, а не диктует его холсту.',
+      medium: 'Холст, акрил',
+      size: '60×80 см',
+      price: '90 000 ₽',
+      photo: 'images/works/glubina-belova-1.jpg'
+    },
+    belova2: {
+      title: '«Гора видит сны»',
+      author: 'Надежда Белова',
+      statement: 'Лежащий силуэт читается сразу и как гора, и как спящее животное — контур один, а образ двоится. Над ним разворачивается воздушная сцена: фигурки лыжников зависают в прыжке, будто это и есть сновидение спящей громады.',
+      medium: 'Холст, акрил',
+      size: 'уточняется',
+      price: '100 000 ₽',
+      photo: 'images/works/glubina-belova-2.jpg'
+    },
+    belova3: {
+      title: '«Малый формат»',
+      author: 'Надежда Белова',
+      statement: 'Работа раннего периода художницы — камерный формат и внимание к предвербальному, ещё не оформленному в слова переживанию.',
+      medium: 'Холст, акрил',
+      size: '40×40 см',
+      price: '60 000 ₽',
+      photo: 'images/works/glubina-belova-3.jpg'
+    },
+    belova4: {
+      title: '«Чудо по умолчанию»',
+      author: 'Надежда Белова',
+      statement: 'Вера в случайные проявления жизни, о которой говорит художница, здесь выражена буквально — форма не была спланирована заранее.',
+      medium: 'Холст, смешанная техника',
+      size: '50×60 см',
+      price: '80 000 ₽',
+      photo: 'images/works/glubina-belova-4.jpg'
+    },
+
+    frolova1: {
+      title: '«Архетип»',
+      author: 'Лиана Фролова',
+      statement: 'Личная история встречается с архетипическим образом — приём, характерный для визуальной мифологии художницы.',
+      medium: 'Холст, смешанная техника',
+      size: '70×90 см',
+      price: '95 000 ₽',
+      photo: 'images/works/glubina-frolova-1.jpg'
+    },
+    frolova2: {
+      title: '«Граница восприятия»',
+      author: 'Лиана Фролова',
+      statement: 'Пространство на грани узнаваемого и вымышленного — там, где заканчивается наблюдение и начинается миф.',
+      medium: 'Холст, акрил',
+      size: '60×80 см',
+      price: '90 000 ₽',
+      photo: 'images/works/glubina-frolova-2.jpg'
+    },
+    frolova3: {
+      title: '«Повседневный символ»',
+      author: 'Лиана Фролова',
+      statement: 'Обычный предмет или сцена превращается в символ — метод, который художница последовательно развивает в разных сериях.',
+      medium: 'Холст, масло',
+      size: '50×70 см',
+      price: '80 000 ₽',
+      photo: 'images/works/glubina-frolova-3.jpg'
+    },
+    frolova4: {
+      title: '«Личная мифология»',
+      author: 'Лиана Фролова',
+      statement: 'Синтез наблюдения и вымысла — там, где заканчивается объективный факт и начинается частная легенда.',
+      medium: 'Холст, смешанная техника',
+      size: '60×60 см',
+      price: '85 000 ₽',
+      photo: 'images/works/glubina-frolova-4.jpg'
     }
   };
 
@@ -760,6 +1026,7 @@
     document.getElementById('workModalStatement').textContent = w.statement;
     document.getElementById('workModalMedium').textContent = w.medium;
     document.getElementById('workModalSize').textContent = w.size;
+    document.getElementById('workModalPrice').textContent = w.price;
     document.getElementById('workModalPhoto').innerHTML = `<img src="${w.photo}" alt="${w.title}">`;
     document.getElementById('workModalCta').href = `index.html?author=${encodeURIComponent(w.author)}#request`;
     document.getElementById('workModalOverlay').classList.add('active');
