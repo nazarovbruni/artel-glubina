@@ -16,6 +16,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/custom-paintings.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/wall-painting.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/courses.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/university-prep.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/news.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nazarovbruni.github.io/artel-glubina/news-art-rynok-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://nazarovbruni.github.io/artel-glubina/try-on-wall.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
