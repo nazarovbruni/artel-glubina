@@ -163,27 +163,30 @@
   .feature-cta:hover { color: var(--ink); border-color: var(--ink); }
 
   /* ===== REASONS LIST ===== */
-  .reasons-section { padding: 48px 64px 0; }
+  .reasons-section { padding: 48px 64px 56px; }
   .reasons-heading {
     font-family: Georgia, serif; font-weight: 700; font-size: 24px;
-    padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 24px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 32px;
   }
-  .reasons-list {
-    list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px;
+  .reasons-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 36px;
   }
-  .reasons-list li {
-    font-size: 14px; line-height: 1.6; color: var(--ink); padding: 12px 0 12px 18px;
-    border-top: 1px solid var(--line); position: relative;
+  .reason-item { padding-top: 4px; }
+  .reason-num {
+    font-family: Georgia, serif; font-weight: 700; font-size: 30px;
+    color: var(--line); line-height: 1; margin-bottom: 10px;
   }
-  .reasons-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
+  .reason-text { font-size: 14.5px; line-height: 1.55; color: var(--ink); max-width: 26ch; }
 
   @media (max-width: 900px) {
     .feature-section { padding: 8px 24px 0; }
     .feature-block-photo { grid-template-columns: 1fr; }
     .feature-block-text { grid-template-columns: 1fr; }
-    .reasons-section { padding: 40px 24px 0; }
-    .reasons-list { grid-template-columns: 1fr; }
+    .reasons-section { padding: 40px 24px 48px; }
+    .reasons-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  }
+  @media (max-width: 560px) {
+    .reasons-grid { grid-template-columns: 1fr; }
   }
 
   /* ===== EXAMPLES GRID ===== */
@@ -424,8 +427,8 @@
 
     <div class="feature-block-photo">
       <div class="feature-media-pair">
-        <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
-        <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+        <div class="feature-media"><img loading="lazy" src="images/courses-gyotaku-1.jpg" alt="Гётаку — кисти и материалы"></div>
+        <div class="feature-media"><img loading="lazy" src="images/courses-gyotaku-2.jpg" alt="Гётаку — готовые оттиски рыб"></div>
       </div>
       <div>
         <span class="feature-tag">Разовый формат</span>
@@ -439,13 +442,28 @@
 
   <section class="reasons-section">
     <div class="reasons-heading">Почему наши занятия отличаются</div>
-    <ul class="reasons-list">
-      <li>Более 20 лет художественной практики</li>
-      <li>Академическая школа и современное искусство</li>
-      <li>Индивидуальный подход к каждому ученику</li>
-      <li>Обучение не копированию, а развитию собственного художественного мышления</li>
-      <li>Подготовка к поступлению, создание портфолио или реализация авторского проекта</li>
-    </ul>
+    <div class="reasons-grid">
+      <div class="reason-item">
+        <div class="reason-num">01</div>
+        <div class="reason-text">Более 20 лет художественной практики</div>
+      </div>
+      <div class="reason-item">
+        <div class="reason-num">02</div>
+        <div class="reason-text">Академическая школа и современное искусство</div>
+      </div>
+      <div class="reason-item">
+        <div class="reason-num">03</div>
+        <div class="reason-text">Индивидуальный подход к каждому ученику</div>
+      </div>
+      <div class="reason-item">
+        <div class="reason-num">04</div>
+        <div class="reason-text">Обучение не копированию, а развитию собственного художественного мышления</div>
+      </div>
+      <div class="reason-item">
+        <div class="reason-num">05</div>
+        <div class="reason-text">Подготовка к поступлению, создание портфолио или реализация авторского проекта</div>
+      </div>
+    </div>
   </section>
 
   <section class="examples-section">
