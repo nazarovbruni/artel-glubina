@@ -758,12 +758,18 @@
     text-decoration: none;
     border-bottom: 1px solid var(--accent-teal);
   }
-  .studio-legal {
+  .studio-map-link {
     margin-top: 12px;
+    display: inline-block;
     font-family: Georgia, serif;
-    font-size: 11px;
-    color: var(--ink-soft);
+    font-size: 13px;
+    color: var(--accent-teal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-teal);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
   }
+  .studio-map-link:hover { color: var(--ink); border-color: var(--ink); }
   .studio-contact-text strong {
     color: var(--accent-teal);
     font-weight: 700;
@@ -2102,7 +2108,7 @@
       <div class="studio-contact-col">
         <div class="studio-contact-label">Адрес</div>
         <div class="studio-contact-text">Москва<br>Фрунзенская набережная, д. 46<br>3-й подъезд</div>
-        <div class="studio-legal">ООО «Виктория» &middot; ИНН 8603150120</div>
+        <a class="studio-map-link" href="https://yandex.ru/maps/?text=Москва%2C%20Фрунзенская%20набережная%2C%2046" target="_blank" rel="noopener">yandex.ru/maps/?text=Москва, Фрунзенская набережная, 46</a>
       </div>
       <div class="studio-contact-col">
         <div class="studio-contact-label">Занятия</div>
