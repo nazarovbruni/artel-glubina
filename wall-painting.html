@@ -111,6 +111,12 @@
     position: absolute; left: 14px; bottom: 12px; right: 14px;
     font-style: italic; font-size: 12.5px; color: var(--ink-soft); line-height: 1.4;
   }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .gallery-item.has-photo span {
+    color: var(--white); text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  }
 
   /* ===== PROCESS STEPS (как мы работаем) ===== */
   .process-section { padding: 48px 64px 0; }
@@ -310,6 +316,10 @@
       <div class="gallery-item"><span>Роспись потолка</span></div>
       <div class="gallery-item"><span>Граффити на заказ</span></div>
       <div class="gallery-item"><span>Роспись стен в бассейне</span></div>
+      <div class="gallery-item has-photo"><img loading="lazy" src="images/glubina-mozaika-1.jpg" alt="Мозаика — геометрический орнамент"><span>Мозаика — геометрический орнамент</span></div>
+      <div class="gallery-item has-photo"><img loading="lazy" src="images/glubina-mozaika-2.jpg" alt="Мозаика — настенная композиция"><span>Мозаика — настенная композиция</span></div>
+      <div class="gallery-item has-photo"><img loading="lazy" src="images/glubina-mozaika-3.jpg" alt="Мозаика — портретный сюжет"><span>Мозаика — портретный сюжет</span></div>
+      <div class="gallery-item has-photo"><img loading="lazy" src="images/glubina-mozaika-4.jpg" alt="Мозаика — цветочный орнамент"><span>Мозаика — цветочный орнамент</span></div>
     </div>
   </section>
 
