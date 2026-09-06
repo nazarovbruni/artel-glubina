@@ -139,6 +139,8 @@
     background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 10px, #F4F4F1 10px, #F4F4F1 20px);
   }
   .feature-media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
+  .feature-media-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .feature-media-pair .feature-media { aspect-ratio: 3/4; }
   .feature-block-text {
     display: grid; grid-template-columns: 180px 1fr; gap: 36px;
     padding: 44px 0; border-top: 1px solid var(--line);
@@ -350,7 +352,10 @@
   <section class="feature-section">
 
     <div class="feature-block-photo">
-      <div class="feature-media"><div class="example-thumb-placeholder">фото скоро</div></div>
+      <div class="feature-media-pair">
+        <div class="feature-media"><img loading="lazy" src="images/courses-masterclass-1.jpg" alt="Корпоративный мастер-класс — Глубина"></div>
+        <div class="feature-media"><img loading="lazy" src="images/courses-masterclass-2.jpg" alt="Корпоративный мастер-класс — Глубина"></div>
+      </div>
       <div>
         <span class="feature-tag">Только очно</span>
         <div class="feature-title">Корпоративные мастер-классы</div>
