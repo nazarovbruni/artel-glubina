@@ -320,6 +320,58 @@
     .work-modal-box { grid-template-columns: 1fr; max-height: 90vh; }
     .work-modal-photo { min-height: 260px; }
   }
+  /* ===== SERVICES TEASER (переиспользовано с главной) ===== */
+  .services-heading-section { padding: 48px 64px 0; }
+  .services-heading {
+    font-family: Georgia, serif; font-weight: 700; font-size: 30px;
+    padding-bottom: 16px; border-bottom: 1px solid var(--ink);
+  }
+  .services-sub {
+    font-style: italic; font-size: 14px; color: var(--ink-soft);
+    margin-top: 14px; max-width: 62ch;
+  }
+  .photo-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line); padding: 24px 64px 64px;
+  }
+  .photo-cell:first-child { border-left: 1px solid var(--line); }
+  .photo-cell {
+    aspect-ratio: 4/5; background: linear-gradient(135deg, #d8d8d8, #ababab);
+    position: relative; overflow: hidden;
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    display: block; text-decoration: none; color: var(--ink);
+  }
+  .photo-cell img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05); transition: filter 0.5s ease, transform 0.5s ease;
+  }
+  .photo-cell:hover img { filter: grayscale(0) contrast(1.02); transform: scale(1.03); }
+  .photo-cell::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,15,15,0.85) 0%, rgba(15,15,15,0.38) 45%, rgba(15,15,15,0.04) 70%);
+    pointer-events: none;
+  }
+  .photo-cell .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 22px 26px; z-index: 2; }
+  .photo-cell .cap-tag {
+    font-family: Georgia, serif; font-size: 12.5px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-teal); margin-bottom: 10px; display: block;
+  }
+  .photo-cell .cap-title { font-family: Georgia, serif; font-weight: 700; font-size: 21px; line-height: 1.25; color: #FFFFFF; }
+  .photo-cell .cap-desc {
+    font-family: Georgia, serif; font-style: italic; font-size: 13.5px;
+    line-height: 1.5; color: #D8D8D4; display: block; margin-top: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .services-heading-section { padding: 32px 24px 0; }
+    .services-heading { font-size: 24px; }
+    .photo-strip {
+      grid-template-columns: none; display: flex; overflow-x: auto;
+      -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+      padding: 20px 24px 40px;
+    }
+    .photo-strip .photo-cell { flex: 0 0 78%; scroll-snap-align: start; border-right: 1px solid var(--white); }
+  }
 
 </style>
 
@@ -634,6 +686,43 @@
       <p class="about-text" style="margin-top: 14px;"><em>Если ты сам художник, скульптор или куратор — присоединяйся к Глубине.</em></p>
       <a class="about-link" href="http://galleryglubina.ru" target="_blank" rel="noopener">galleryglubina.ru — выставки и сообщество →</a>
     </div>
+  </section>
+
+  <section class="services-heading-section">
+    <div class="services-heading">Наши услуги</div>
+    <p class="services-sub">Посмотрели работы наших художников — вот чем ещё можем помочь.</p>
+  </section>
+  <section class="photo-strip">
+    <a class="photo-cell" href="custom-paintings.html">
+      <div class="cap">
+        <span class="cap-tag">Создание</span>
+        <span class="cap-title">Картины на заказ и копии классиков</span>
+        <span class="cap-desc">портрет по фото, копия картины, интерьерная живопись под ваше пространство</span>
+      </div>
+    </a>
+    <a class="photo-cell" href="wall-painting.html">
+      <img loading="lazy" src="images/homepage-wallpainting-tile.jpg" alt="Роспись стен и мозаика">
+      <div class="cap">
+        <span class="cap-tag">Оформление</span>
+        <span class="cap-title">Роспись стен и мозаика</span>
+        <span class="cap-desc">для дома, офиса и общественных пространств — от эскиза до монтажа на месте</span>
+      </div>
+    </a>
+    <a class="photo-cell" href="courses.html">
+      <img loading="lazy" src="images/homepage-courses-tile.jpg" alt="Мастер-классы и курсы">
+      <div class="cap">
+        <span class="cap-tag">Образование</span>
+        <span class="cap-title">Мастер-классы и курсы</span>
+        <span class="cap-desc">для корпоративных клиентов, группы и индивидуальные занятия для взрослых и детей</span>
+      </div>
+    </a>
+    <a class="photo-cell" href="university-prep.html">
+      <div class="cap">
+        <span class="cap-tag">Поступление</span>
+        <span class="cap-title">Подготовка в творческие вузы</span>
+        <span class="cap-desc">рисунок, живопись, композиция и портфолио — Строгановка, МАРХИ, Суриковский</span>
+      </div>
+    </a>
   </section>
 
   <footer>
