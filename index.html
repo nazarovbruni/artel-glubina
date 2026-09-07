@@ -1486,6 +1486,35 @@
     transition: background 0.2s, color 0.2s;
   }
   .form-submit:hover { background: var(--accent-teal); color: var(--white); }
+  .form-submit:disabled { opacity: 0.6; cursor: default; }
+
+  /* ===== THANK YOU POPUP ===== */
+  .thankyou-overlay {
+    position: fixed; inset: 0; background: rgba(15,15,15,0.85);
+    display: none; align-items: center; justify-content: center;
+    z-index: 200; padding: 24px;
+  }
+  .thankyou-overlay.active { display: flex; }
+  .thankyou-box {
+    background: var(--white); max-width: 420px; width: 100%;
+    padding: 40px 36px; text-align: center; position: relative;
+  }
+  .thankyou-close {
+    position: absolute; top: 16px; right: 18px; font-size: 22px;
+    background: none; border: none; color: var(--ink-soft); cursor: pointer; line-height: 1;
+  }
+  .thankyou-close:hover { color: var(--ink); }
+  .thankyou-title {
+    font-family: Georgia, serif; font-weight: 700; font-size: 24px;
+    color: var(--ink); margin-bottom: 14px;
+  }
+  .thankyou-text { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 26px; }
+  .thankyou-btn {
+    background: var(--black); color: var(--white); border: none;
+    padding: 13px 30px; font-family: Georgia, serif; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s;
+  }
+  .thankyou-btn:hover { background: var(--accent-teal); }
 
   .form-disclaimer {
     font-family: Georgia, serif;
@@ -2383,7 +2412,11 @@
         <div class="request-title">Расскажите, что вас интересует</div>
         <p class="request-note">Заполнение формы ни к чему не обязывает — мы свяжемся, всё обсудим, и вы сами решите, продолжать ли.</p>
       </div>
-      <form>
+      <form id="requestForm">
+        <input type="hidden" name="access_key" id="w3fAccessKey" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="Новая заявка с сайта Глубина">
+        <input type="hidden" name="from_name" value="Сайт Глубина">
+        <input type="hidden" name="interest" id="f-interest" value="Заказ картины">
         <div class="interest-group">
           <div class="interest-label">Что вас интересует</div>
           <div class="interest-options">
@@ -2396,36 +2429,46 @@
         <div class="form-row">
           <div class="form-field">
             <label for="f-name">Имя</label>
-            <input type="text" id="f-name" placeholder="Как вас зовут">
+            <input type="text" id="f-name" name="name" placeholder="Как вас зовут">
           </div>
           <div class="form-field">
             <label for="f-contact">Телефон или Telegram</label>
-            <input type="text" id="f-contact" placeholder="+7 ___ ___-__-__ или @username">
+            <input type="text" id="f-contact" name="contact" placeholder="+7 ___ ___-__-__ или @username">
           </div>
         </div>
         <div class="form-row">
           <div class="form-field">
             <label for="f-author">Автор (если уже выбрали)</label>
-            <input type="text" id="f-author" placeholder="Необязательно">
+            <input type="text" id="f-author" name="author" placeholder="Необязательно">
           </div>
           <div class="form-field">
             <label for="f-budget">Бюджет</label>
-            <input type="text" id="f-budget" placeholder="Необязательно, ориентировочно">
+            <input type="text" id="f-budget" name="budget" placeholder="Необязательно, ориентировочно">
           </div>
         </div>
         <div class="form-row">
           <div class="form-field full">
             <label for="f-message">Коротко о задаче</label>
-            <textarea id="f-message" placeholder="Например: картина под интерьер гостиной, тёплые тона, формат примерно 80×100"></textarea>
+            <textarea id="f-message" name="message" placeholder="Например: картина под интерьер гостиной, тёплые тона, формат примерно 80×100"></textarea>
           </div>
         </div>
         <div class="form-submit-row">
-          <button type="submit" class="form-submit">Отправить заявку</button>
-          <span class="form-disclaimer">Ответим в течение дня</span>
+          <button type="submit" class="form-submit" id="requestSubmitBtn">Отправить заявку</button>
+          <span class="form-disclaimer" id="requestFormStatus">Ответим в течение дня</span>
         </div>
       </form>
     </div>
   </section>
+
+  <div class="thankyou-overlay" id="thankyouOverlay">
+    <div class="thankyou-box">
+      <button class="thankyou-close" id="thankyouClose">&times;</button>
+      <div class="thankyou-title">Спасибо за ваш запрос!</div>
+      <p class="thankyou-text">Мы получили заявку и ответим в течение дня — на почту, телефон или в Telegram, который вы указали.</p>
+      <button class="thankyou-btn" id="thankyouOk">Хорошо</button>
+    </div>
+  </div>
+
 
 
   <div class="studio-lightbox" id="studioLightbox">
@@ -2486,8 +2529,64 @@
     chip.addEventListener('click', () => {
       document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
+      const interestField = document.getElementById('f-interest');
+      if (interestField) interestField.value = chip.textContent.trim();
     });
   });
+
+  // ===== Request form submission (Web3Forms) =====
+  (function () {
+    const form = document.getElementById('requestForm');
+    if (!form) return;
+    const submitBtn = document.getElementById('requestSubmitBtn');
+    const statusEl = document.getElementById('requestFormStatus');
+    const thankyou = document.getElementById('thankyouOverlay');
+
+    function openThankyou() {
+      thankyou.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeThankyou() {
+      thankyou.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('thankyouClose').addEventListener('click', closeThankyou);
+    document.getElementById('thankyouOk').addEventListener('click', closeThankyou);
+    thankyou.addEventListener('click', (e) => { if (e.target === thankyou) closeThankyou(); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const accessKey = document.getElementById('w3fAccessKey').value;
+      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        statusEl.textContent = 'Форма пока не подключена — напишите нам в Telegram или на почту.';
+        return;
+      }
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Отправляем…';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.reset();
+          document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('active'));
+          form.querySelector('.interest-chip').classList.add('active');
+          document.getElementById('f-interest').value = 'Заказ картины';
+          statusEl.textContent = 'Ответим в течение дня';
+          openThankyou();
+        } else {
+          statusEl.textContent = 'Не получилось отправить — напишите нам в Telegram или на почту.';
+        }
+      } catch (err) {
+        statusEl.textContent = 'Не получилось отправить — напишите нам в Telegram или на почту.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  })();
 
   // Reliable anchor scrolling fallback (helps in preview/webview contexts
   // where native href="#id" jumps can be unreliable)
