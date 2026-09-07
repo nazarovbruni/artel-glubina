@@ -122,6 +122,16 @@
   .content-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-teal); }
   .content-list.single-col { grid-template-columns: 1fr; }
 
+  .content-num-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 32px;
+  }
+  .content-num-item { padding-top: 4px; }
+  .content-num {
+    font-family: Georgia, serif; font-weight: 700; font-size: 28px;
+    color: var(--line); line-height: 1; margin-bottom: 10px;
+  }
+  .content-num-text { font-size: 14px; line-height: 1.55; color: var(--ink); max-width: 24ch; }
+
   /* ===== FORMATS GRID ===== */
   .formats-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 0;
@@ -136,6 +146,10 @@
     .content-block { padding: 32px 24px 0; }
     .content-list { grid-template-columns: 1fr; }
     .formats-grid { grid-template-columns: 1fr; }
+    .content-num-grid { grid-template-columns: 1fr 1fr; gap: 26px 20px; }
+  }
+  @media (max-width: 560px) {
+    .content-num-grid { grid-template-columns: 1fr; }
   }
 
   /* ===== EXAMPLES GRID ===== */
@@ -307,15 +321,15 @@
 
   <section class="content-block">
     <div class="content-block-heading">Что входит в подготовку</div>
-    <ul class="content-list">
-      <li>академический рисунок</li>
-      <li>живопись</li>
-      <li>композиция</li>
-      <li>развитие художественного мышления</li>
-      <li>подготовка портфолио</li>
-      <li>разбор экзаменационных заданий</li>
-      <li>индивидуальный план подготовки</li>
-    </ul>
+    <div class="content-num-grid">
+      <div class="content-num-item"><div class="content-num">01</div><div class="content-num-text">академический рисунок</div></div>
+      <div class="content-num-item"><div class="content-num">02</div><div class="content-num-text">живопись</div></div>
+      <div class="content-num-item"><div class="content-num">03</div><div class="content-num-text">композиция</div></div>
+      <div class="content-num-item"><div class="content-num">04</div><div class="content-num-text">развитие художественного мышления</div></div>
+      <div class="content-num-item"><div class="content-num">05</div><div class="content-num-text">подготовка портфолио</div></div>
+      <div class="content-num-item"><div class="content-num">06</div><div class="content-num-text">разбор экзаменационных заданий</div></div>
+      <div class="content-num-item"><div class="content-num">07</div><div class="content-num-text">индивидуальный план подготовки</div></div>
+    </div>
   </section>
 
   <section class="content-block">
@@ -334,23 +348,23 @@
 
   <section class="content-block">
     <div class="content-block-heading">Почему ученики занимаются с нами</div>
-    <ul class="content-list">
-      <li>обучение по индивидуальной программе</li>
-      <li>опыт академической подготовки и современного искусства</li>
-      <li>помощь в создании конкурентного портфолио</li>
-      <li>регулярный анализ прогресса</li>
-      <li>внимание не только к технике, но и к развитию авторского взгляда</li>
-    </ul>
+    <div class="content-num-grid">
+      <div class="content-num-item"><div class="content-num">01</div><div class="content-num-text">обучение по индивидуальной программе</div></div>
+      <div class="content-num-item"><div class="content-num">02</div><div class="content-num-text">опыт академической подготовки и современного искусства</div></div>
+      <div class="content-num-item"><div class="content-num">03</div><div class="content-num-text">помощь в создании конкурентного портфолио</div></div>
+      <div class="content-num-item"><div class="content-num">04</div><div class="content-num-text">регулярный анализ прогресса</div></div>
+      <div class="content-num-item"><div class="content-num">05</div><div class="content-num-text">внимание не только к технике, но и к развитию авторского взгляда</div></div>
+    </div>
   </section>
 
   <section class="content-block">
     <div class="content-block-heading">Для кого</div>
-    <ul class="content-list single-col">
-      <li>школьники, планирующие поступление</li>
-      <li>выпускники художественных школ</li>
-      <li>абитуриенты после колледжа</li>
-      <li>взрослые, решившие получить художественное образование</li>
-    </ul>
+    <div class="content-num-grid">
+      <div class="content-num-item"><div class="content-num">01</div><div class="content-num-text">школьники, планирующие поступление</div></div>
+      <div class="content-num-item"><div class="content-num">02</div><div class="content-num-text">выпускники художественных школ</div></div>
+      <div class="content-num-item"><div class="content-num">03</div><div class="content-num-text">абитуриенты после колледжа</div></div>
+      <div class="content-num-item"><div class="content-num">04</div><div class="content-num-text">взрослые, решившие получить художественное образование</div></div>
+    </div>
   </section>
 
   <section class="examples-section">
