@@ -332,7 +332,67 @@
   @media (max-width: 900px) {
     footer { padding: 40px 24px 24px; }
   }
-</style>
+
+  /* ===== БУРГЕР-МЕНЮ ===== */
+  .nav-burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 4px;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  header.nav-open .nav-burger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  header.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+  header.nav-open .nav-burger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  @media (max-width: 900px) {
+    .nav-burger { display: flex; }
+    .top-cta-btn { display: none !important; }
+    .nav-row {
+      display: none;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0 !important;
+      padding: 0 !important;
+      background: var(--black);
+      border-top: 1px solid var(--line-dark);
+      overflow: hidden;
+      flex-wrap: nowrap !important;
+      overflow-x: visible !important;
+      justify-content: flex-start !important;
+    }
+    .nav-row.open { display: flex !important; }
+    .nav-row a {
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 15px 24px !important;
+      border-bottom: 1px solid var(--line-dark) !important;
+      font-size: 14px !important;
+      letter-spacing: 0.06em !important;
+      white-space: normal !important;
+      flex-shrink: unset !important;
+    }
+    .nav-row a:last-child { border-bottom: none !important; }
+  }
+
+  </style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -363,6 +423,10 @@
         </div>
       </a>
       <a class="top-cta-btn" href="index.html#request">Задать вопрос →</a>
+    
+      <button class="nav-burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
     <nav class="nav-row">
       <a href="index.html#services">Услуги</a>
@@ -812,5 +876,26 @@
   drawWall();
 </script>
 
+<script>
+  // Бургер-меню
+  (function() {
+    var burger = document.querySelector('.nav-burger');
+    var nav    = document.querySelector('.nav-row');
+    var hdr    = document.querySelector('header');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', function() {
+      nav.classList.toggle('open');
+      hdr.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+    nav.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        nav.classList.remove('open');
+        hdr.classList.remove('nav-open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
