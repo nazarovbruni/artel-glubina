@@ -319,6 +319,15 @@
     overflow: hidden;
     cursor: zoom-in;
   }
+  .studio-photo-cell img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.4s ease, transform 0.4s ease;
+  }
+  .studio-photo-cell:hover img {
+    filter: grayscale(0) contrast(1);
+    transform: scale(1.04);
+  }
 .studio-contact-row {
     margin-top: 36px;
     display: grid;
@@ -386,6 +395,64 @@
     font-size: 22px; cursor: pointer;
     display: flex; align-items: center; justify-content: center;
     transition: background 0.2s, border-color 0.2s;
+  }
+
+  /* CONTACT CTA */
+  .contact-cta-section {
+    background: var(--black);
+    padding: 64px;
+  }
+  .contact-cta-inner {
+    max-width: 680px;
+  }
+  .contact-cta-title {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .contact-cta-text {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 32px;
+  }
+  .contact-cta-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .contact-cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-family: Georgia, serif;
+    font-size: 15px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .contact-cta-btn:hover {
+    background: var(--white);
+    color: var(--black);
+  }
+  .contact-cta-tg {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: var(--accent-teal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-teal);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .contact-cta-tg:hover { opacity: 0.72; }
+  @media (max-width: 680px) {
+    .contact-cta-section { padding: 40px 24px; }
+    .contact-cta-title { font-size: 24px; }
   }
 
   /* NEW STUDIO PHOTO */
@@ -576,6 +643,18 @@
       <a class="cta-secondary" href="#request">Записаться на занятие →</a>
     </div>
   </section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta-section">
+  <div class="contact-cta-inner">
+    <div class="contact-cta-title">Связаться с нами</div>
+    <div class="contact-cta-text">Расскажите о своей задаче — мы ответим и подберём удобное время для первого занятия.</div>
+    <div class="contact-cta-links">
+      <a class="contact-cta-btn" href="mailto:gallery@glubinagallery.ru?subject=%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BA%20%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8E">Написать на почту</a>
+      <a class="contact-cta-tg" href="https://t.me/galleryglubina" target="_blank" rel="noopener">Telegram →</a>
+    </div>
+  </div>
+</section>
 
 <footer>
     <div class="footer-grid">
