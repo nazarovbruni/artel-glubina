@@ -2555,37 +2555,28 @@
     document.getElementById('thankyouOk').addEventListener('click', closeThankyou);
     thankyou.addEventListener('click', (e) => { if (e.target === thankyou) closeThankyou(); });
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const accessKey = document.getElementById('w3fAccessKey').value;
-      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        statusEl.textContent = 'Форма пока не подключена — напишите нам в Telegram или на почту.';
-        return;
-      }
-      submitBtn.disabled = true;
-      statusEl.textContent = 'Отправляем…';
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
-        });
-        const data = await res.json();
-        if (data.success) {
-          form.reset();
-          document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('active'));
-          form.querySelector('.interest-chip').classList.add('active');
-          document.getElementById('f-interest').value = 'Заказ картины';
-          statusEl.textContent = 'Ответим в течение дня';
-          openThankyou();
-        } else {
-          statusEl.textContent = 'Не получилось отправить — напишите нам в Telegram или на почту.';
-        }
-      } catch (err) {
-        statusEl.textContent = 'Не получилось отправить — напишите нам в Telegram или на почту.';
-      } finally {
-        submitBtn.disabled = false;
-      }
+      const interest = document.getElementById('f-interest').value || '';
+      const name    = document.getElementById('f-name').value || '';
+      const contact = document.getElementById('f-contact').value || '';
+      const author  = document.getElementById('f-author').value || '';
+      const budget  = document.getElementById('f-budget').value || '';
+      const message = document.getElementById('f-message').value || '';
+
+      const subject = encodeURIComponent('Заявка с сайта Глубина' + (interest ? ': ' + interest : ''));
+      const body = encodeURIComponent(
+        'Что интересует: ' + (interest || '—') + '\n' +
+        'Имя: ' + (name || '—') + '\n' +
+        'Телефон / Telegram: ' + (contact || '—') + '\n' +
+        'Автор: ' + (author || '—') + '\n' +
+        'Бюджет: ' + (budget || '—') + '\n\n' +
+        'Задача:\n' + (message || '—')
+      );
+
+      window.location.href = 'mailto:gallery@glubinagallery.ru?subject=' + subject + '&body=' + body;
+      openThankyou();
+      return;
     });
   })();
 
