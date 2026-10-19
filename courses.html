@@ -190,11 +190,14 @@
   }
 
   /* ===== EXAMPLES GRID ===== */
-  .examples-section { padding: 8px 64px 48px; }
+  .examples-section { padding: 48px 64px 48px; }
   .examples-heading {
-    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink-soft); margin-bottom: 16px; padding-bottom: 10px;
-    border-bottom: 1px solid var(--line);
+    font-family: Georgia, serif; font-weight: 700; font-size: 26px;
+    color: var(--black); margin-bottom: 10px;
+  }
+  .examples-sub {
+    font-size: 14.5px; line-height: 1.65; color: var(--ink-soft);
+    max-width: 64ch; margin-bottom: 28px;
   }
   .examples-grid {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
@@ -508,7 +511,8 @@
 
 
   <section class="examples-section">
-    <div class="examples-heading">Примеры</div>
+    <div class="examples-heading">Почувствуйте атмосферу</div>
+    <p class="examples-sub">Мастерская на Фрунзенской набережной — это не учебный класс и не коворкинг. Здесь пахнет льняным маслом, на стенах висят незаконченные работы, и время течёт иначе. Приходите — и вы поймёте, почему люди возвращаются снова.</p>
     <div class="examples-grid">
       <div class="example-thumb"><img loading="lazy" src="images/studio-1.jpg" alt="Студия Глубина на Фрунзенской — занятия"></div>
       <div class="example-thumb"><img loading="lazy" src="images/studio-2.jpg" alt="Студия Глубина на Фрунзенской — занятия"></div>
