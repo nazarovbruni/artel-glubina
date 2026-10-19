@@ -118,6 +118,8 @@
   .feature-list-heading {
     font-family: Georgia, serif; font-weight: 700; font-size: 15px; margin: 18px 0 8px;
   }
+  .feature-inline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-bottom: 16px; }
+  @media (max-width: 540px) { .feature-inline-grid { grid-template-columns: 1fr; } }
   .feature-cta {
     display: inline-block; font-size: 13px; color: var(--accent-teal); text-decoration: none;
     border-bottom: 1px solid var(--accent-teal); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
@@ -403,28 +405,28 @@
         <div class="feature-title">Копии картин известных художников</div>
         <p class="feature-desc">Профессионально выполняем художественные копии произведений известных мастеров. Работа ведётся с вниманием к композиции, цветовым отношениям, фактуре и особенностям живописной техники оригинала. Такие копии подходят для частных коллекций, интерьеров, образовательных целей и подарков.</p>
 
-        <div class="feature-list-heading">Возможны копии произведений</div>
-        <ul class="feature-list">
-          <li>русской классической живописи</li>
-          <li>европейских мастеров</li>
-          <li>импрессионистов</li>
-          <li>художников XIX и XX веков</li>
-        </ul>
+        <div class="feature-inline-grid">
+          <div>
+            <div class="feature-list-heading">Направления</div>
+            <ul class="feature-list">
+              <li>русская классическая живопись</li>
+              <li>европейские мастера</li>
+              <li>импрессионисты</li>
+              <li>художники XIX и XX веков</li>
+            </ul>
+          </div>
+          <div>
+            <div class="feature-list-heading">Материалы</div>
+            <ul class="feature-list">
+              <li>холст на подрамнике</li>
+              <li>масло, акрил</li>
+              <li>профессиональные материалы</li>
+              <li>размеры — по запросу</li>
+            </ul>
+          </div>
+        </div>
 
-        <div class="feature-list-heading">Материалы</div>
-        <ul class="feature-list">
-          <li>холст на подрамнике</li>
-          <li>масло</li>
-          <li>акрил</li>
-          <li>профессиональные художественные материалы</li>
-          <li>различные размеры по запросу</li>
-        </ul>
-
-        <div class="feature-list-heading">Стоимость</div>
-        <p class="feature-desc">Рассчитывается индивидуально и зависит от размера, сложности сюжета, выбранной техники и сроков исполнения.</p>
-
-        <div class="feature-list-heading">Заказать картину</div>
-        <p class="feature-desc">Если у вас уже есть идея или изображение — отправьте его через форму обратной связи. Поможем подобрать формат, материалы и рассчитаем стоимость работы.</p>
+        <p class="feature-desc" style="margin-top:4px;">Стоимость рассчитывается индивидуально — зависит от размера, сложности сюжета и техники. Если у вас уже есть идея или изображение, отправьте через форму обратной связи.</p>
 
         <a class="feature-cta" href="index.html#request">Заказать картину →</a>
       </div>
