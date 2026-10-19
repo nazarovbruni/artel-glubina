@@ -126,16 +126,10 @@
   .feature-cta:hover { color: var(--ink); border-color: var(--ink); }
 
   /* ===== MINI PROCESS (как проходит работа) ===== */
-  .mini-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 22px 0 8px; }
-  .mini-process-step { position: relative; }
-  .mini-process-num { font-family: Georgia, serif; font-weight: 700; font-size: 28px; color: var(--line); line-height: 1; margin-bottom: 8px; }
-  .mini-process-title { font-family: Georgia, serif; font-weight: 700; font-size: 14px; margin-bottom: 6px; }
-  .mini-process-desc { font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); }
 
   @media (max-width: 900px) {
     .feature-section { padding: 8px 24px 0; }
     .feature-block-photo { grid-template-columns: 1fr; }
-    .mini-process { grid-template-columns: 1fr 1fr; }
   }
 
   /* ===== EXAMPLES GRID ===== */
@@ -325,7 +319,27 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* ── Как проходит работа ── */
+  .how-section { background: #F5F3EF; padding: 64px 64px 72px; }
+  .how-inner { max-width: 1272px; margin: 0 auto; }
+  .how-heading { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 40px; color: var(--black); }
+  .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .how-num { font-family: Georgia, serif; font-weight: 700; font-size: 36px; color: var(--line); line-height: 1; margin-bottom: 12px; }
+  .how-title { font-family: Georgia, serif; font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+  .how-desc { font-size: 13px; line-height: 1.6; color: var(--ink-soft); }
+  .how-cta { margin-top: 40px; }
+  .how-btn { display: inline-block; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; color: var(--accent-teal); border-bottom: 1px solid var(--accent-teal); padding-bottom: 2px; text-decoration: none; transition: opacity 0.18s; }
+  .how-btn:hover { opacity: 0.7; }
+  @media (max-width: 900px) {
+    .how-section { padding: 40px 24px 48px; }
+    .how-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .how-heading { font-size: 22px; margin-bottom: 28px; }
+  }
+  @media (max-width: 540px) {
+    .how-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -379,32 +393,6 @@
           <li>современные интерьерные картины</li>
           <li>картины для дома, офиса, гостиниц и общественных пространств</li>
         </ul>
-
-        <div class="feature-list-heading">Как проходит работа</div>
-        <div class="mini-process">
-          <div class="mini-process-step">
-            <div class="mini-process-num">01</div>
-            <div class="mini-process-title">Обсуждение идеи</div>
-            <div class="mini-process-desc">Определяем сюжет, стиль, размеры, материалы и сроки.</div>
-          </div>
-          <div class="mini-process-step">
-            <div class="mini-process-num">02</div>
-            <div class="mini-process-title">Эскиз</div>
-            <div class="mini-process-desc">При необходимости создаём предварительный эскиз или несколько вариантов композиции.</div>
-          </div>
-          <div class="mini-process-step">
-            <div class="mini-process-num">03</div>
-            <div class="mini-process-title">Создание картины</div>
-            <div class="mini-process-desc">Работа выполняется вручную профессиональными художественными материалами.</div>
-          </div>
-          <div class="mini-process-step">
-            <div class="mini-process-num">04</div>
-            <div class="mini-process-title">Передача заказчику</div>
-            <div class="mini-process-desc">Готовая картина передаётся лично или отправляется транспортной компанией.</div>
-          </div>
-        </div>
-
-        <a class="feature-cta" href="index.html#request">Заказать →</a>
       </div>
     </div>
 
@@ -464,6 +452,36 @@
 
   
 
+<section class="how-section">
+  <div class="how-inner">
+    <div class="how-heading">Как проходит работа</div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-title">Обсуждение идеи</div>
+        <div class="how-desc">Определяем сюжет, стиль, размеры, материалы и сроки.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div class="how-title">Эскиз</div>
+        <div class="how-desc">При необходимости создаём предварительный эскиз или несколько вариантов композиции.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-title">Создание картины</div>
+        <div class="how-desc">Работа выполняется вручную профессиональными художественными материалами.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div class="how-title">Передача заказчику</div>
+        <div class="how-desc">Готовая картина передаётся лично или отправляется транспортной компанией.</div>
+      </div>
+    </div>
+    <div class="how-cta">
+      <a class="how-btn" href="index.html#request">Заказать картину →</a>
+    </div>
+  </div>
+</section>
 <section class="related-section">
   <div class="related-heading">Другие услуги</div>
   <div class="related-grid">
