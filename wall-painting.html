@@ -227,12 +227,13 @@
 
   /* ===== BOOKING ===== */
   .booking-section {
-    background: var(--black); color: var(--white);
+    background: #F2F0EC; color: var(--black);
     padding: 56px 64px; text-align: center; margin-top: 48px;
+    border-top: 1px solid var(--line);
   }
   .booking-title { font-weight: 700; font-size: 28px; margin-bottom: 14px; }
   .booking-text {
-    font-size: 15px; line-height: 1.6; color: #C9C9C9;
+    font-size: 15px; line-height: 1.6; color: var(--ink-soft);
     max-width: 60ch; margin: 0 auto 30px;
   }
   .booking-actions { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
@@ -243,12 +244,12 @@
   }
   .booking-btn-primary:hover { opacity: 0.85; }
   .booking-btn-secondary {
-    display: inline-block; background: transparent; color: var(--white);
-    border: 1px solid #5A5A5A; text-decoration: none; padding: 15px 28px;
+    display: inline-block; background: transparent; color: var(--black);
+    border: 1px solid var(--line); text-decoration: none; padding: 15px 28px;
     font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em;
     transition: border-color 0.2s, color 0.2s;
   }
-  .booking-btn-secondary:hover { border-color: var(--white); }
+  .booking-btn-secondary:hover { border-color: var(--black); }
 
   /* ===== FOOTER ===== */
   footer { background: var(--black); color: #9A9A9A; padding: 48px 64px 28px; }
