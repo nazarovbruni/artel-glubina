@@ -212,7 +212,7 @@
   .modal-photo-placeholder { font-style: italic; font-size: 13px; color: var(--ink-soft); text-align: center; padding: 0 20px; }
 
   /* ===== COLLECTION SECTION (не-артельные авторы) ===== */
-  .collection-section { padding: 8px 64px 64px; }
+  .collection-section { padding: 64px 64px 64px; }
   .collection-heading {
     font-family: Georgia, serif; font-weight: 700; font-size: 32px;
     padding-bottom: 16px; border-bottom: 1px solid var(--ink); margin-bottom: 8px;
@@ -302,6 +302,7 @@
   .services-teaser {
     background: var(--black); color: var(--white);
     padding: 64px 64px 72px; text-align: center;
+    margin: 0 64px;
   }
   .services-teaser-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 14px; color: var(--white); }
   .services-teaser-text {
@@ -332,6 +333,7 @@
 
   @media (max-width: 900px) {
     .top-bar, .nav-row, .page-hero, .gallery-section, .services-teaser, footer { padding-left: 24px; padding-right: 24px; }
+    .services-teaser { margin: 0; }
     .page-hero-title { font-size: 30px; }
     .nav-row { overflow-x: auto; gap: 24px; justify-content: flex-start; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
     .nav-row a { white-space: nowrap; flex-shrink: 0; }
