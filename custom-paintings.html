@@ -216,7 +216,7 @@
   /* ===== BOOKING ===== */
   .booking-section {
     background: var(--white); color: var(--black);
-    padding: 56px 64px; text-align: center; border-top: 1px solid var(--line);
+    padding: 56px 64px; text-align: center; border: 1px solid var(--line); margin: 0 64px;
   }
   .booking-title { font-weight: 700; font-size: 28px; margin-bottom: 14px; }
   .booking-text {
@@ -257,7 +257,7 @@
   @media (max-width: 900px) {
     .top-bar, .nav-row, .page-hero, footer { padding-left: 24px; padding-right: 24px; }
     .page-hero-title { font-size: 30px; }
-    .booking-section { padding: 40px 24px; }
+    .booking-section { padding: 40px 24px; margin: 0; border-left: none; border-right: none; }
     .booking-title { font-size: 24px; }
     .nav-row { overflow-x: auto; gap: 24px; justify-content: flex-start; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
     .nav-row a { white-space: nowrap; flex-shrink: 0; }
