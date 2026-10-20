@@ -1616,13 +1616,15 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
-      padding: 0 24px 40px;
+      padding: 0 0 40px;
     }
     .photo-strip .photo-cell {
       flex: 0 0 78%;
       scroll-snap-align: start;
       border-right: 1px solid var(--white);
     }
+    .photo-strip .photo-cell:first-child { margin-left: 24px; }
+    .photo-strip::after { content: ''; flex: 0 0 24px; display: block; }
     .hero { padding: 28px 20px 24px; }
     .hero-graphic { display: none; }
     h1 {
