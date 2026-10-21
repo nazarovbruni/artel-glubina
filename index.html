@@ -24,26 +24,66 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Глубина — картины на заказ, портреты, копии">
 <meta name="twitter:description" content="Студия художников: картины на заказ, портреты по фото, копии картин, интерьерная живопись. Авторские курсы и подготовка к поступлению в художественные вузы.">
+<meta property="og:image" content="https://nazarovbruni.github.io/artel-glubina/images/rospis-klassika.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Артель Глубина — художники, картины на заказ, роспись стен, Москва">
+<meta name="twitter:image" content="https://nazarovbruni.github.io/artel-glubina/images/rospis-klassika.jpg">
+<meta name="author" content="Артель Глубина">
+<meta name="geo.region" content="RU-MOW">
+<meta name="geo.placename" content="Москва">
+<meta name="geo.position" content="55.729700;37.577300">
+<meta name="ICBM" content="55.729700, 37.577300">
 
 <!-- Structured data for search engines -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Глубина",
-  "description": "Студия художников: картины на заказ, портреты по фото, копии картин, интерьерная живопись, курсы и мастер-классы, подготовка к поступлению в художественные вузы.",
-  "url": "https://nazarovbruni.github.io/artel-glubina/",
-  "telephone": "",
-  "email": "gallery@glubinagallery.ru",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Фрунзенская набережная, д. 46, 3-й подъезд",
-    "addressLocality": "Москва",
-    "addressCountry": "RU"
-  },
-  "sameAs": [
-    "https://t.me/galleryglubina",
-    "https://galleryglubina.ru"
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://nazarovbruni.github.io/artel-glubina/#organization",
+      "name": "Артель Глубина",
+      "alternateName": "Глубина",
+      "description": "Сообщество независимых художников и скульпторов. Картины на заказ, роспись стен, фрески, муралы, курсы живописи, подготовка к поступлению в художественные вузы.",
+      "url": "https://nazarovbruni.github.io/artel-glubina/",
+      "telephone": "+74959950613",
+      "email": "gallery@glubinagallery.ru",
+      "image": "https://nazarovbruni.github.io/artel-glubina/images/rospis-klassika.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Фрунзенская набережная, д. 46, 3-й подъезд",
+        "addressLocality": "Москва",
+        "postalCode": "119270",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.7297,
+        "longitude": 37.5773
+      },
+      "sameAs": [
+        "https://t.me/galleryglubina",
+        "http://galleryglubina.ru"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Услуги студии Глубина",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Картины на заказ"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Роспись стен и мозаика"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Курсы живописи"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Подготовка в творческие вузы"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nazarovbruni.github.io/artel-glubina/#website",
+      "url": "https://nazarovbruni.github.io/artel-glubina/",
+      "name": "Артель Глубина",
+      "publisher": {"@id": "https://nazarovbruni.github.io/artel-glubina/#organization"}
+    }
   ]
 }
 </script>
@@ -1978,6 +2018,7 @@
     </nav>
   </header>
 
+<main>
 <div class="page">
 
   <section class="hero">
@@ -2035,7 +2076,7 @@
   </section>
 <section class="pricing-section" id="pricing">
     <div class="pricing-heading">
-      <div class="pricing-title">Цены</div>
+      <h2 class="pricing-title">Цены</h2>
       <div class="pricing-sub">ориентировочная вилка — точная цена после брифа</div>
     </div>
     <div class="pricing-grid">
@@ -2086,7 +2127,7 @@
   </section>
 <section class="team-section" id="team">
     <div class="team-heading">
-      <div class="team-title">Команда</div>
+      <h2 class="team-title">Команда</h2>
       <div class="team-sub">часть большого сообщества Глубина</div>
     </div>
     <div class="team-grid">
@@ -2153,7 +2194,7 @@
   </section>
 <section class="works-section" id="works">
     <div class="works-heading">
-      <div class="works-title">Примеры выполненных работ</div>
+      <h2 class="works-title">Примеры выполненных работ</h2>
       <div class="works-sub">примеры из практики наших авторов</div>
     </div>
     <div class="works-grid">
@@ -2196,7 +2237,7 @@
   </section>
 <section class="studio-section" id="studio">
     <div class="studio-heading">
-      <div class="studio-title">Студия на Фрунзенской</div>
+      <h2 class="studio-title">Студия на Фрунзенской</h2>
       <div class="studio-sub">пространство, где мы работаем</div>
     </div>
     <p class="studio-intro">На Москве-реке, на Фрунзенской набережной — мастерская, где сообщество <em>Глубина</em> рисует, лепит и собирается вместе. Не шоу-рум, а рабочее пространство: здесь пишут картины, готовятся к экзаменам, проводят мастер-классы и просто разговаривают об искусстве за чаем.</p>
@@ -2250,7 +2291,7 @@
 
 <section class="faq-section" id="faq">
     <div class="faq-heading">
-      <div class="faq-title">Частые вопросы</div>
+      <h2 class="faq-title">Частые вопросы</h2>
       <div class="faq-sub">не нашли ответ — <a href="https://t.me/JuliaNazar1900" target="_blank" rel="noopener">напишите нам в Telegram</a></div>
     </div>
     <div class="faq-list">
@@ -2339,7 +2380,7 @@
   </section>
 <section class="testimonials-section" id="testimonials">
     <div class="testimonials-heading">
-      <div class="testimonials-title">Отзывы</div>
+      <h2 class="testimonials-title">Отзывы</h2>
       <div class="testimonials-sub">что говорят те, кто уже работал с нами</div>
     </div>
     <div class="testimonials-grid">
@@ -2445,7 +2486,7 @@
 
 <section class="news-section" id="news">
     <div class="news-heading">
-      <div class="news-title">Новые посты из нашего канала</div>
+      <h2 class="news-title">Новые посты из нашего канала</h2>
       <div class="news-sub">чтобы вы были в курсе трендов, свежих тенденций и интересных историй из жизни арта и архитектуры</div>
     </div>
     <div class="news-grid">
@@ -2562,6 +2603,8 @@
       </form>
     </div>
   </section>
+</div>
+</main>
 
 
   <footer id="contacts">
