@@ -382,8 +382,10 @@
   .process-section {
     padding: 56px 64px 64px;
     background: #F2F0EC;
-    border-top: 1px solid var(--line);
     margin-bottom: 0;
+    /* фон на всю ширину экрана, как у остальных серых блоков */
+    box-shadow: 0 0 0 100vmax #F2F0EC;
+    clip-path: inset(0 -100vmax);
   }
 
   .process-heading {
