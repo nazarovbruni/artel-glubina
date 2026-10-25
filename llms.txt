@@ -33,11 +33,11 @@
 
 ## Страницы сайта
 
-- Главная: https://nazarovbruni.github.io/artel-glubina/
-- Картины на заказ: https://nazarovbruni.github.io/artel-glubina/custom-paintings.html
-- Роспись стен и мозаика: https://nazarovbruni.github.io/artel-glubina/wall-painting.html
-- Подготовка в вузы: https://nazarovbruni.github.io/artel-glubina/university-prep.html
-- Курсы и мастер-классы: https://nazarovbruni.github.io/artel-glubina/courses.html
-- Авторы: https://nazarovbruni.github.io/artel-glubina/authors.html
-- Галерея работ: https://nazarovbruni.github.io/artel-glubina/works.html
-- Новости: https://nazarovbruni.github.io/artel-glubina/news.html
+- Главная: https://artelglubina.ru/
+- Картины на заказ: https://artelglubina.ru/custom-paintings.html
+- Роспись стен и мозаика: https://artelglubina.ru/wall-painting.html
+- Подготовка в вузы: https://artelglubina.ru/university-prep.html
+- Курсы и мастер-классы: https://artelglubina.ru/courses.html
+- Авторы: https://artelglubina.ru/authors.html
+- Галерея работ: https://artelglubina.ru/works.html
+- Новости: https://artelglubina.ru/news.html

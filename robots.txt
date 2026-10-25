@@ -5,4 +5,4 @@ User-agent: Yandex
 Allow: /
 Crawl-delay: 2
 
-Sitemap: https://nazarovbruni.github.io/artel-glubina/sitemap.xml
+Sitemap: https://artelglubina.ru/sitemap.xml
