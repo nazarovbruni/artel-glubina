@@ -7,12 +7,15 @@
 $TO_EMAIL   = 'gallery@glubinagallery.ru';    // куда приходят заявки
 $FROM_EMAIL = 'noreply@artelglubina.ru';      // от кого (адрес на домене сайта)
 
-// Необязательно: дублировать заявки в Telegram.
-// 1) создать бота у @BotFather и вставить токен;
-// 2) добавить бота в группу/канал и вставить chat_id.
-// Пока поля пустые — в Telegram ничего не отправляется.
+// Дублирование заявок в Telegram.
+// Токен бота и номер чата НЕ хранятся здесь (репозиторий публичный).
+// Они лежат в файле tg-config.php рядом с этим файлом — только на хостинге.
+// Нет файла — заявки идут только на почту.
 $TG_TOKEN   = '';
 $TG_CHAT_ID = '';
+if (is_file(__DIR__ . '/tg-config.php')) {
+    include __DIR__ . '/tg-config.php';
+}
 // =====================
 
 date_default_timezone_set('Europe/Moscow');
@@ -87,7 +90,7 @@ if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
 $mailOk = @mail($TO_EMAIL, $subject, $text, $headers, '-f' . $FROM_EMAIL);
 
 $tgOk = false;
-if ($TG_TOKEN !== '' && $TG_CHAT_ID !== '') {
+if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', trim($TG_CHAT_ID))) {
     $url = 'https://api.telegram.org/bot' . $TG_TOKEN . '/sendMessage';
     $payload = http_build_query(['chat_id' => $TG_CHAT_ID, 'text' => $text]);
     $ctx = stream_context_create(['http' => [
