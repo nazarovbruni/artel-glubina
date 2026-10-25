@@ -89,6 +89,14 @@ if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
 
 $mailOk = @mail($TO_EMAIL, $subject, $text, $headers, '-f' . $FROM_EMAIL);
 
+// Письмо ушло — сразу отвечаем посетителю, Telegram пробуем уже после ответа
+$answered = false;
+if ($mailOk && function_exists('fastcgi_finish_request')) {
+    echo json_encode(['ok' => true]);
+    $answered = true;
+    fastcgi_finish_request();
+}
+
 $tgOk = false;
 $tgErr = '';
 $TG_TOKEN = trim($TG_TOKEN);
@@ -103,14 +111,14 @@ if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $payload,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CONNECTTIMEOUT => 6,
-            CURLOPT_TIMEOUT => 10,
+            CURLOPT_CONNECTTIMEOUT => 4,
+            CURLOPT_TIMEOUT => 6,
         ]);
         $res = curl_exec($ch);
         if ($res === false) { $tgErr = 'curl: ' . curl_error($ch); }
         curl_close($ch);
     }
-    if ($res === false && ini_get('allow_url_fopen')) {
+    if ($res === false && !function_exists('curl_init') && ini_get('allow_url_fopen')) {
         $ctx = stream_context_create(['http' => [
             'method'  => 'POST',
             'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
@@ -137,6 +145,9 @@ if (is_dir($logDir) && is_writable($logDir)) {
         FILE_APPEND);
 }
 
+if ($answered) {
+    exit;
+}
 if ($mailOk || $tgOk) {
     echo json_encode(['ok' => true]);
 } else {
