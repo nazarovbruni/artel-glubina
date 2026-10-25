@@ -2557,14 +2557,14 @@
         <p class="request-note">Заполнение формы ни к чему не обязывает — мы свяжемся, всё обсудим, и вы сами решите, продолжать ли.</p>
       </div>
       <form id="requestForm">
-        <input type="hidden" name="access_key" id="w3fAccessKey" value="YOUR_WEB3FORMS_ACCESS_KEY">
-        <input type="hidden" name="subject" value="Новая заявка с сайта Глубина">
-        <input type="hidden" name="from_name" value="Сайт Глубина">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <input type="hidden" name="page" id="f-page" value="">
         <input type="hidden" name="interest" id="f-interest" value="Заказ картины">
         <div class="interest-group">
           <div class="interest-label">Что вас интересует</div>
           <div class="interest-options">
             <button type="button" class="interest-chip active">Заказ картины</button>
+            <button type="button" class="interest-chip">Роспись стен</button>
             <button type="button" class="interest-chip">Поступление в вуз</button>
             <button type="button" class="interest-chip">Курсы и мастер-классы</button>
             <button type="button" class="interest-chip">Просто узнать больше</button>
@@ -2577,7 +2577,7 @@
           </div>
           <div class="form-field">
             <label for="f-contact">Телефон или Telegram</label>
-            <input type="text" id="f-contact" name="contact" placeholder="+7 ___ ___-__-__ или @username">
+            <input type="text" id="f-contact" name="contact" placeholder="+7 ___ ___-__-__ или @username" required>
           </div>
         </div>
         <div class="form-row">
@@ -2661,7 +2661,7 @@
     });
   });
 
-  // ===== Request form submission (Web3Forms) =====
+  // ===== Request form submission (send.php, запасной вариант — почта) =====
   (function () {
     const form = document.getElementById('requestForm');
     if (!form) return;
@@ -2681,28 +2681,63 @@
     document.getElementById('thankyouOk').addEventListener('click', closeThankyou);
     thankyou.addEventListener('click', (e) => { if (e.target === thankyou) closeThankyou(); });
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const interest = document.getElementById('f-interest').value || '';
-      const name    = document.getElementById('f-name').value || '';
-      const contact = document.getElementById('f-contact').value || '';
-      const author  = document.getElementById('f-author').value || '';
-      const budget  = document.getElementById('f-budget').value || '';
-      const message = document.getElementById('f-message').value || '';
-
-      const subject = encodeURIComponent('Заявка с сайта Глубина' + (interest ? ': ' + interest : ''));
+    function mailtoFallback(data) {
+      const g = k => (data.get(k) || '').toString().trim() || '—';
+      const subject = encodeURIComponent('Заявка с сайта Глубина' + (data.get('interest') ? ': ' + data.get('interest') : ''));
       const body = encodeURIComponent(
-        'Что интересует: ' + (interest || '—') + '\n' +
-        'Имя: ' + (name || '—') + '\n' +
-        'Телефон / Telegram: ' + (contact || '—') + '\n' +
-        'Автор: ' + (author || '—') + '\n' +
-        'Бюджет: ' + (budget || '—') + '\n\n' +
-        'Задача:\n' + (message || '—')
+        'Что интересует: ' + g('interest') + '\n' +
+        'Имя: ' + g('name') + '\n' +
+        'Телефон / Telegram: ' + g('contact') + '\n' +
+        'Автор: ' + g('author') + '\n' +
+        'Бюджет: ' + g('budget') + '\n\n' +
+        'Задача:\n' + g('message')
       );
-
       window.location.href = 'mailto:gallery@glubinagallery.ru?subject=' + subject + '&body=' + body;
-      openThankyou();
-      return;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const contactEl = document.getElementById('f-contact');
+      if (!contactEl.value.trim()) {
+        statusEl.textContent = 'Оставьте телефон или Telegram, чтобы мы могли ответить';
+        statusEl.style.color = '#c0392b';
+        contactEl.focus();
+        return;
+      }
+      const pageEl = document.getElementById('f-page');
+      if (pageEl) pageEl.value = location.href + (document.referrer ? ' (пришли с: ' + document.referrer + ')' : '');
+      const data = new FormData(form);
+      const btnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправляем…';
+      statusEl.style.color = '';
+      try {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 15000);
+        const res = await fetch('send.php', { method: 'POST', body: data, signal: ctrl.signal });
+        clearTimeout(timer);
+        let json = null;
+        try { json = await res.json(); } catch (_) {}
+        if (res.ok && json && json.ok) {
+          form.reset();
+          document.querySelectorAll('.interest-chip').forEach((c, i) => c.classList.toggle('active', i === 0));
+          document.getElementById('f-interest').value = 'Заказ картины';
+          statusEl.textContent = 'Заявка отправлена';
+          try { if (window.ym) ym(110287057, 'reachGoal', 'request_sent'); } catch (_) {}
+          openThankyou();
+        } else if (json && json.error === 'rate') {
+          statusEl.textContent = 'Заявка уже отправлена, подождите немного';
+        } else {
+          throw new Error('send failed');
+        }
+      } catch (err) {
+        // Нет сервера с PHP (например, GitHub Pages) или ошибка — открываем почту
+        mailtoFallback(data);
+        openThankyou();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = btnText;
+      }
     });
   })();
 
@@ -2722,18 +2757,23 @@
 
   // Prefill the request form when arriving via "Заказать у этого автора"
   // links from authors.html, e.g. index.html?author=Юлия%20Назар#request
-  (function prefillAuthorFromUrl() {
+  (function prefillFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const authorName = params.get('author');
-    if (!authorName) return;
+    const interest = params.get('interest') || (authorName ? 'Заказ картины' : '');
+    if (!authorName && !interest) return;
 
     const authorField = document.getElementById('f-author');
-    if (authorField) authorField.value = authorName;
+    if (authorField && authorName) authorField.value = authorName;
 
-    document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('active'));
-    const orderChip = Array.from(document.querySelectorAll('.interest-chip'))
-      .find(c => c.textContent.trim() === 'Заказ картины');
-    if (orderChip) orderChip.classList.add('active');
+    const chips = Array.from(document.querySelectorAll('.interest-chip'));
+    const chip = chips.find(c => c.textContent.trim() === interest);
+    if (chip) {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const interestField = document.getElementById('f-interest');
+      if (interestField) interestField.value = interest;
+    }
 
     const requestSection = document.getElementById('request');
     if (requestSection) {
