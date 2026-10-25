@@ -90,17 +90,49 @@ if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
 $mailOk = @mail($TO_EMAIL, $subject, $text, $headers, '-f' . $FROM_EMAIL);
 
 $tgOk = false;
-if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', trim($TG_CHAT_ID))) {
+$tgErr = '';
+$TG_TOKEN = trim($TG_TOKEN);
+$TG_CHAT_ID = trim($TG_CHAT_ID);
+if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
     $url = 'https://api.telegram.org/bot' . $TG_TOKEN . '/sendMessage';
     $payload = http_build_query(['chat_id' => $TG_CHAT_ID, 'text' => $text]);
-    $ctx = stream_context_create(['http' => [
-        'method'  => 'POST',
-        'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
-        'content' => $payload,
-        'timeout' => 8,
-    ]]);
-    $res = @file_get_contents($url, false, $ctx);
+    $res = false;
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $payload,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 6,
+            CURLOPT_TIMEOUT => 10,
+        ]);
+        $res = curl_exec($ch);
+        if ($res === false) { $tgErr = 'curl: ' . curl_error($ch); }
+        curl_close($ch);
+    }
+    if ($res === false && ini_get('allow_url_fopen')) {
+        $ctx = stream_context_create(['http' => [
+            'method'  => 'POST',
+            'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'content' => $payload,
+            'timeout' => 10,
+            'ignore_errors' => true,
+        ]]);
+        $res = @file_get_contents($url, false, $ctx);
+        if ($res === false) { $e = error_get_last(); $tgErr .= ' | fopen: ' . ($e ? $e['message'] : 'fail'); }
+    }
     $tgOk = $res !== false && strpos($res, '"ok":true') !== false;
+    if (!$tgOk && $res !== false) { $tgErr .= ' | telegram: ' . substr($res, 0, 200); }
+} else {
+    $tgErr = 'tg-config not filled';
+}
+
+// Короткий журнал отправок (вне папки www, посетителям недоступен)
+$logDir = dirname(__DIR__) . '/tmp';
+if (is_dir($logDir) && is_writable($logDir)) {
+    @file_put_contents($logDir . '/form.log',
+        date('d.m.Y H:i:s') . ' mail=' . ($mailOk ? 'ok' : 'FAIL') . ' tg=' . ($tgOk ? 'ok' : 'FAIL ' . $tgErr) . "\n",
+        FILE_APPEND);
 }
 
 if ($mailOk || $tgOk) {
