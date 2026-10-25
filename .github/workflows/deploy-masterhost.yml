@@ -1,0 +1,36 @@
+# Автоматическая заливка сайта на artelglubina.ru (masterhost) после каждого изменения в main.
+# Пароль FTP хранится в секрете репозитория FTP_PASSWORD (Settings → Secrets and variables → Actions).
+name: Заливка на artelglubina.ru
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-masterhost
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Получить файлы сайта
+        uses: actions/checkout@v4
+
+      - name: Залить на masterhost по FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: u550498.ftp.masterhost.ru
+          username: u550498
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          server-dir: /artelglubina.ru/www/
+          timeout: 120000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
+            tg-config.php
