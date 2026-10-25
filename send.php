@@ -127,6 +127,8 @@ if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
     $tgErr = 'tg-config not filled';
 }
 
+if ($TG_TOKEN !== '') { $tgErr = str_replace($TG_TOKEN, '***', $tgErr); }
+
 // Короткий журнал отправок (вне папки www, посетителям недоступен)
 $logDir = dirname(__DIR__) . '/tmp';
 if (is_dir($logDir) && is_writable($logDir)) {
