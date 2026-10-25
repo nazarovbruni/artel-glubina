@@ -1577,7 +1577,12 @@
     .request-section { padding: 48px 24px; }
     .request-inner { grid-template-columns: 1fr; gap: 32px; }
     .form-row { grid-template-columns: 1fr; }
+    /* 16px — чтобы iPhone не увеличивал страницу при вводе */
+    .form-field input,
+    .form-field textarea { font-size: 16px; }
   }
+  .form-field { min-width: 0; }
+  .form-field input, .form-field textarea { width: 100%; min-width: 0; }
 
   /* ===== FOOTER (black, like KhZh) ===== */
   footer {

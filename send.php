@@ -91,17 +91,29 @@ $mailOk = @mail($TO_EMAIL, $subject, $text, $headers, '-f' . $FROM_EMAIL);
 
 // Письмо ушло — сразу отвечаем посетителю, Telegram пробуем уже после ответа
 $answered = false;
-if ($mailOk && function_exists('fastcgi_finish_request')) {
-    echo json_encode(['ok' => true]);
+if ($mailOk) {
+    ignore_user_abort(true);
+    @set_time_limit(30);
+    $body = json_encode(['ok' => true]);
+    while (ob_get_level() > 0) { @ob_end_clean(); }
+    header('Content-Length: ' . strlen($body));
+    header('Connection: close');
+    header('Content-Encoding: none');
+    echo $body;
+    @flush();
+    if (function_exists('fastcgi_finish_request')) { fastcgi_finish_request(); }
     $answered = true;
-    fastcgi_finish_request();
 }
+
+// Если Telegram недавно был недоступен — не ждём его снова 30 минут
+$tgDownFile = dirname(__DIR__) . '/tmp/tg_down';
+$tgDown = is_file($tgDownFile) && (time() - filemtime($tgDownFile)) < 1800;
 
 $tgOk = false;
 $tgErr = '';
 $TG_TOKEN = trim($TG_TOKEN);
 $TG_CHAT_ID = trim($TG_CHAT_ID);
-if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
+if (!$tgDown && strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
     $url = 'https://api.telegram.org/bot' . $TG_TOKEN . '/sendMessage';
     $payload = http_build_query(['chat_id' => $TG_CHAT_ID, 'text' => $text]);
     $res = false;
@@ -111,11 +123,11 @@ if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $payload,
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CONNECTTIMEOUT => 4,
+            CURLOPT_CONNECTTIMEOUT => 3,
             CURLOPT_TIMEOUT => 6,
         ]);
         $res = curl_exec($ch);
-        if ($res === false) { $tgErr = 'curl: ' . curl_error($ch); }
+        if ($res === false) { $tgErr = 'curl: ' . curl_error($ch); if (is_dir(dirname($tgDownFile))) { @touch($tgDownFile); } }
         curl_close($ch);
     }
     if ($res === false && !function_exists('curl_init') && ini_get('allow_url_fopen')) {
@@ -130,7 +142,10 @@ if (strpos($TG_TOKEN, ':') !== false && preg_match('/^-?\d+$/', $TG_CHAT_ID)) {
         if ($res === false) { $e = error_get_last(); $tgErr .= ' | fopen: ' . ($e ? $e['message'] : 'fail'); }
     }
     $tgOk = $res !== false && strpos($res, '"ok":true') !== false;
+    if ($tgOk && is_file($tgDownFile)) { @unlink($tgDownFile); }
     if (!$tgOk && $res !== false) { $tgErr .= ' | telegram: ' . substr($res, 0, 200); }
+} elseif ($tgDown) {
+    $tgErr = 'skipped (telegram недоступен, повтор через 30 мин)';
 } else {
     $tgErr = 'tg-config not filled';
 }
