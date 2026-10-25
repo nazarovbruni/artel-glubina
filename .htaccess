@@ -1,0 +1,11 @@
+# artelglubina.ru — переадресация на https://artelglubina.ru (без www)
+RewriteEngine On
+
+# www.artelglubina.ru -> artelglubina.ru
+RewriteCond %{HTTP_HOST} ^www\.artelglubina\.ru$ [NC]
+RewriteRule ^(.*)$ https://artelglubina.ru/$1 [R=301,L]
+
+# http -> https
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://artelglubina.ru/$1 [R=301,L]
