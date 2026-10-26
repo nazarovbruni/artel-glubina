@@ -599,15 +599,24 @@
       display: flex;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
+      overflow-y: hidden;
+      overscroll-behavior-x: contain;
       scroll-snap-type: x mandatory;
       border-left: none;
+      align-items: stretch;
     }
+    /* карточка растёт под текст, а не обрезает его — и не прокручивается вверх-вниз */
     .pricing-card {
-      flex: 0 0 72%;
+      flex: 0 0 78%;
       scroll-snap-align: start;
       border-left: 1px solid var(--line);
-      aspect-ratio: 4/5;
+      aspect-ratio: auto;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
+    .pricing-card-content { position: relative; }
   }
 
   /* ===== SERVICES HEADING ===== */
