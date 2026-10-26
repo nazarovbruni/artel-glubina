@@ -1532,6 +1532,20 @@
   .form-field input::placeholder,
   .form-field textarea::placeholder { color: #6A6A6A; }
   .form-field textarea { resize: vertical; min-height: 56px; font-family: Georgia, serif; }
+  /* автозаполнение браузера: без светлой плашки, текст остаётся белым */
+  .form-field input:-webkit-autofill,
+  .form-field input:-webkit-autofill:hover,
+  .form-field input:-webkit-autofill:focus,
+  .form-field input:-webkit-autofill:active,
+  .form-field textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #161616 inset !important;
+    box-shadow: 0 0 0 1000px #161616 inset !important;
+    -webkit-text-fill-color: var(--white) !important;
+    caret-color: var(--white);
+    transition: background-color 9999s ease-out 0s;
+  }
+  .form-field input:autofill { background: transparent !important; }
+  .form-field input, .form-field textarea { caret-color: var(--white); color-scheme: dark; }
 
   .form-submit-row {
     display: flex;
