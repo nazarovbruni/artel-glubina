@@ -1710,7 +1710,7 @@
     }
     .photo-strip .photo-cell:first-child { margin-left: 24px; }
     .photo-strip::after { content: ''; flex: 0 0 24px; display: block; }
-    .hero { padding: 28px 20px 24px; }
+    .hero { padding: 28px 24px 24px; }
     .hero-graphic { display: none; }
     h1 {
       font-size: 26px;
@@ -2018,7 +2018,15 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* на широких экранах текст полноширинных блоков стоит на одной линии с остальным контентом */
+  @media (min-width: 901px) {
+    .about-section, .news-section, .request-section {
+      padding-left: max(64px, calc(50% - 636px)) !important;
+      padding-right: max(64px, calc(50% - 636px)) !important;
+    }
+  }
+</style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

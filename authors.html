@@ -621,7 +621,15 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* на широких экранах текст полноширинных блоков стоит на одной линии с остальным контентом */
+  @media (min-width: 901px) {
+    .about-section {
+      padding-left: max(64px, calc(50% - 636px)) !important;
+      padding-right: max(64px, calc(50% - 636px)) !important;
+    }
+  }
+</style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

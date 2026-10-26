@@ -318,7 +318,7 @@
   /* ===== BOOKING ===== */
   .booking-section {
     background: var(--black); color: var(--white);
-    padding: 56px 64px; text-align: center; margin: 0 64px;
+    padding: 56px 64px; text-align: center; margin: 0 auto; width: calc(100% - 128px); max-width: 1272px;
   }
   .booking-title { font-weight: 700; font-size: 28px; margin-bottom: 14px; }
   .booking-text {
@@ -344,7 +344,7 @@
   .booking-btn-secondary:hover { border-color: var(--white); }
 
   @media (max-width: 900px) {
-    .booking-section { padding: 40px 24px; margin: 0; }
+    .booking-section { padding: 40px 24px; margin: 0; width: auto; max-width: none; }
     .booking-title { font-size: 24px; }
   }
 
@@ -429,7 +429,15 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* на широких экранах текст полноширинных блоков стоит на одной линии с остальным контентом */
+  @media (min-width: 901px) {
+    .reasons-section, .related-section {
+      padding-left: max(64px, calc(50% - 636px)) !important;
+      padding-right: max(64px, calc(50% - 636px)) !important;
+    }
+  }
+</style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
