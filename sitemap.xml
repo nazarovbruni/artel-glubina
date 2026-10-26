@@ -1,51 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://artelglubina.ru/</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/hero-rezidenciya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-painting-komissia.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/homepage-wallpainting-tile.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/artel-glubina-kursy-masterklass-v2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-rospis-sten.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-interyer.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-portret.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-kopiya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/service-seriya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/nazar.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/motorina.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/demina.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/usoltseva.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/nazarova.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/aseeva.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/belova.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/frolova.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-predel-formy.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/demina-razbydi-menya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazarova-svyazi-energii.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/belova-vselenskoe-delo.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/news-cvety-darvin.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/news-yazyk-do-slova.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/news-sady-dushi-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/news-art-rossiya-glubina.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/news-basmaniya-kosmos.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/works.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/works/motorina-setka.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazar-sledy.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-belova-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-ya-zdes.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/frolova-lica-lesa.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/gordeeva-nablyudateli.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-aseeva-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-art.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yakushin-kopernik.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/fateeva-resursy.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/barinova-semya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazar-kirlian-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/smirnova-zima.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazar-serdce-piona.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/kovylina-kapusta.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/kulik-devushka-s-arbuzom.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/shilina-penki.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/demina-glaza-ego.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/demina-devochka-roza.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/frolova-razlom.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/custom-paintings.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/custom-paintings/vasnetsov-kovyor-samolet.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/custom-paintings/shishkin-les-kopiya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-motorina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-usoltseva-1.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/wall-painting.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/rospis-klassika.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/rospis-gory.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-rospis-potolok-linear.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-rospis-graffiti-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-process.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-mozaika-glaz.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/university-prep.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/studio-easels.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-4.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/courses.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/courses-masterclass-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/courses-masterclass-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/courses-painting-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/courses-painting-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-online-urok-maslo.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-online-urok-risunok.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-offline-urok-masterskaya.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/glubina-offline-urok-palitra.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/nazar.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/courses-gyotaku-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/courses-gyotaku-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/studio-4.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/authors.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/yuliya-nazar-glubina-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/nazar.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-motorina-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-motorina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-motorina-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-motorina-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/motorina.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-demina-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/demina.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-usoltseva-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-usoltseva-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-usoltseva-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-usoltseva-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/usoltseva.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazarova-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazarova-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazarova-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/nazarova-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/nazarova.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-aseeva-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-aseeva-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-aseeva-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/works/glubina-aseeva-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/team/aseeva.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://artelglubina.ru/try-on-wall.html</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  
+    <image:image><image:loc>https://artelglubina.ru/images/tryon-example-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/tryon-example-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://artelglubina.ru/images/tryon-example-3.jpg</image:loc></image:image>
   </url>
 </urlset>
