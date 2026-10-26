@@ -586,7 +586,13 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* на широких экранах тёмный блок записи и «Другие услуги» — от края до края, как на других страницах */
+  @media (min-width: 1401px) {
+    .booking-section { box-shadow: 0 0 0 100vmax var(--black); clip-path: inset(0 -100vmax); }
+    .related-section { box-shadow: 0 0 0 100vmax #F5F3EF; clip-path: inset(0 -100vmax); }
+  }
+</style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
