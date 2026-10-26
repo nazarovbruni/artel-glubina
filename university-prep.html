@@ -592,6 +592,12 @@
     .booking-section { box-shadow: 0 0 0 100vmax var(--black); clip-path: inset(0 -100vmax); }
     .related-section { box-shadow: 0 0 0 100vmax #F5F3EF; clip-path: inset(0 -100vmax); }
   }
+
+  /* верхнее фото — от края до края на широких экранах */
+  html, body { overflow-x: hidden; overflow-x: clip; }
+  @media (min-width: 1401px) {
+    .studio-photo-wrapper { margin-left: calc(700px - 50vw); margin-right: calc(700px - 50vw); }
+  }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
