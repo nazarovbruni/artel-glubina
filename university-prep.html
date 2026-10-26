@@ -376,11 +376,12 @@
   }
   .studio-photo-cell img {
     width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: grayscale(1) contrast(1.05);
-    transition: filter 0.4s ease, transform 0.4s ease;
+    /* студия — в цвете, но приглушённо, чтобы не спорить с яркими карточками услуг */
+    filter: saturate(0.7) contrast(1.02);
+    transition: filter 0.4s ease, transform 0.5s ease;
   }
   .studio-photo-cell:hover img {
-    filter: grayscale(0) contrast(1);
+    filter: saturate(1) contrast(1.03);
     transform: scale(1.04);
   }
 .studio-contact-row {
@@ -731,10 +732,10 @@
     </div>
     <p class="studio-intro">На Москве-реке, на Фрунзенской набережной — мастерская, где сообщество <em>Глубина</em> рисует, лепит и собирается вместе. Не шоу-рум, а рабочее пространство: здесь пишут картины, готовятся к экзаменам, проводят мастер-классы и просто разговаривают об искусстве за чаем.</p>
     <div class="studio-grid">
-      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-1.jpg" alt="Студия Глубина на Фрунзенской"></div>
-      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-2.jpg" alt="Студия Глубина на Фрунзенской"></div>
-      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-3.jpg" alt="Студия Глубина на Фрунзенской"></div>
-      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-4.jpg" alt="Студия Глубина на Фрунзенской"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-1.jpg" alt="Художница пишет пейзаж у окна с видом на Москву-реку — студия Глубина на Фрунзенской набережной"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-2.jpg" alt="Занятие живописью в светлой мастерской Глубина: ученики за мольбертами, дневной свет из окон"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-3.jpg" alt="Мастерская Глубина на Фрунзенской: стеллажи с книгами и материалами, мольберты, верхний свет"></div>
+      <div class="studio-photo-cell"><img loading="lazy" src="images/studio-4.jpg" alt="Ученица рисует за мольбертом в студии Глубина в Москве — курсы и мастер-классы по живописи"></div>
     </div>
     <div class="studio-contact-row">
       <div class="studio-contact-col">
