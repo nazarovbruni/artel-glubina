@@ -44,12 +44,14 @@ function field($name, $max = 1000) {
 $interest = field('interest', 100);
 $name     = field('name', 100);
 $contact  = field('contact', 150);
+$email    = field('email', 150);
+if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) { $email = ''; }
 $author   = field('author', 150);
 $budget   = field('budget', 100);
 $message  = field('message', 3000);
 $page     = field('page', 300);
 
-if ($contact === '') {
+if ($contact === '' && $email === '') {
     http_response_code(400);
     echo json_encode(['ok' => false, 'error' => 'contact']);
     exit;
@@ -69,7 +71,8 @@ $dash = '—';
 $text = "Новая заявка с сайта artelglubina.ru\n\n"
       . "Что интересует: " . ($interest !== '' ? $interest : $dash) . "\n"
       . "Имя: "            . ($name     !== '' ? $name     : $dash) . "\n"
-      . "Телефон / Telegram: " . $contact . "\n"
+      . "Телефон / Telegram: " . ($contact !== '' ? $contact : $dash) . "\n"
+      . "Email: "          . ($email   !== '' ? $email   : $dash) . "\n"
       . "Автор: "          . ($author   !== '' ? $author   : $dash) . "\n"
       . "Бюджет: "         . ($budget   !== '' ? $budget   : $dash) . "\n\n"
       . "Задача:\n"        . ($message  !== '' ? $message  : $dash) . "\n\n"
@@ -83,8 +86,9 @@ $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "Content-Transfer-Encoding: 8bit\r\n";
 $headers .= "From: =?UTF-8?B?" . base64_encode('Сайт Артель Глубина') . "?= <" . $FROM_EMAIL . ">\r\n";
-if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
-    $headers .= "Reply-To: " . $contact . "\r\n";
+$replyTo = $email !== '' ? $email : (filter_var($contact, FILTER_VALIDATE_EMAIL) ? $contact : '');
+if ($replyTo !== '') {
+    $headers .= "Reply-To: " . $replyTo . "\r\n";
 }
 
 $mailOk = @mail($TO_EMAIL, $subject, $text, $headers, '-f' . $FROM_EMAIL);

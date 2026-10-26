@@ -1490,6 +1490,10 @@
     gap: 6px;
   }
   .form-field.full { grid-column: 1 / -1; }
+  .contact-block { margin: 10px 0 14px; padding-top: 18px; border-top: 1px solid #2E2E2E; }
+  .contact-block-title { font-family: Georgia, serif; font-size: 15px; color: var(--white); margin-bottom: 6px; }
+  .contact-block-note { font-family: Georgia, serif; font-style: italic; font-size: 13px; line-height: 1.5; color: #8A8A8A; }
+  .form-field.invalid input { border-bottom-color: #c0392b; }
 
   .form-field label {
     font-family: Georgia, serif;
@@ -2569,7 +2573,7 @@
         <div class="request-title">Расскажите, что вас интересует</div>
         <p class="request-note">Заполнение формы ни к чему не обязывает — мы свяжемся, всё обсудим, и вы сами решите, продолжать ли.</p>
       </div>
-      <form id="requestForm">
+      <form id="requestForm" novalidate>
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <input type="hidden" name="page" id="f-page" value="">
         <input type="hidden" name="interest" id="f-interest" value="Заказ картины">
@@ -2585,20 +2589,30 @@
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label for="f-name">Имя</label>
-            <input type="text" id="f-name" name="name" placeholder="Как вас зовут">
+            <label for="f-name">Как к вам обращаться</label>
+            <input type="text" id="f-name" name="name" placeholder="Имя" autocomplete="name">
           </div>
-          <div class="form-field">
-            <label for="f-contact">Телефон или Telegram</label>
-            <input type="text" id="f-contact" name="contact" placeholder="+7 ___ ___-__-__ или @username" required>
-          </div>
-        </div>
-        <div class="form-row">
           <div class="form-field">
             <label for="f-author">Автор (если уже выбрали)</label>
             <input type="text" id="f-author" name="author" placeholder="Необязательно">
           </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-title">Как с вами связаться</div>
+          <div class="contact-block-note">Достаточно одного способа — телефона, Telegram или email. Контакты нужны только для ответа на вашу заявку.</div>
+        </div>
+        <div class="form-row">
           <div class="form-field">
+            <label for="f-contact">Телефон или Telegram</label>
+            <input type="text" id="f-contact" name="contact" placeholder="+7 ___ ___-__-__ или @username" autocomplete="tel" inputmode="text">
+          </div>
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="name@mail.ru" autocomplete="email" inputmode="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
             <label for="f-budget">Бюджет</label>
             <input type="text" id="f-budget" name="budget" placeholder="Необязательно, ориентировочно">
           </div>
@@ -2701,6 +2715,7 @@
         'Что интересует: ' + g('interest') + '\n' +
         'Имя: ' + g('name') + '\n' +
         'Телефон / Telegram: ' + g('contact') + '\n' +
+        'Email: ' + g('email') + '\n' +
         'Автор: ' + g('author') + '\n' +
         'Бюджет: ' + g('budget') + '\n\n' +
         'Задача:\n' + g('message')
@@ -2711,10 +2726,24 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const contactEl = document.getElementById('f-contact');
-      if (!contactEl.value.trim()) {
-        statusEl.textContent = 'Оставьте телефон или Telegram, чтобы мы могли ответить';
+      const emailEl = document.getElementById('f-email');
+      contactEl.parentElement.classList.remove('invalid');
+      emailEl.parentElement.classList.remove('invalid');
+      const contactVal = contactEl.value.trim();
+      const emailVal = emailEl.value.trim();
+      if (!contactVal && !emailVal) {
+        statusEl.textContent = 'Оставьте телефон, Telegram или email — хотя бы что-то одно';
         statusEl.style.color = '#c0392b';
+        contactEl.parentElement.classList.add('invalid');
+        emailEl.parentElement.classList.add('invalid');
         contactEl.focus();
+        return;
+      }
+      if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        statusEl.textContent = 'Проверьте email — похоже, в нём опечатка';
+        statusEl.style.color = '#c0392b';
+        emailEl.parentElement.classList.add('invalid');
+        emailEl.focus();
         return;
       }
       const pageEl = document.getElementById('f-page');
