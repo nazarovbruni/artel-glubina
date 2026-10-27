@@ -557,14 +557,14 @@
 <script>
   // Same 8 works as in works.html, kept in sync with real photos.
   const artworks = [
-    { key: 'motorina', title: '«Сетка»', author: 'Ирина Моторина', photo: 'images/works/motorina-setka.jpg' },
-    { key: 'nazar', title: '«Следы»', author: 'Юлия Назар', photo: 'images/works/nazar-sledy.jpg' },
-    { key: 'belova', title: '«Гора видит сны»', author: 'Надежда Белова', photo: 'images/works/glubina-belova-2.jpg' },
-    { key: 'demina', title: '«Я здесь»', author: 'Светлана Дёмина', photo: 'images/works/glubina-demina-ya-zdes.jpg' },
-    { key: 'frolova', title: '«Лица леса»', author: 'Лиана Фролова', photo: 'images/works/frolova-lica-lesa.jpg' },
-    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: 'images/works/gordeeva-nablyudateli.jpg' },
-    { key: 'aseeva', title: '«Между строк»', author: 'Елена Асеева', photo: 'images/works/glubina-aseeva-5.jpg' },
-    { key: 'smirnova', title: '«Зима»', author: 'Светлана Смирнова', photo: 'images/works/smirnova-zima.jpg' },
+    { key: 'motorina', title: '«Сетка»', author: 'Ирина Моторина', photo: 'images/works/motorina-setka-artel-glubina.jpg' },
+    { key: 'nazar', title: '«Следы»', author: 'Юлия Назар', photo: 'images/works/nazar-sledy-artel-glubina.jpg' },
+    { key: 'belova', title: '«Гора видит сны»', author: 'Надежда Белова', photo: 'images/works/belova-gora-vidit-sny-artel-glubina.jpg' },
+    { key: 'demina', title: '«Я здесь»', author: 'Светлана Дёмина', photo: 'images/works/demina-ya-zdes-artel-glubina.jpg' },
+    { key: 'frolova', title: '«Лица леса»', author: 'Лиана Фролова', photo: 'images/works/frolova-litsa-lesa-artel-glubina.jpg' },
+    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: 'images/works/gordeeva-nablyudateli-artel-glubina.jpg' },
+    { key: 'aseeva', title: '«Между строк»', author: 'Елена Асеева', photo: 'images/works/aseeva-mezhdu-strok-artel-glubina.jpg' },
+    { key: 'smirnova', title: '«Зима»', author: 'Светлана Смирнова', photo: 'images/works/smirnova-zima-artel-glubina.jpg' },
   ];
 
   const artworkGrid = document.getElementById('artworkGrid');
@@ -587,7 +587,7 @@
     thumb.className = 'artwork-thumb';
     thumb.dataset.key = art.key;
     if (art.photo) {
-      thumb.innerHTML = `<img src="${art.photo}" alt="${art.title}"><div class="artwork-thumb-label">${art.title}</div>`;
+      thumb.innerHTML = `<img src="${art.photo}" alt="${art.title} — Артель Глубина"><div class="artwork-thumb-label">${art.title}</div>`;
     } else {
       thumb.innerHTML = `<div class="artwork-thumb-placeholder">${art.title}<br>${art.author}</div>`;
     }
