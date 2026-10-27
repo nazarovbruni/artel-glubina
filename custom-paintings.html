@@ -206,10 +206,9 @@
   }
   .example-thumb img {
     width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: grayscale(1) contrast(1.05);
-    transition: filter 0.4s ease, transform 0.4s ease;
+    transition: transform 0.5s ease, filter 0.4s ease;
   }
-  .example-thumb:hover img, .example-thumb:focus-visible img { filter: grayscale(0) contrast(1); transform: scale(1.05); }
+  .example-thumb:hover img, .example-thumb:focus-visible img { filter: brightness(1.05); transform: scale(1.05); }
   .example-thumb-placeholder {
     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
     font-style: italic; font-size: 12px; color: var(--ink-soft); text-align: center; padding: 0 10px;
@@ -553,8 +552,8 @@
         <a class="example-thumb" href="works.html"><img loading="lazy" src="images/works/glubina-demina-2.jpg" alt="Картина на заказ — работа Светланы Дёминой, Артель Глубина"></a>
         <a class="example-thumb" href="works.html"><img loading="lazy" src="images/works/glubina-motorina-2.jpg" alt="Картина на заказ — работа Ирины Моториной, Артель Глубина"></a>
         <a class="example-thumb" href="works.html"><img loading="lazy" src="images/works/glubina-usoltseva-1.jpg" alt="Картина на заказ — работа Екатерины Усольцевой, Артель Глубина"></a>
-        <a class="example-thumb" href="works.html"><div class="example-thumb-placeholder">Работа 5 — фото скоро</div></a>
-        <a class="example-thumb" href="works.html"><div class="example-thumb-placeholder">Работа 6 — фото скоро</div></a>
+        <a class="example-thumb" href="works.html"><img loading="lazy" src="images/works/vystavka-ekspozitsiya-glubina.jpg" alt="Диптих художницы Артели Глубина в экспозиции выставки — живопись на заказ"></a>
+        <a class="example-thumb" href="works.html"><img loading="lazy" src="images/works/tibet-potala-glubina.jpg" alt="Картина маслом «Тибет», дворец Потала и монахи в красном — работа художницы Артели Глубина"></a>
       </div>
       <div class="examples-more">
         <a href="works.html">Это лишь малая часть — смотреть остальные работы →</a>
