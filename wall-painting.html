@@ -315,8 +315,10 @@
   /* ===== BOOKING ===== */
   .booking-section {
     background: #F2F0EC; color: var(--black);
-    padding: 56px 64px; text-align: center; margin: 48px 64px 0;
-    border: 1px solid var(--line);
+    padding: 64px; text-align: center; margin: 48px 0 0;
+  }
+  @media (min-width: 1401px) {
+    .booking-section { box-shadow: 0 0 0 100vmax #F2F0EC; clip-path: inset(0 -100vmax); }
   }
   .booking-title { font-weight: 700; font-size: 28px; margin-bottom: 14px; }
   .booking-text {
