@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <script>if(location.hostname.indexOf("github.io")!==-1){location.replace("https://artelglubina.ru"+location.pathname.replace(/^\/artel-glubina/,"")+location.search+location.hash);}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Примерить картину на стену онлайн | Глубина</title>
-<meta name="description" content="Загрузите фото своей стены и примерьте картину из коллекции Глубины онлайн — подвиньте, измените размер и угол, прежде чем заказывать.">
-<meta name="keywords" content="примерить картину на стену, как картина будет смотреться в интерьере, визуализация картины">
+<title>Примерить картину на стену онлайн — подбор картины для интерьера | Художественная артель Глубина</title>
+<meta name="description" content="Примерьте картину на стену онлайн: загрузите фото комнаты и выберите одну из 55 работ художниц Глубины. Советы, какой размер картины выбрать над диваном или кроватью, как повесить и подобрать по цвету.">
+<meta name="keywords" content="примерить картину на стену, картина в интерьер, картина над диваном, картина над кроватью, какой размер картины выбрать, на какой высоте вешать картину, подобрать картину к интерьеру, картина для гостиной, как картина будет смотреться в интерьере, визуализация картины, художественная артель Глубина">
 <meta name="robots" content="index, follow">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
@@ -17,7 +17,7 @@
 <link rel="canonical" href="https://artelglubina.ru/try-on-wall.html">
 <meta property="og:image" content="https://artelglubina.ru/images/rospis-klassika.jpg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Примерить картину на стену онлайн | Глубина">
+<meta property="og:title" content="Примерить картину на стену онлайн — подбор картины для интерьера | Артель Глубина">
 <meta property="og:description" content="Загрузите фото своей стены и примерьте картину онлайн перед покупкой.">
 <meta property="og:url" content="https://artelglubina.ru/try-on-wall.html">
 <meta property="og:locale" content="ru_RU">
@@ -397,7 +397,46 @@
     .nav-row a:last-child { border-bottom: none !important; }
   }
 
-  </style>
+  
+  /* фильтры примерки */
+  .picker-count { color: var(--accent-teal); letter-spacing: 0; }
+  .picker-filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+  .picker-select { width: 100%; font-family: Georgia, serif; font-size: 14px; padding: 9px 10px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 0; }
+  .tone-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tone-chip { font-family: Georgia, serif; font-size: 12.5px; padding: 6px 12px; border: 1px solid var(--line); background: #fff; color: var(--ink-soft); cursor: pointer; }
+  .tone-chip.active { border-color: var(--accent-teal); color: var(--accent-teal); }
+  .artwork-grid { max-height: 620px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+  .artwork-thumb-label span { opacity: 0.75; font-style: italic; }
+  .picker-empty { grid-column: 1 / -1; font-style: italic; font-size: 13px; color: var(--ink-soft); padding: 20px 0; }
+  @media (max-width: 900px) { .artwork-grid { grid-template-columns: repeat(3, 1fr); max-height: 440px; } }
+  @media (max-width: 480px) { .artwork-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ===== GUIDE / EXAMPLES / FAQ ===== */
+  .guide-section, .interior-section, .faq-section { padding: 56px 64px 64px; border-top: 1px solid var(--line); }
+  .guide-title { font-family: Georgia, serif; font-weight: 700; font-size: 28px; margin-bottom: 10px; color: var(--ink); }
+  .guide-lead { font-size: 15px; line-height: 1.65; color: var(--ink-soft); max-width: 70ch; margin-bottom: 32px; }
+  .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 36px; }
+  .guide-card h3 { font-family: Georgia, serif; font-weight: 700; font-size: 17px; line-height: 1.3; margin-bottom: 8px; color: var(--ink); }
+  .guide-card p { font-size: 14px; line-height: 1.65; color: var(--ink); }
+  .guide-card b { color: var(--accent-teal); font-weight: 700; }
+  .interior-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .interior-card { margin: 0; }
+  .interior-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border: 1px solid var(--line); }
+  .interior-card figcaption { font-style: italic; font-size: 13px; color: var(--ink-soft); margin-top: 10px; line-height: 1.5; }
+  .faq-list { max-width: 820px; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-item summary { list-style: none; cursor: pointer; padding: 18px 32px 18px 0; position: relative; font-family: Georgia, serif; font-weight: 700; font-size: 16px; color: var(--ink); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; position: absolute; right: 4px; top: 14px; font-size: 22px; font-weight: 400; color: var(--accent-teal); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { font-size: 14.5px; line-height: 1.65; color: var(--ink); padding: 0 0 20px; max-width: 70ch; }
+  @media (max-width: 900px) {
+    .guide-section, .interior-section, .faq-section { padding: 40px 24px 48px; }
+    .guide-title { font-size: 24px; }
+    .guide-grid { grid-template-columns: 1fr; gap: 24px; }
+    .interior-grid { grid-template-columns: 1fr; }
+  }
+</style>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -413,6 +452,7 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/110287057" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Насколько точно примерка показывает размер?", "acceptedAnswer": {"@type": "Answer", "text": "Примерка показывает картину приблизительно: масштаб вы задаёте сами. Приложите к стене лист А4 перед съёмкой, чтобы подогнать картину точнее. Точные размеры уточняются при заказе."}}, {"@type": "Question", "name": "Можно ли купить работу, которую я примерил?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Нажмите «Заказать эту работу» — мы расскажем о доступности, размере и стоимости или предложим похожую."}}, {"@type": "Question", "name": "Можно ли написать картину под мой размер и цвета?", "acceptedAnswer": {"@type": "Answer", "text": "Да, художницы Глубины пишут картины маслом на заказ: эскиз, формат и палитра под вашу стену."}}, {"@type": "Question", "name": "Как вы доставляете и вешаете картины?", "acceptedAnswer": {"@type": "Answer", "text": "По Москве привозим лично и помогаем с развеской, в другие города отправляем транспортной компанией."}}, {"@type": "Question", "name": "Можно ли посмотреть картины вживую?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в мастерской на Фрунзенской набережной, д. 46, по договорённости."}}]}</script>
 </head>
 <body>
 
@@ -445,7 +485,7 @@
 
   <section class="page-hero">
     <h1 class="page-hero-title">Примерить картину на стену онлайн</h1>
-    <p class="page-hero-sub">Загрузите фото своей стены, выберите картину и подвиньте её руками — посмотрите, как работа впишется в ваше пространство, прежде чем заказывать.</p>
+    <p class="page-hero-sub">Загрузите фото своей стены, выберите картину и подвиньте её руками — посмотрите, как работа впишется в ваше пространство, прежде чем заказывать. В примерке — 55 работ художниц женской художественной артели Глубина, а ниже — советы, как подобрать картину для интерьера.</p>
   </section>
 
   <section class="tool-section">
@@ -488,12 +528,21 @@
       </div>
 
       <div>
-        <div class="picker-label">Выберите работу</div>
+        <div class="picker-label">Выберите работу <span class="picker-count" id="pickerCount"></span></div>
+        <div class="picker-filters">
+          <select id="authorFilter" class="picker-select" aria-label="Художница"><option value="">Все художницы</option></select>
+          <div class="tone-chips" id="toneChips" role="group" aria-label="Тон">
+            <button type="button" class="tone-chip active" data-tone="">Все</button>
+            <button type="button" class="tone-chip" data-tone="light">Светлые</button>
+            <button type="button" class="tone-chip" data-tone="bright">Яркие</button>
+            <button type="button" class="tone-chip" data-tone="calm">Сдержанные</button>
+          </div>
+        </div>
         <div class="artwork-grid" id="artworkGrid">
           <!-- filled by JS from the works object below -->
         </div>
         <div class="size-note">Картина в инструменте показывается приблизительно — реальные пропорции и масштаб уточняются при заказе. Перетаскивайте за центр, тяните за бирюзовую точку, чтобы изменить размер, за чёрную — чтобы повернуть.</div>
-        <a class="sidebar-cta" href="index.html?interest=%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%20%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D1%8B#request">Заказать эту работу →</a>
+        <a class="sidebar-cta" id="sidebarCta" href="index.html?interest=%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%20%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D1%8B#request">Заказать эту работу →</a>
       </div>
 
     </div>
@@ -517,6 +566,63 @@
         <div class="howto-step-title">Сохраните и закажите</div>
         <div class="howto-step-desc">Скачайте получившееся изображение себе или сразу оставьте заявку — мы уточним точный размер под ваше пространство.</div>
       </div>
+    </div>
+  </section>
+
+  <section class="interior-section">
+    <h2 class="guide-title">Картины Глубины в интерьере</h2>
+    <p class="guide-lead">Так выглядят работы художниц артели на реальных стенах — примерно то же самое можно увидеть в примерке выше на фото своей комнаты.</p>
+    <div class="interior-grid">
+      <figure class="interior-card">
+        <img loading="lazy" src="images/v-interere-spalnya-motorina-tihiy-dvor-artel-glubina.jpg" alt="Картина над кроватью в спальне — «Тихий двор», Ирина Моторина, Артель Глубина">
+        <figcaption>Картина над кроватью: «Тихий двор», Ирина Моторина. Яркая работа в светлой спальне становится главным акцентом.</figcaption>
+      </figure>
+      <figure class="interior-card">
+        <img loading="lazy" src="images/v-interere-gostinaya-demina-tihiy-svidetel-artel-glubina.jpg" alt="Картина над диваном в гостиной — «Тихий свидетель», Светлана Дёмина, Артель Глубина">
+        <figcaption>Картина над диваном: «Тихий свидетель», Светлана Дёмина. Сдержанная палитра поддерживает серо-бежевый интерьер.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="guide-section">
+    <h2 class="guide-title">Как подобрать картину для интерьера</h2>
+    <p class="guide-lead">Несколько простых правил, которыми пользуются художники и дизайнеры. Они помогут выбрать размер, высоту и цвет — а примерка выше покажет, как это будет выглядеть именно у вас.</p>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <h3>Какой размер картины выбрать над диваном</h3>
+        <p>Картина или группа картин должна занимать примерно <b>⅔ ширины дивана</b>. Для дивана шириной 210 см это около 130–140 см. Слишком маленькая работа «теряется» на стене, слишком широкая — давит на мебель.</p>
+      </div>
+      <div class="guide-card">
+        <h3>Картина над кроватью</h3>
+        <p>То же правило ⅔ ширины изголовья. Нижний край картины — в <b>20–30 см</b> над изголовьем, чтобы не задевать её головой. В спальне лучше работают спокойные сюжеты и мягкая палитра.</p>
+      </div>
+      <div class="guide-card">
+        <h3>На какой высоте вешать картину</h3>
+        <p>Центр картины — на уровне глаз, примерно <b>145–150 см от пола</b>. Если картина висит над мебелью, ориентируйтесь на зазор 20–30 см между мебелью и нижним краем рамы.</p>
+      </div>
+      <div class="guide-card">
+        <h3>Как подобрать картину по цвету</h3>
+        <p>Есть два пути: поддержать интерьер — повторить в картине 1–2 цвета из текстиля, мебели или декора, или сделать <b>акцент</b> — выбрать яркую работу на спокойном фоне. На пёстрых обоях лучше смотрится сдержанная живопись.</p>
+      </div>
+      <div class="guide-card">
+        <h3>Одна большая картина или серия</h3>
+        <p>Одна крупная работа — спокойнее и «дороже» выглядит в гостиной. Серия из 2–3 картин хорошо заполняет длинные стены и коридоры: держите между ними одинаковый зазор <b>5–8 см</b>.</p>
+      </div>
+      <div class="guide-card">
+        <h3>Картина под ваш размер</h3>
+        <p>Если готовая работа нравится, но не подходит по размеру или цвету — художница может <a href="custom-paintings.html">написать картину на заказ</a> под вашу стену: в нужном формате, палитре и технике.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h2 class="guide-title">Вопросы о подборе и заказе</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Насколько точно примерка показывает размер?</summary><p>Примерка показывает картину приблизительно: масштаб вы задаёте сами, растягивая работу на фото. Чтобы оценить размер точнее, приложите к стене лист А4 (21×30 см) перед съёмкой — по нему удобно подогнать картину. Точные размеры мы уточним при заказе.</p></details>
+      <details class="faq-item"><summary>Можно ли купить работу, которую я примерил?</summary><p>Да. Нажмите «Заказать эту работу» — в заявке уже будет указана художница. Мы расскажем, доступна ли работа, её размер и стоимость, или предложим похожую.</p></details>
+      <details class="faq-item"><summary>Можно ли написать картину под мой размер и цвета?</summary><p>Да, это основная наша работа — <a href="custom-paintings.html">картины маслом на заказ</a>. Пришлите фото стены и пожелания, художница предложит эскиз, формат и палитру.</p></details>
+      <details class="faq-item"><summary>Как вы доставляете и вешаете картины?</summary><p>По Москве привозим лично и можем помочь с развеской. В другие города отправляем транспортной компанией в надёжной упаковке.</p></details>
+      <details class="faq-item"><summary>Можно ли посмотреть картины вживую?</summary><p>Да, приходите в мастерскую на Фрунзенской набережной, д. 46 — договоритесь о времени по телефону +7 495 995 06 13 или через заявку.</p></details>
     </div>
   </section>
 
@@ -557,14 +663,61 @@
 <script>
   // Same 8 works as in works.html, kept in sync with real photos.
   const artworks = [
-    { key: 'motorina', title: '«Сетка»', author: 'Ирина Моторина', photo: 'images/works/motorina-setka-artel-glubina.jpg' },
-    { key: 'nazar', title: '«Следы»', author: 'Юлия Назар', photo: 'images/works/nazar-sledy-artel-glubina.jpg' },
-    { key: 'belova', title: '«Гора видит сны»', author: 'Надежда Белова', photo: 'images/works/belova-gora-vidit-sny-artel-glubina.jpg' },
-    { key: 'demina', title: '«Я здесь»', author: 'Светлана Дёмина', photo: 'images/works/demina-ya-zdes-artel-glubina.jpg' },
-    { key: 'frolova', title: '«Лица леса»', author: 'Лиана Фролова', photo: 'images/works/frolova-litsa-lesa-artel-glubina.jpg' },
-    { key: 'gordeeva', title: '«Наблюдатели»', author: 'Александра Гордеева', photo: 'images/works/gordeeva-nablyudateli-artel-glubina.jpg' },
-    { key: 'aseeva', title: '«Между строк»', author: 'Елена Асеева', photo: 'images/works/aseeva-mezhdu-strok-artel-glubina.jpg' },
-    { key: 'smirnova', title: '«Зима»', author: 'Светлана Смирнова', photo: 'images/works/smirnova-zima-artel-glubina.jpg' },
+    { key: 'w0', title: "«Сетка»", author: "Ирина Моторина", photo: "images/works/motorina-setka-artel-glubina.jpg", tone: "calm" },
+    { key: 'w1', title: "«Следы»", author: "Юлия Назар", photo: "images/works/nazar-sledy-artel-glubina.jpg", tone: "light" },
+    { key: 'w2', title: "«Гора видит сны»", author: "Надежда Белова", photo: "images/works/belova-gora-vidit-sny-artel-glubina.jpg", tone: "calm" },
+    { key: 'w3', title: "«Я здесь»", author: "Светлана Дёмина", photo: "images/works/demina-ya-zdes-artel-glubina.jpg", tone: "calm" },
+    { key: 'w4', title: "«Лица леса»", author: "Лиана Фролова", photo: "images/works/frolova-litsa-lesa-artel-glubina.jpg", tone: "calm" },
+    { key: 'w5', title: "«Наблюдатели»", author: "Александра Гордеева", photo: "images/works/gordeeva-nablyudateli-artel-glubina.jpg", tone: "calm" },
+    { key: 'w6', title: "«Между строк»", author: "Елена Асеева", photo: "images/works/aseeva-mezhdu-strok-artel-glubina.jpg", tone: "calm" },
+    { key: 'w7', title: "«Патина»", author: "Ева Кан", photo: "images/works/kan-patina-artel-glubina.jpg", tone: "calm" },
+    { key: 'w8', title: "«Коперник»", author: "Анатолий Якушин", photo: "images/works/yakushin-kopernik-artel-glubina.jpg", tone: "light" },
+    { key: 'w9', title: "«Индивидуальные жизненные ресурсы людей»", author: "Александра Фатеева", photo: "images/works/fateeva-individualnye-zhiznennye-resursy-lyudey-artel-glubina.jpg", tone: "bright" },
+    { key: 'w10', title: "«Семья»", author: "Татьяна Баринова", photo: "images/works/barinova-semya-artel-glubina.jpg", tone: "light" },
+    { key: 'w11', title: "«Эффект Кирлиана II»", author: "Юлия Назар", photo: "images/works/nazar-effekt-kirliana-2-artel-glubina.jpg", tone: "light" },
+    { key: 'w12', title: "«Зима»", author: "Светлана Смирнова", photo: "images/works/smirnova-zima-artel-glubina.jpg", tone: "calm" },
+    { key: 'w13', title: "«Сердце пиона»", author: "Юлия Назар", photo: "images/works/nazar-serdtse-piona-artel-glubina.jpg", tone: "light" },
+    { key: 'w14', title: "«Капуста»", author: "Елена Ковылина", photo: "images/works/kovylina-kapusta-artel-glubina.jpg", tone: "calm" },
+    { key: 'w15', title: "«Девушка с арбузом»", author: "Олег Кулик", photo: "images/works/kulik-devushka-s-arbuzom-artel-glubina.jpg", tone: "bright" },
+    { key: 'w16', title: "«Пенки от варенья»", author: "Кира Шилина", photo: "images/works/shilina-penki-ot-varenya-artel-glubina.jpg", tone: "calm" },
+    { key: 'w17', title: "«Глаза его стали лицом...»", author: "Светлана Дёмина", photo: "images/works/demina-glaza-ego-stali-litsom-artel-glubina.jpg", tone: "calm" },
+    { key: 'w18', title: "«Шип»", author: "Светлана Дёмина", photo: "images/works/demina-ship-artel-glubina.jpg", tone: "bright" },
+    { key: 'w19', title: "«Разлом»", author: "Лиана Фролова", photo: "images/works/frolova-razlom-artel-glubina.jpg", tone: "calm" },
+    { key: 'w20', title: "«Оттиск»", author: "Юлия Назар", photo: "images/works/nazar-ottisk-artel-glubina.jpg", tone: "calm" },
+    { key: 'w21', title: "«Внутренний шум»", author: "Юлия Назар", photo: "images/works/nazar-vnutrenniy-shum-artel-glubina.jpg", tone: "light" },
+    { key: 'w22', title: "«Комната без стен»", author: "Юлия Назар", photo: "images/works/nazar-komnata-bez-sten-artel-glubina.jpg", tone: "calm" },
+    { key: 'w23', title: "«Пауза»", author: "Юлия Назар", photo: "images/works/nazar-pauza-artel-glubina.jpg", tone: "calm" },
+    { key: 'w24', title: "«Разговор без слов»", author: "Ирина Моторина", photo: "images/works/motorina-razgovor-bez-slov-artel-glubina.jpg", tone: "calm" },
+    { key: 'w25', title: "«Крестный ход»", author: "Ирина Моторина", photo: "images/works/motorina-krestnyy-hod-artel-glubina.jpg", tone: "bright" },
+    { key: 'w26', title: "«Соседи»", author: "Ирина Моторина", photo: "images/works/motorina-sosedi-artel-glubina.jpg", tone: "calm" },
+    { key: 'w27', title: "«Тихий двор»", author: "Ирина Моторина", photo: "images/works/motorina-tihiy-dvor-artel-glubina.jpg", tone: "bright" },
+    { key: 'w28', title: "«Космос внутри»", author: "Светлана Дёмина", photo: "images/works/demina-kosmos-vnutri-artel-glubina.jpg", tone: "calm" },
+    { key: 'w29', title: "«Память воды»", author: "Светлана Дёмина", photo: "images/works/demina-pamyat-vody-artel-glubina.jpg", tone: "bright" },
+    { key: 'w30', title: "«Осколки времени»", author: "Светлана Дёмина", photo: "images/works/demina-oskolki-vremeni-artel-glubina.jpg", tone: "calm" },
+    { key: 'w31', title: "«Тихий свидетель»", author: "Светлана Дёмина", photo: "images/works/demina-tihiy-svidetel-artel-glubina.jpg", tone: "calm" },
+    { key: 'w32', title: "«Диалог эпох»", author: "Екатерина Усольцева", photo: "images/works/usoltseva-dialog-epoh-artel-glubina.jpg", tone: "calm" },
+    { key: 'w33', title: "«Атемпоральность»", author: "Екатерина Усольцева", photo: "images/works/usoltseva-atemporalnost-artel-glubina.jpg", tone: "light" },
+    { key: 'w34', title: "«Знак и жест»", author: "Екатерина Усольцева", photo: "images/works/usoltseva-znak-i-zhest-artel-glubina.jpg", tone: "calm" },
+    { key: 'w35', title: "«Мост»", author: "Екатерина Усольцева", photo: "images/works/usoltseva-most-artel-glubina.jpg", tone: "light" },
+    { key: 'w36', title: "«Всё связано»", author: "Елена Назарова", photo: "images/works/nazarova-vse-svyazano-artel-glubina.jpg", tone: "calm" },
+    { key: 'w37', title: "«Путь к Свету»", author: "Елена Назарова", photo: "images/works/nazarova-put-k-svetu-artel-glubina.jpg", tone: "bright" },
+    { key: 'w38', title: "«Целительные слёзы»", author: "Елена Назарова", photo: "images/works/nazarova-tselitelnye-slezy-artel-glubina.jpg", tone: "calm" },
+    { key: 'w39', title: "«Небесная Волчица»", author: "Елена Назарова", photo: "images/works/nazarova-nebesnaya-volchitsa-artel-glubina.jpg", tone: "calm" },
+    { key: 'w40', title: "«Неозвученное»", author: "Елена Асеева", photo: "images/works/aseeva-neozvuchennoe-artel-glubina.jpg", tone: "calm" },
+    { key: 'w41', title: "«Глава без номера»", author: "Елена Асеева", photo: "images/works/aseeva-glava-bez-nomera-artel-glubina.jpg", tone: "calm" },
+    { key: 'w42', title: "«Черновик»", author: "Елена Асеева", photo: "images/works/aseeva-chernovik-artel-glubina.jpg", tone: "light" },
+    { key: 'w43', title: "«Подстрочник»", author: "Елена Асеева", photo: "images/works/aseeva-podstrochnik-artel-glubina.jpg", tone: "calm" },
+    { key: 'w44', title: "«Случайный узор»", author: "Надежда Белова", photo: "images/works/belova-sluchaynyy-uzor-artel-glubina.jpg", tone: "calm" },
+    { key: 'w45', title: "«Малый формат»", author: "Надежда Белова", photo: "images/works/belova-malyy-format-artel-glubina.jpg", tone: "calm" },
+    { key: 'w46', title: "«Чудо по умолчанию»", author: "Надежда Белова", photo: "images/works/belova-chudo-po-umolchaniyu-artel-glubina.jpg", tone: "bright" },
+    { key: 'w47', title: "«Архетип»", author: "Лиана Фролова", photo: "images/works/frolova-arhetip-artel-glubina.jpg", tone: "calm" },
+    { key: 'w48', title: "«Граница восприятия»", author: "Лиана Фролова", photo: "images/works/frolova-granitsa-vospriyatiya-artel-glubina.jpg", tone: "light" },
+    { key: 'w49', title: "«Повседневный символ»", author: "Лиана Фролова", photo: "images/works/frolova-povsednevnyy-simvol-artel-glubina.jpg", tone: "calm" },
+    { key: 'w50', title: "«Личная мифология»", author: "Лиана Фролова", photo: "images/works/frolova-lichnaya-mifologiya-artel-glubina.jpg", tone: "calm" },
+    { key: 'w51', title: "«Предел формы»", author: "Юлия Назар", photo: "images/works/nazar-predel-formy-artel-glubina.jpg", tone: "light" },
+    { key: 'w52', title: "«Разбуди меня в раю»", author: "Светлана Дёмина", photo: "images/works/demina-razbudi-menya-v-rayu-artel-glubina.jpg", tone: "calm" },
+    { key: 'w53', title: "«Связи энергии»", author: "Елена Назарова", photo: "images/works/nazarova-svyazi-energii-artel-glubina.jpg", tone: "calm" },
+    { key: 'w54', title: "«Вселенское дело»", author: "Надежда Белова", photo: "images/works/belova-vselenskoe-delo-artel-glubina.jpg", tone: "light" }
   ];
 
   const artworkGrid = document.getElementById('artworkGrid');
@@ -581,24 +734,40 @@
   let artImgEl = null;       // <img> inside the handle
   let activeArtwork = null;
 
-  // ---- Render artwork picker ----
-  artworks.forEach(art => {
-    const thumb = document.createElement('div');
-    thumb.className = 'artwork-thumb';
-    thumb.dataset.key = art.key;
-    if (art.photo) {
-      thumb.innerHTML = `<img src="${art.photo}" alt="${art.title} — Артель Глубина"><div class="artwork-thumb-label">${art.title}</div>`;
-    } else {
-      thumb.innerHTML = `<div class="artwork-thumb-placeholder">${art.title}<br>${art.author}</div>`;
-    }
-    thumb.addEventListener('click', () => selectArtwork(art, thumb));
-    artworkGrid.appendChild(thumb);
+  // ---- Render artwork picker (с фильтрами по художнице и тону) ----
+  const authorFilter = document.getElementById('authorFilter');
+  const pickerCount = document.getElementById('pickerCount');
+  const sidebarCta = document.getElementById('sidebarCta');
+  [...new Set(artworks.map(a => a.author))].sort((x, y) => x.localeCompare(y, 'ru')).forEach(name => {
+    const o = document.createElement('option'); o.value = name; o.textContent = name; authorFilter.appendChild(o);
   });
+  let toneValue = '';
+  function renderPicker() {
+    artworkGrid.innerHTML = '';
+    const list = artworks.filter(a => (!authorFilter.value || a.author === authorFilter.value) && (!toneValue || a.tone === toneValue));
+    pickerCount.textContent = '· ' + list.length;
+    list.forEach(art => {
+      const thumb = document.createElement('div');
+      thumb.className = 'artwork-thumb' + (activeArtwork && activeArtwork.key === art.key ? ' active' : '');
+      thumb.dataset.key = art.key;
+      thumb.innerHTML = `<img loading="lazy" src="${art.photo}" alt="${art.title} — ${art.author}, Артель Глубина"><div class="artwork-thumb-label">${art.title}<br><span>${art.author}</span></div>`;
+      thumb.addEventListener('click', () => selectArtwork(art, thumb));
+      artworkGrid.appendChild(thumb);
+    });
+    if (!list.length) artworkGrid.innerHTML = '<div class="picker-empty">Таких работ пока нет — попробуйте другой фильтр</div>';
+  }
+  authorFilter.addEventListener('change', renderPicker);
+  document.querySelectorAll('.tone-chip').forEach(chip => chip.addEventListener('click', () => {
+    document.querySelectorAll('.tone-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active'); toneValue = chip.dataset.tone; renderPicker();
+  }));
+  renderPicker();
 
   function selectArtwork(art, thumbEl) {
     document.querySelectorAll('.artwork-thumb').forEach(t => t.classList.remove('active'));
     thumbEl.classList.add('active');
     activeArtwork = art;
+    if (sidebarCta) sidebarCta.href = 'index.html?interest=' + encodeURIComponent('Заказ картины') + '&author=' + encodeURIComponent(art.author) + '#request';
     placeArtworkOnStage(art);
   }
 
