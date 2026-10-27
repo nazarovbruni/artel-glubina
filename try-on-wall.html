@@ -44,7 +44,7 @@
     color: var(--ink);
     font-family: Georgia, 'Times New Roman', serif;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     max-width: 100vw;
   }
@@ -129,7 +129,7 @@
     position: relative;
     aspect-ratio: 4/3;
     overflow: hidden;
-    touch-action: none;
+    touch-action: pan-y;
   }
 
   .stage-empty {
@@ -406,7 +406,7 @@
   .tone-chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .tone-chip { font-family: Georgia, serif; font-size: 12.5px; padding: 6px 12px; border: 1px solid var(--line); background: #fff; color: var(--ink-soft); cursor: pointer; }
   .tone-chip.active { border-color: var(--accent-teal); color: var(--accent-teal); }
-  .artwork-grid { max-height: 620px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+  .artwork-grid { max-height: 620px; overflow-y: auto; padding-right: 4px; }
   .artwork-thumb-label span { opacity: 0.75; font-style: italic; }
   .picker-empty { grid-column: 1 / -1; font-style: italic; font-size: 13px; color: var(--ink-soft); padding: 20px 0; }
   .artwork-grid { align-content: start; grid-auto-rows: max-content; }
@@ -464,6 +464,7 @@
 <!-- /Yandex.Metrika counter -->
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Насколько точно примерка показывает размер?", "acceptedAnswer": {"@type": "Answer", "text": "Примерка показывает картину приблизительно: масштаб вы задаёте сами. Приложите к стене лист А4 перед съёмкой, чтобы подогнать картину точнее. Точные размеры уточняются при заказе."}}, {"@type": "Question", "name": "Можно ли купить работу, которую я примерил?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Нажмите «Заказать эту работу» — мы расскажем о доступности, размере и стоимости или предложим похожую."}}, {"@type": "Question", "name": "Можно ли написать картину под мой размер и цвета?", "acceptedAnswer": {"@type": "Answer", "text": "Да, художницы Глубины пишут картины маслом на заказ: эскиз, формат и палитра под вашу стену."}}, {"@type": "Question", "name": "Как вы доставляете и вешаете картины?", "acceptedAnswer": {"@type": "Answer", "text": "По Москве привозим лично и помогаем с развеской, в другие города отправляем транспортной компанией."}}, {"@type": "Question", "name": "Можно ли посмотреть картины вживую?", "acceptedAnswer": {"@type": "Answer", "text": "Да, в мастерской на Фрунзенской набережной, д. 46, по договорённости."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://artelglubina.ru/"}, {"@type": "ListItem", "position": 2, "name": "Примерить картину на стену", "item": "https://artelglubina.ru/try-on-wall.html"}]}</script>
 </head>
 <body>
 
@@ -933,6 +934,7 @@
     }
     function pointerMove(e) {
       if (!dragging) return;
+      if (e.cancelable) e.preventDefault();
       const p = getPoint(e);
       const dx = p.x - startX, dy = p.y - startY;
       handle.style.left = (origLeft + dx) + 'px';
@@ -940,12 +942,24 @@
     }
     function pointerUp() { dragging = false; }
 
-    handle.addEventListener('mousedown', pointerDown);
-    handle.addEventListener('touchstart', pointerDown, { passive: false });
-    window.addEventListener('mousemove', pointerMove);
-    window.addEventListener('touchmove', pointerMove, { passive: false });
-    window.addEventListener('mouseup', pointerUp);
-    window.addEventListener('touchend', pointerUp);
+    handle.addEventListener('mousedown', start);
+    handle.addEventListener('touchstart', start, { passive: false });
+    function start(e) {
+      pointerDown(e);
+      window.addEventListener('mousemove', pointerMove);
+      window.addEventListener('touchmove', pointerMove, { passive: false });
+      window.addEventListener('mouseup', stop);
+      window.addEventListener('touchend', stop);
+      window.addEventListener('touchcancel', stop);
+    }
+    function stop() {
+      pointerUp();
+      window.removeEventListener('mousemove', pointerMove);
+      window.removeEventListener('touchmove', pointerMove);
+      window.removeEventListener('mouseup', stop);
+      window.removeEventListener('touchend', stop);
+      window.removeEventListener('touchcancel', stop);
+    }
   }
 
   // ---- Resize ----
@@ -963,6 +977,7 @@
     }
     function pointerMove(e) {
       if (!resizing) return;
+      if (e.cancelable) e.preventDefault();
       const p = getPoint(e);
       const dx = p.x - startX;
       const ratio = origH / origW;
@@ -972,12 +987,24 @@
     }
     function pointerUp() { resizing = false; }
 
-    resizeHandle.addEventListener('mousedown', pointerDown);
-    resizeHandle.addEventListener('touchstart', pointerDown, { passive: false });
-    window.addEventListener('mousemove', pointerMove);
-    window.addEventListener('touchmove', pointerMove, { passive: false });
-    window.addEventListener('mouseup', pointerUp);
-    window.addEventListener('touchend', pointerUp);
+    resizeHandle.addEventListener('mousedown', start);
+    resizeHandle.addEventListener('touchstart', start, { passive: false });
+    function start(e) {
+      pointerDown(e);
+      window.addEventListener('mousemove', pointerMove);
+      window.addEventListener('touchmove', pointerMove, { passive: false });
+      window.addEventListener('mouseup', stop);
+      window.addEventListener('touchend', stop);
+      window.addEventListener('touchcancel', stop);
+    }
+    function stop() {
+      pointerUp();
+      window.removeEventListener('mousemove', pointerMove);
+      window.removeEventListener('touchmove', pointerMove);
+      window.removeEventListener('mouseup', stop);
+      window.removeEventListener('touchend', stop);
+      window.removeEventListener('touchcancel', stop);
+    }
   }
 
   // ---- Rotate ----
@@ -991,6 +1018,7 @@
     }
     function pointerMove(e) {
       if (!rotating) return;
+      if (e.cancelable) e.preventDefault();
       const rect = handle.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
@@ -1001,12 +1029,24 @@
     }
     function pointerUp() { rotating = false; }
 
-    rotateHandle.addEventListener('mousedown', pointerDown);
-    rotateHandle.addEventListener('touchstart', pointerDown, { passive: false });
-    window.addEventListener('mousemove', pointerMove);
-    window.addEventListener('touchmove', pointerMove, { passive: false });
-    window.addEventListener('mouseup', pointerUp);
-    window.addEventListener('touchend', pointerUp);
+    rotateHandle.addEventListener('mousedown', start);
+    rotateHandle.addEventListener('touchstart', start, { passive: false });
+    function start(e) {
+      pointerDown(e);
+      window.addEventListener('mousemove', pointerMove);
+      window.addEventListener('touchmove', pointerMove, { passive: false });
+      window.addEventListener('mouseup', stop);
+      window.addEventListener('touchend', stop);
+      window.addEventListener('touchcancel', stop);
+    }
+    function stop() {
+      pointerUp();
+      window.removeEventListener('mousemove', pointerMove);
+      window.removeEventListener('touchmove', pointerMove);
+      window.removeEventListener('mouseup', stop);
+      window.removeEventListener('touchend', stop);
+      window.removeEventListener('touchcancel', stop);
+    }
   }
 
   function getPoint(e) {
