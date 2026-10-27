@@ -240,11 +240,11 @@
   }
 
   .artwork-thumb {
-    aspect-ratio: 4/5; border: 2px solid transparent; cursor: pointer;
+    height: 0; padding-top: 125%; border: 2px solid transparent; cursor: pointer;
     background: repeating-linear-gradient(45deg, #ECECE8, #ECECE8 8px, #F4F4F1 8px, #F4F4F1 16px);
     position: relative; overflow: hidden; transition: border-color 0.2s;
   }
-  .artwork-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .artwork-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .artwork-thumb.active { border-color: var(--accent-teal); }
   .artwork-thumb-label {
     position: absolute; left: 0; right: 0; bottom: 0;
@@ -271,7 +271,8 @@
 
   @media (max-width: 900px) {
     .tool-section { padding: 32px 24px 48px; }
-    .tool-grid { grid-template-columns: 1fr; }
+    .tool-grid { grid-template-columns: minmax(0, 1fr); }
+    .tool-grid > div, .picker-col { min-width: 0; }
     .stage-wrap { aspect-ratio: 1/1; }
   }
 
@@ -408,8 +409,18 @@
   .artwork-grid { max-height: 620px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
   .artwork-thumb-label span { opacity: 0.75; font-style: italic; }
   .picker-empty { grid-column: 1 / -1; font-style: italic; font-size: 13px; color: var(--ink-soft); padding: 20px 0; }
-  @media (max-width: 900px) { .artwork-grid { grid-template-columns: repeat(3, 1fr); max-height: 440px; } }
-  @media (max-width: 480px) { .artwork-grid { grid-template-columns: repeat(2, 1fr); } }
+  .artwork-grid { align-content: start; grid-auto-rows: max-content; }
+  /* телефон и планшет: выбор работы сразу под примеркой, лентой с прокруткой вбок */
+  @media (max-width: 900px) {
+    .picker-col.moved { margin: 22px 0 6px; }
+    .artwork-grid {
+      display: flex; gap: 10px; max-height: none; overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 0 8px;
+    }
+    .artwork-thumb { --tw: calc((100vw - 48px) * 0.3); flex: 0 0 var(--tw); width: var(--tw); height: calc(var(--tw) * 1.25); padding-top: 0; scroll-snap-align: start; }
+    .picker-empty { flex: 1 0 100%; }
+  }
+  @media (max-width: 480px) { .artwork-thumb { --tw: calc((100vw - 48px) * 0.42); } }
 
   /* ===== GUIDE / EXAMPLES / FAQ ===== */
   .guide-section, .interior-section, .faq-section { padding: 56px 64px 64px; border-top: 1px solid var(--line); }
@@ -515,9 +526,9 @@
         <div class="example-walls">
           <div class="example-walls-label">Или попробуйте на примере</div>
           <div class="example-walls-grid">
-            <div class="example-wall-thumb" data-src="images/tryon-example-1.jpg"><img loading="lazy" src="images/tryon-example-1.jpg" alt="Пример стены — гостиная"></div>
-            <div class="example-wall-thumb" data-src="images/tryon-example-2.jpg"><img loading="lazy" src="images/tryon-example-2.jpg" alt="Пример стены — спальня"></div>
-            <div class="example-wall-thumb" data-src="images/tryon-example-3.jpg"><img loading="lazy" src="images/tryon-example-3.jpg" alt="Пример стены — гостиная"></div>
+            <div class="example-wall-thumb" data-src="images/tryon-example-1-pustaya-stena.jpg"><img loading="lazy" src="images/tryon-example-1-pustaya-stena.jpg" alt="Пустая стена в гостиной с голубым диваном — пример для примерки картины"></div>
+            <div class="example-wall-thumb" data-src="images/tryon-example-2.jpg"><img loading="lazy" src="images/tryon-example-2.jpg" alt="Пустая стена над кроватью в спальне — пример для примерки картины"></div>
+            <div class="example-wall-thumb" data-src="images/tryon-example-3.jpg"><img loading="lazy" src="images/tryon-example-3.jpg" alt="Стена над серым диваном в гостиной — пример для примерки картины"></div>
           </div>
         </div>
 
@@ -527,7 +538,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="picker-col" id="pickerCol">
         <div class="picker-label">Выберите работу <span class="picker-count" id="pickerCount"></span></div>
         <div class="picker-filters">
           <select id="authorFilter" class="picker-select" aria-label="Художница"><option value="">Все художницы</option></select>
@@ -734,6 +745,20 @@
   let artImgEl = null;       // <img> inside the handle
   let activeArtwork = null;
 
+
+  // На телефоне выбор работы стоит сразу под кнопками примерки, на компьютере — справа
+  (function () {
+    const col = document.getElementById('pickerCol');
+    const home = col.parentElement, homeNext = col.nextSibling;
+    const anchor = document.querySelector('.stage-controls');
+    const mq = window.matchMedia('(max-width: 900px)');
+    function place() {
+      if (mq.matches) { anchor.after(col); col.classList.add('moved'); }
+      else { home.insertBefore(col, homeNext); col.classList.remove('moved'); }
+    }
+    mq.addEventListener ? mq.addEventListener('change', place) : mq.addListener(place);
+    place();
+  })();
   // ---- Render artwork picker (с фильтрами по художнице и тону) ----
   const authorFilter = document.getElementById('authorFilter');
   const pickerCount = document.getElementById('pickerCount');
