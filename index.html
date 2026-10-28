@@ -1816,6 +1816,8 @@
     border-bottom: 1px solid var(--accent);
   }
   .about-link:hover { opacity: 0.7; }
+  .about-inline-link { color: var(--accent-teal); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.2s; }
+  .about-inline-link:hover, .about-inline-link:active { opacity: 0.7; }
 
   @media (max-width: 900px) {
     .about-section { grid-template-columns: 1fr; padding: 32px 24px 40px; gap: 24px; margin-top: 0; }
@@ -2535,7 +2537,7 @@
     <div>
       <div class="about-eyebrow">О сообществе</div>
       <p class="about-text">Глубина — арт-сообщество независимых художников, работающее в традиции русского космизма. Фёдоров, Циолковский, Вернадский ставили вопрос о связи человека и Вселенной — Глубина исследует его через современное искусство. <strong>Более 40 выставок с 2022 года.</strong></p>
-      <p class="about-text" style="margin-top: 14px;">Последняя выставка сообщества — «Язык до слова», 16 художников, шесть медиумов. Студия — это коммерческое продолжение сообщества: те же художники, та же глубина, но с возможностью заказать картину, поступить в художественный вуз или просто прийти на занятие.</p>
+      <p class="about-text" style="margin-top: 14px;">Последняя выставка сообщества — первая виртуальная выставка <a class="about-inline-link" href="https://nazarovbruni.github.io/yazyk-do-slova/index.html" target="_blank" rel="noopener">«Язык до слова»</a>, 16 художников, шесть медиумов. Студия — это коммерческое продолжение сообщества: те же художники, та же глубина, но с возможностью заказать картину, поступить в художественный вуз или просто прийти на занятие.</p>
       <p class="about-text" style="margin-top: 14px;"><em>Если ты сам художник, скульптор или куратор и чувствуешь тягу к творчеству — присоединяйся к Глубине.</em></p>
       <a class="about-link" href="https://galleryglubina.ru" target="_blank" rel="noopener">galleryglubina.ru — выставки и сообщество →</a>
     </div>
