@@ -191,7 +191,8 @@
     transition: filter 0.4s ease;
     border-radius: 50%;
   }
-  .author-card:hover .author-avatar img {
+  .author-card:hover .author-avatar img,
+  .author-card:active .author-avatar img {
     filter: grayscale(0) contrast(1);
   }
   .author-avatar-placeholder {
@@ -879,7 +880,7 @@
       <div class="author-work-thumb"><img loading="lazy" src="images/works/belova-chudo-po-umolchaniyu-artel-glubina.jpg" alt="«Чудо по умолчанию» — Надежда Белова, Артель Глубина" onclick="openWorkModal('belova4')"></div>
     </div>
     <div>
-      <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/belova.jpg" alt="Надежда Белова — Глубина"></div><h2 class="author-name">Надежда Белова</h2></div>
+      <div class="author-name-row"><div class="author-avatar"><img loading="lazy" src="images/team/belova-nadezhda-artel-glubina.jpg" alt="Надежда Белова — художница женской художественной артели Глубина"></div><h2 class="author-name">Надежда Белова</h2></div>
       <div class="author-vuz">МГХПА им. Строганова, монументально-декоративная живопись (мастерская А. Н. Устинова) &middot; абстрактная живопись, монументальная роспись</div>
 
       <div class="author-block-label">Био</div>
@@ -1485,5 +1486,6 @@
     });
   })();
   </script>
+<script>document.addEventListener('touchstart',function(){},{passive:true});</script>
 </body>
 </html>

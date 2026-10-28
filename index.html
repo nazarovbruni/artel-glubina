@@ -1913,7 +1913,8 @@
     display: block;
     transition: transform 0.4s ease, filter 0.4s ease;
   }
-  .team-card:hover .team-photo img {
+  .team-card:hover .team-photo img,
+  .team-card:active .team-photo img {
     transform: scale(1.035);
     filter: grayscale(0) contrast(1);
   }
@@ -2230,7 +2231,7 @@
         </div>
       </a>
       <a class="team-card" href="authors.html#author-7">
-        <div class="team-photo"><img loading="lazy" src="images/team/belova.jpg" alt="Надежда Белова — Глубина"></div>
+        <div class="team-photo"><img loading="lazy" src="images/team/belova-nadezhda-artel-glubina.jpg" alt="Надежда Белова — художница женской художественной артели Глубина"></div>
         <div class="team-info">
           <div class="team-name">Надежда Белова</div>
           <div class="team-role">живопись</div>
@@ -2925,5 +2926,6 @@
     });
   })();
   </script>
+<script>document.addEventListener('touchstart',function(){},{passive:true});</script>
 </body>
 </html>
