@@ -3,6 +3,6 @@ Allow: /
 
 User-agent: Yandex
 Allow: /
-Crawl-delay: 2
+Clean-param: author&interest /
 
 Sitemap: https://artelglubina.ru/sitemap.xml
