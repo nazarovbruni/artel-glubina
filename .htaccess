@@ -5,5 +5,5 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{THE_REQUEST} ^[A-Z]+\s/index\.html[\s?]
-RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^index\.html$ https://artelglubina.ru/ [R=301,L]
 </IfModule>
